@@ -67,6 +67,7 @@ header a:hover {
     margin-top: 20px;
     flex-wrap: wrap;
 }
+
 .about_item{
     width: 33.33%;
     height: auto;
@@ -102,6 +103,18 @@ header a:hover {
 .a1, .a1 .about_adress a{background-color: #502c8e; color: #cbbbeb}
 .a2, .a2 .about_adress a{background-color: #7f39b0; color: #eee}
 .a3, .a3 .about_adress a{background-color: #cbbbeb; color: ##202020}
+
+.about_item_tab input, .tab-content { display: none; }
+.tab-title {cursor: pointer; /* Вид курсора */}
+.about_item_tab :checked ~ .tab-content {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.about_item_tab{display: none}
+.about_item_notab{display: flex}
 .titles{
     width: 100%;
     height: auto;
@@ -214,7 +227,15 @@ footer a{
 }
 .t_a a{font-size: 15px;}
 }
+
+
 @media (max-width: 930px) {
+.wallpaper {
+    height: 300px;
+}
+.wallpaper img {
+    margin-top: -10px;
+}
 .title{
   width: 25vw;
   height: 43vw;
@@ -234,11 +255,16 @@ footer a{
 }
 .about_item{
     width: 100vw;
-    height: 30vw;
+    height: auto;
 }
-.about_name{
-    padding-top: 20px;
+
+.about_item .about_name{
+    padding: 20px 0 10px;
     font-size: 20px;
+}
+.about_item div{padding: 0 0 10px;}
+.about_work, .about_info, .about_adress {
+    padding: 0px 0 0px;
 }
 }
 @media (max-width: 780px) {
@@ -258,24 +284,13 @@ footer a{
 }
 .t_a a{font-size: 17px;}
 }
+
 @media (max-width: 620px) {
-.title{
-  width: 35vw;
-  height: 60vw;
+.h_img{display: none;}
+.wallpaper {
+    display:none;
 }
-.t_info{
-    height: 5%;
-}
-.t_img{
-  height: 70%;
-}
-.t_a{
-  height: 25%;
-  position: relative;
-}
-.t_a a{font-size: 15px;}
-}
-@media (max-width: 620px) {
+.nowall {padding-top: 70px;}
 .title{
   width: 70vw;
   height: 110vw;
@@ -291,7 +306,14 @@ footer a{
   position: relative;
 }
 .t_a a{font-size: 17px;}
+.about_item_tab{display: flex}
+.about_item_notab{display: none}
+.about_item div{padding: 0 0 20px;}
+.about_item .about_name {padding: 15px;}
+.text {
+    font-size: 40px;
 }
+
 @media (max-width: 320px) {
 .t_info{
     height: 5%;
