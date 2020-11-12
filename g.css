@@ -103,7 +103,7 @@ header a:hover {
 }
 .a1, .a1 .about_adress a{background-color: #502c8e; color: #cbbbeb}
 .a2, .a2 .about_adress a{background-color: #7f39b0; color: #eee}
-.a3, .a3 .about_adress a{background-color: #cbbbeb; color: ##202020}
+.a3, .a3 .about_adress a{background-color: #cbbbeb; color: #202020}
 .about_item_tab {transition: 30.3s;}
 .about_item_tab input, .tab-content { display: none; }
 .tab-title {cursor: pointer; /* Вид курсора */}
@@ -212,7 +212,7 @@ footer{
     width: 100%;
     height: auto;
     color: #ddd;
-    padding: 10px 0px
+    padding: 10px 0px;
 }
 footer a{
     margin: 10px
@@ -225,7 +225,7 @@ footer a{
 }
 .stat_item{
     display: block;
-    width: 10%;
+    width: auto;
     height: auto;
     text-align: center;
 }
@@ -236,10 +236,18 @@ footer a{
     background-color:#7f39b0;
     filter: drop-shadow(0 0 5px #000);
 }
-.stat_item div{
+.stat_number{
     font-size:2vw;
+
+}
+.stat_info {
+    display:block;
+    overflow: hidden;
+    height: 0px;
     padding: 15px 0 0;
 }
+.stat_item:hover .stat_info{height: auto;}
+
 }
 
 @media (max-width: 1083px) {
@@ -353,7 +361,7 @@ footer a{
 .text {
     font-size: 4em;
 }
-
+}
 @media (max-width: 320px) {
 .t_info{
     height: 5%;
@@ -366,6 +374,56 @@ footer a{
   position: relative;
 }
 .t_a a{font-size: 1.5em;}
+}
+
+@media only screen and (max-device-width: 620px) {
+.h_img{display: none;}
+.wallpaper {
+    display:none;
+}
+.text p1{
+    font-size: 2em;
+}
+.nowall {padding-top: 70px;}
+.title{
+  width: 70vw;
+  height: 110vw;
+}
+.title:hover{
+  width: 72vw;
+  height: 113vw;
+}
+.t_info{
+    height: 5%;
+}
+.t_info p2{
+    font-size: 3.5em;
+}
+.t_img{
+  height: 80%;
+}
+.t_a{
+  height: 15%;
+  position: relative;
+}
+.t_a a{
+    font-size: 5em;
+    line-height: 100%
+}
+.about{
+    flex-wrap: wrap;
+}
+.about_item{
+    width: 100vw;
+    height: auto;
+}
+.about_item_tab{display: flex}
+.about_item_notab{display: none}
+.about_item div{padding: 0 0 20px;}
+.about_item .about_name {padding: 15px;}
+.text {
+    font-size: 4em;
+}
 }
 /*
 @media (max-width: 1100px) {
