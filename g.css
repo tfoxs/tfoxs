@@ -2,9 +2,10 @@
 body {
     margin: 0;
     padding: 0;
-    font-size: 10px;
+    font-size: 0.6em;
     font-family: 'Balsamiq Sans', cursive;
     background-color: #202020;
+    color: #eee;
 }
 .hide{display:none}
 header {
@@ -29,7 +30,7 @@ header img{
 }
 header a {
   color: #ddd;
-  font-size: 20px;
+  font-size: 1.5vw;
   font-family: 'Balsamiq Sans', cursive;
   margin-left: 35px;
   text-decoration: none;
@@ -40,7 +41,7 @@ header a:hover {
 }
 .wallpaper{
   width: 100%;
-  height: 450px;
+  height: 30vw;
   overflow: hidden;
   filter: drop-shadow(0 0 5px #000);
 }
@@ -50,7 +51,7 @@ header a:hover {
   margin-top: -50px
 }
 .text{
-  font-size: 50px;
+  font-size: 4vw;
   padding-top: 40px;
   text-align: center;
   color: #eee;
@@ -82,17 +83,17 @@ header a:hover {
     width: 100%;
     text-align: center;
     padding-top: 50px;
-    font-size: 35px;
+    font-size: 3em;
     font-family: 'Balsamiq Sans', cursive;
 }
 .about_work, .about_adress {
     width: 80%;
     text-align: center;
-    font-size: 20px;
+    font-size: 3em;
     padding: 10px 0 30px;
 }
 .about_info{
-    font-size: 20px;
+    font-size: 3em;
     width: 80%;
     text-align: center;
     padding: 0px 0 20px;
@@ -103,7 +104,7 @@ header a:hover {
 .a1, .a1 .about_adress a{background-color: #502c8e; color: #cbbbeb}
 .a2, .a2 .about_adress a{background-color: #7f39b0; color: #eee}
 .a3, .a3 .about_adress a{background-color: #cbbbeb; color: ##202020}
-
+.about_item_tab {transition: 30.3s;}
 .about_item_tab input, .tab-content { display: none; }
 .tab-title {cursor: pointer; /* Вид курсора */}
 .about_item_tab :checked ~ .tab-content {
@@ -129,10 +130,11 @@ header a:hover {
   width: 20vw;
   height: 33vw;
   margin: 20px;
-  border-radius: 10px;
+  border-radius: 2em;
   overflow: hidden;
-  transition: 0.5s;
+  transition: 0.3s;
   margin-bottom: 30px;
+  filter: drop-shadow(0 0 5px #000);
 }
 .t_img{
   height: 75%;
@@ -155,6 +157,7 @@ header a:hover {
     background-color: #9c3d3d;
 }
 .t_info p2{
+  font-size: 140%;
   word-wrap: inherit;
   display: block;
   text-align: center;
@@ -176,6 +179,8 @@ header a:hover {
 }
 .title:hover{
   background-color: #7f39b0;
+  width: 22vw;
+  height: 36vw;
 }
 .title:hover .t_img2{
   opacity: 0.4;
@@ -183,7 +188,7 @@ header a:hover {
 .t_a a{
   font-family: 'Vollkorn', serif;
   transition: 0.3s;
-  font-size: 17px;
+  font-size: 2em;
   color: black;
   padding: 10px;
   width: 90%;
@@ -212,6 +217,29 @@ footer{
 footer a{
     margin: 10px
 }
+.stat{
+    display:flex;
+    justify-content: space-around;
+    height: auto;
+    padding: 30px 0 0;
+}
+.stat_item{
+    display: block;
+    width: 10%;
+    height: auto;
+    text-align: center;
+}
+.ico{
+    font-size:5em;
+    padding: 1.5vw;
+    border-radius: 0.4em;
+    background-color:#7f39b0;
+    filter: drop-shadow(0 0 5px #000);
+}
+.stat_item div{
+    font-size:2vw;
+    padding: 15px 0 0;
+}
 }
 
 @media (max-width: 1083px) {
@@ -225,7 +253,7 @@ footer a{
   height: 25%;
   position: relative;
 }
-.t_a a{font-size: 15px;}
+.t_a a{font-size: 1.5em;}
 }
 
 
@@ -239,6 +267,10 @@ footer a{
 .title{
   width: 25vw;
   height: 43vw;
+}
+.title:hover{
+  width: 27vw;
+  height: 46vw;
 }
 .t_info{
     height: 5%;
@@ -260,7 +292,7 @@ footer a{
 
 .about_item .about_name{
     padding: 20px 0 10px;
-    font-size: 20px;
+    font-size: 3em;
 }
 .about_item div{padding: 0 0 10px;}
 .about_work, .about_info, .about_adress {
@@ -272,6 +304,10 @@ footer a{
   width: 35vw;
   height: 55vw;
 }
+.title:hover{
+  width: 38vw;
+  height: 59vw;
+}
 .t_info{
     height: 5%;
 }
@@ -282,7 +318,7 @@ footer a{
   height: 20%;
   position: relative;
 }
-.t_a a{font-size: 17px;}
+.t_a a{font-size: 1.4em;}
 }
 
 @media (max-width: 620px) {
@@ -295,6 +331,10 @@ footer a{
   width: 70vw;
   height: 110vw;
 }
+.title:hover{
+  width: 72vw;
+  height: 113vw;
+}
 .t_info{
     height: 5%;
 }
@@ -305,13 +345,13 @@ footer a{
   height: 15%;
   position: relative;
 }
-.t_a a{font-size: 17px;}
+.t_a a{font-size: 1.4em;}
 .about_item_tab{display: flex}
 .about_item_notab{display: none}
 .about_item div{padding: 0 0 20px;}
 .about_item .about_name {padding: 15px;}
 .text {
-    font-size: 40px;
+    font-size: 4em;
 }
 
 @media (max-width: 320px) {
@@ -325,7 +365,7 @@ footer a{
   height: 20%;
   position: relative;
 }
-.t_a a{font-size: 15px;}
+.t_a a{font-size: 1.5em;}
 }
 /*
 @media (max-width: 1100px) {
