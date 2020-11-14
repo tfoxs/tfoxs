@@ -83,7 +83,7 @@ header a:hover {
     width: 100%;
     text-align: center;
     padding-top: 50px;
-    font-size: 3em;
+    font-size: 4em;
     font-family: 'Balsamiq Sans', cursive;
 }
 .about_work, .about_adress {
@@ -104,7 +104,6 @@ header a:hover {
 .a1, .a1 .about_adress a{background-color: #502c8e; color: #cbbbeb}
 .a2, .a2 .about_adress a{background-color: #7f39b0; color: #eee}
 .a3, .a3 .about_adress a{background-color: #cbbbeb; color: #202020}
-.about_item_tab {transition: 30.3s;}
 .about_item_tab input, .tab-content { display: none; }
 .tab-title {cursor: pointer; /* Вид курсора */}
 .about_item_tab :checked ~ .tab-content {
@@ -231,22 +230,23 @@ footer a{
 }
 .ico{
     font-size:5em;
-    padding: 1.5vw;
+    padding: 2.5vw;
     border-radius: 0.4em;
     background-color:#7f39b0;
     filter: drop-shadow(0 0 5px #000);
 }
 .stat_number{
     font-size:2vw;
-
 }
 .stat_info {
     display:block;
     overflow: hidden;
-    height: 0px;
-    padding: 15px 0 0;
+    opacity: 0;
+    padding: 10px 0 5px;
+    font-size: 1.3vw;
+    transition: 0.3s;
 }
-.stat_item:hover .stat_info{height: auto;}
+.stat_item:hover .stat_info{opacity: 1;}
 
 }
 
@@ -331,9 +331,7 @@ footer a{
 
 @media (max-width: 620px) {
 .h_img{display: none;}
-.wallpaper {
-    display:none;
-}
+.wallpaper {display:none;}
 .nowall {padding-top: 70px;}
 .title{
   width: 70vw;
@@ -343,17 +341,13 @@ footer a{
   width: 72vw;
   height: 113vw;
 }
-.t_info{
-    height: 5%;
-}
-.t_img{
-  height: 80%;
-}
+.t_info{height: 5%;}
+.t_img{height: 80%;}
 .t_a{
   height: 15%;
   position: relative;
 }
-.t_a a{font-size: 1.4em;}
+
 .about_item_tab{display: flex}
 .about_item_notab{display: none}
 .about_item div{padding: 0 0 20px;}
@@ -361,7 +355,16 @@ footer a{
 .text {
     font-size: 4em;
 }
+.ico{
+    font-size:3.5em;
+    padding: 2vw;
 }
+.stat_info {
+    display:none;
+}
+.stat_number{padding: 10px 0 0}
+}
+
 @media (max-width: 320px) {
 .t_info{
     height: 5%;
@@ -382,32 +385,32 @@ footer a{
     display:none;
 }
 .text p1{
-    font-size: 2em;
+    font-size: 1.5em;
 }
 .nowall {padding-top: 70px;}
 .title{
-  width: 70vw;
-  height: 110vw;
+  width: 40vw;
+  height: 72vw;
 }
 .title:hover{
-  width: 72vw;
-  height: 113vw;
+  width: 40vw;
+  height: 72vw;
 }
 .t_info{
     height: 5%;
 }
 .t_info p2{
-    font-size: 3.5em;
+    font-size: 3em;
 }
 .t_img{
-  height: 80%;
+  height: 75%;
 }
 .t_a{
-  height: 15%;
+  height: 20%;
   position: relative;
 }
 .t_a a{
-    font-size: 5em;
+    font-size: 4em;
     line-height: 100%
 }
 .about{
@@ -420,10 +423,8 @@ footer a{
 .about_item_tab{display: flex}
 .about_item_notab{display: none}
 .about_item div{padding: 0 0 20px;}
-.about_item .about_name {padding: 15px;}
-.text {
-    font-size: 4em;
-}
+.about_item .about_name {padding: 25px;}
+
 }
 /*
 @media (max-width: 1100px) {
