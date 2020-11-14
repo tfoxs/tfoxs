@@ -39,6 +39,7 @@ header a:hover {
   color: #7f39b0;
   text-decoration: underline;
 }
+#menu_toggle {display:none;}
 .wallpaper{
   width: 100%;
   height: 30vw;
@@ -330,44 +331,78 @@ footer a{
 }
 
 @media (max-width: 620px) {
-.h_img{display: none;}
-.wallpaper {display:none;}
-.nowall {padding-top: 70px;}
-.title{
-  width: 70vw;
-  height: 110vw;
+.hamburger-menu{width: 100%;height: auto;}
+#menu_toggle {opacity: 0;display:block;height: 30px;}
+.menu_btn {
+  display: flex; /* используем flex для центрирования содержимого */
+  align-items: center;  /* центрируем содержимое кнопки */
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
 }
-.title:hover{
-  width: 72vw;
-  height: 113vw;
+/* добавляем "гамбургер" */
+.menu_btn > span,
+.menu_btn > span::before,
+.menu_btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #eee;
 }
-.t_info{height: 5%;}
-.t_img{height: 80%;}
-.t_a{
-  height: 15%;
-  position: relative;
+.menu_btn > span::before {
+  content: '';
+  top: -8px;
+}
+.menu_btn > span::after {
+  content: '';
+  top: 8px;
+}
+.menu_box {
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 20px 30px 0;
+}
+/* элементы меню */
+.menu_box a {
+  width: 100%;
+  padding: 0 0 15px;
+  text-align: right;
+  font-size:3em;
 }
 
-.about_item_tab{display: flex}
-.about_item_notab{display: none}
-.about_item div{padding: 0 0 20px;}
-.about_item .about_name {padding: 15px;}
-.text {
-    font-size: 4em;
-}
-.ico{
-    font-size:3.5em;
-    padding: 2vw;
-}
-.stat_info {
+#menu_toggle:checked ~ .menu_btn > span {transform: rotate(45deg);}
+#menu_toggle:checked ~ .menu_btn > span::before {top: 0;transform: rotate(0);}
+#menu_toggle:checked ~ .menu_btn > span::after {top: 0;transform: rotate(90deg);}
+#menu_toggle:checked ~ .menu_box {display: flex;left: 0;}
+
+.h_img{display: none;}
+.wallpaper {
     display:none;
 }
-.stat_number{padding: 10px 0 0}
+.text p1{
+    font-size: 1.5em;
 }
-
-@media (max-width: 320px) {
+.nowall {padding-top: 100px;}
+.title{
+  width: 40vw;
+  height: 72vw;
+}
+.title:hover{
+  width: 40vw;
+  height: 72vw;
+}
 .t_info{
     height: 5%;
+}
+.t_info p2{
+    font-size: 1.5em;
 }
 .t_img{
   height: 75%;
@@ -376,10 +411,118 @@ footer a{
   height: 20%;
   position: relative;
 }
-.t_a a{font-size: 1.5em;}
+.t_a a{
+    font-size: 2em;
+    line-height: 100%
+}
+.about{
+    flex-wrap: wrap;
+}
+.about_item{
+    width: 100vw;
+    height: auto;
+}
+.about_item_tab{display: flex}
+.about_item_notab{display: none}
+.about_item div{padding: 0 0 20px;}
+.about_item .about_name {padding: 25px;}
+}
+@media (max-width: 480px) {
+.title{
+  width: 37vw;
+  height: 67vw;
+}
+.title:hover{
+  width: 37vw;
+  height: 67vw;
+}
+.t_info p2{
+    font-size: 0.5em;
+}
+.t_a a{
+    font-size: 1.5em;
+    line-height: 100%
+}
+.t_info{
+    height: 7%;
+}
+.t_img{
+  height: 68%;
+}
+.t_a{
+  height: 25%;
+}
+.stat {
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    padding: 0 0 0;
+    flex-wrap: wrap;
+}
+.stat_item {
+    width: 50%;
+    padding-top: 30px;
+}
+.ico {
+    font-size: 5em;
+    padding: 5vw;
+}
 }
 
+
+
 @media only screen and (max-device-width: 620px) {
+.hamburger-menu{width: 100%;height: auto;}
+#menu_toggle {opacity: 0;display:block;height: 85px;}
+.menu_btn {
+  display: flex; /* используем flex для центрирования содержимого */
+  align-items: center;  /* центрируем содержимое кнопки */
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  width: 78px;
+  height: 78px;
+  cursor: pointer;
+  z-index: 1;
+}
+/* добавляем "гамбургер" */
+.menu_btn > span,
+.menu_btn > span::before,
+.menu_btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  background-color: #eee;
+}
+.menu_btn > span::before {
+  content: '';
+  top: -24px;
+}
+.menu_btn > span::after {
+  content: '';
+  top: 24px;
+}
+.menu_box {
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 30px 30px 0;
+}
+/* элементы меню */
+.menu_box a {
+  width: 100%;
+  padding: 0 0 30px;
+  text-align: right;
+  font-size: 75px;
+}
+
+#menu_toggle:checked ~ .menu_btn > span {transform: rotate(45deg);}
+#menu_toggle:checked ~ .menu_btn > span::before {top: 0;transform: rotate(0);}
+#menu_toggle:checked ~ .menu_btn > span::after {top: 0;transform: rotate(90deg);}
+#menu_toggle:checked ~ .menu_box {display: flex;left: 0;}
+
 .h_img{display: none;}
 .wallpaper {
     display:none;
@@ -387,7 +530,7 @@ footer a{
 .text p1{
     font-size: 1.5em;
 }
-.nowall {padding-top: 70px;}
+.nowall {padding-top: 160px;}
 .title{
   width: 40vw;
   height: 72vw;
@@ -424,7 +567,23 @@ footer a{
 .about_item_notab{display: none}
 .about_item div{padding: 0 0 20px;}
 .about_item .about_name {padding: 25px;}
-
+.stat {
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    padding: 0 0 0;
+    flex-wrap: wrap;
+}
+.stat_item {
+    width: 50%;
+    padding-top: 50px;
+}
+.ico {
+    font-size: 15em;
+    padding: 5vw;
+}
+.stat_info{font-size: 4em;}
+.stat_number{font-size: 5em;}
 }
 /*
 @media (max-width: 1100px) {
