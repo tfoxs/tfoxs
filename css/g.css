@@ -1,34 +1,4 @@
 @media (max-width: 12450px) {
-   body {
-      margin: 0;
-      padding: 0;
-      font-size: 0.6em;
-      font-family: 'Balsamiq Sans', cursive;
-      background-color: #202020;
-      color: #eee;
-   }
-   .hide {
-      display: none
-   }
-   .wallpaper {
-      width: 100%;
-      height: 30vw;
-      overflow: hidden;
-      box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .4);
-   }
-   .wallpaper img {
-      width: 100%;
-      height: auto;
-      margin-top: -50px
-   }
-   .text {
-      font-size: 4vw;
-      padding-top: 40px;
-      text-align: center;
-      color: #eee;
-      font-family: 'Lobster', cursive;
-      z-index: 9;
-   }
    .about {
       width: 100%;
       height: auto;
@@ -86,12 +56,12 @@
    .a2,
    .a2 .about_adress a {
       background-color: #7f39b0;
-      color: #eee
+      color: var(--white);
    }
    .a3,
    .a3 .about_adress a {
       background-color: #cbbbeb;
-      color: #202020
+      color: var(--black);
    }
   .about_item_tab input, .tab-content { display: none; }
 .tab-title {cursor: pointer; /* Вид курсора */}
@@ -114,7 +84,7 @@
       flex-wrap: wrap;
    }
    .title {
-      background-color: #eee;
+      background-color: var(--white);
       width: 20vw;
       height: 33vw;
       margin: 20px;
@@ -141,7 +111,7 @@
       position: relative;
       text-align: center;
       background-color: #7f39b0;
-      color: #ddd;
+      color: var(--white);
    }
    .ad {
       background-color: #9c3d3d;
@@ -198,7 +168,7 @@
       transform: translate(-50%, -50%)
    }
    .title:hover .t_a p3 {
-      color: #fff
+      color: var(--white);
    }
    .stat {
       display: flex;
@@ -253,12 +223,6 @@
 }
 
 @media (max-width: 930px) {
-   .wallpaper {
-      height: 300px;
-   }
-   .wallpaper img {
-      margin-top: -10px;
-   }
    .title {
       width: 25vw;
       height: 43vw;
@@ -323,12 +287,6 @@
 }
 
 @media (max-width: 620px) {
-   .text p1 {
-      font-size: 1.5em;
-   }
-   .nowall {
-      padding-top: 100px;
-   }
    .title {
       width: 40vw;
       height: 72vw;
@@ -420,9 +378,6 @@
 @media only screen and (max-device-width: 620px) {
    .text p1 {
       font-size: 1.5em;
-   }
-   .nowall {
-      padding-top: 160px;
    }
    .title {
       width: 40vw;

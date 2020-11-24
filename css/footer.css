@@ -1,8 +1,8 @@
 footer{
-    background-color: #111;
+    background-color: var(--dark_black);
     width: 100%;
     height: auto;
-    color: #ddd;
+    color: var(--white);
     padding: 20px 0px;
     display:flex;
     flex-direction: row;
@@ -30,7 +30,7 @@ footer{
     font-size: 20px;
     padding: 10px 0 0;
     text-decoration: none;
-    color: #eee;
+    color: var(--white);
 }
 .f_logo{width:15%;text-align:center;}
 .f_img{width:70%; height:auto}

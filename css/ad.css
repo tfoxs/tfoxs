@@ -1,0 +1,20 @@
+.ad_all{
+   display: flex;
+}
+.ad_left{
+   width: 30%;
+   display: flex;
+   justify-content: center;
+}
+.ad_right{
+   width: 70%;
+   margin: 1.5vw 0 0;
+}
+.ad_right p2{
+   font-size: 3em;
+}
+.ad_right div {
+   width: 90%;
+   font-size: 2em;
+   padding: 20px 0 0;
+}
