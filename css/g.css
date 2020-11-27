@@ -74,102 +74,7 @@
 }
 .about_item_tab{display: none}
 .about_item_notab{display: flex}
-   .titles {
-      width: 100%;
-      height: auto;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      padding-top: 30px;
-      flex-wrap: wrap;
-   }
-   .title {
-      background-color: var(--white);
-      width: 20vw;
-      height: 33vw;
-      margin: 20px;
-      border-radius: 2em;
-      overflow: hidden;
-      transition: 0.3s;
-      margin-bottom: 30px;
-      box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .4);
-   }
-   .t_img {
-      height: 75%;
-      overflow: hidden;
-      background: rgb(20, 0, 36);
-      background: linear-gradient(180deg, rgba(55, 5, 96, 1) 0%, rgba(97, 29, 196, 1) 36%, rgba(0, 212, 255, 1) 100%);
-      position: relative;
-   }
-
-   .t_img2 {
-      width: 100%;
-   }
-   .t_info {
-      height: 5%;
-      width: 100%;
-      position: relative;
-      text-align: center;
-      background-color: #7f39b0;
-      color: var(--white);
-   }
-   .ad {
-      background-color: #9c3d3d;
-   }
-   .t_info p2 {
-      font-size: 140%;
-      word-wrap: inherit;
-      display: block;
-      text-align: center;
-      line-height: 18px;
-      margin-left: auto;
-      margin-right: auto;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-right: -50%;
-      transform: translate(-50%, -50%)
-   }
-   .t_a {
-      height: 20%;
-      position: relative;
-   }
-   .t_img2 {
-      transition: 0.3s;
-   }
-   .title:hover {
-      background-color: #7f39b0;
-      width: 22vw;
-      height: 36vw;
-      box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .2);
-      
-   }
-   .title:hover .t_img2 {
-      opacity: 0.4;
-   }
-
-   .t_a p3 {
-      font-family: 'Vollkorn', serif;
-      transition: 0.3s;
-      font-size: 2em;
-      color: black;
-      padding: 10px;
-      width: 90%;
-      word-wrap: inherit;
-      display: block;
-      text-align: center;
-      line-height: 18px;
-      margin-left: auto;
-      margin-right: auto;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-right: -50%;
-      transform: translate(-50%, -50%)
-   }
-   .title:hover .t_a p3 {
-      color: var(--white);
-   }
+   
    .stat {
       display: flex;
       justify-content: space-around;
@@ -206,41 +111,7 @@
    }
 }
 
-@media (max-width: 1083px) {
-   .t_info {
-      height: 7%;
-   }
-   .t_img {
-      height: 68%;
-   }
-   .t_a {
-      height: 25%;
-      position: relative;
-   }
-   .t_a p3 {
-      font-size: 1.5em;
-   }
-}
-
 @media (max-width: 930px) {
-   .title {
-      width: 25vw;
-      height: 43vw;
-   }
-   .title:hover {
-      width: 27vw;
-      height: 46vw;
-   }
-   .t_info {
-      height: 5%;
-   }
-   .t_img {
-      height: 75%;
-   }
-   .t_a {
-      height: 20%;
-      position: relative;
-   }
    .about {
       flex-wrap: wrap;
    }
@@ -262,56 +133,8 @@
    }
 }
 
-@media (max-width: 780px) {
-   .title {
-      width: 35vw;
-      height: 55vw;
-   }
-   .title:hover {
-      width: 38vw;
-      height: 59vw;
-   }
-   .t_info {
-      height: 5%;
-   }
-   .t_img {
-      height: 75%;
-   }
-   .t_a {
-      height: 20%;
-      position: relative;
-   }
-   .t_a p3 {
-      font-size: 1.4em;
-   }
-}
 
 @media (max-width: 620px) {
-   .title {
-      width: 40vw;
-      height: 72vw;
-   }
-   .title:hover {
-      width: 40vw;
-      height: 72vw;
-   }
-   .t_info {
-      height: 5%;
-   }
-   .t_info p2 {
-      font-size: 1.5em;
-   }
-   .t_img {
-      height: 75%;
-   }
-   .t_a {
-      height: 20%;
-      position: relative;
-   }
-   .t_a p3 {
-      font-size: 2em;
-      line-height: 100%
-   }
    .about {
       flex-wrap: wrap;
    }
@@ -334,30 +157,6 @@
 }
 
 @media (max-width: 480px) {
-   .title {
-      width: 37vw;
-      height: 67vw;
-   }
-   .title:hover {
-      width: 37vw;
-      height: 67vw;
-   }
-   .t_info p2 {
-      font-size: 0.5em;
-   }
-   .t_a p3 {
-      font-size: 1.5em;
-      line-height: 100%
-   }
-   .t_info {
-      height: 7%;
-   }
-   .t_img {
-      height: 68%;
-   }
-   .t_a {
-      height: 25%;
-   }
    .stat {
       display: flex;
       justify-content: space-around;
@@ -378,31 +177,6 @@
 @media only screen and (max-device-width: 620px) {
    .text p1 {
       font-size: 1.5em;
-   }
-   .title {
-      width: 40vw;
-      height: 78vw;
-   }
-   .title:hover {
-      width: 40vw;
-      height: 78vw;
-   }
-   .t_info {
-      height: 5%;
-   }
-   .t_info p2 {
-      font-size: 3em;
-   }
-   .t_img {
-      height: 70%;
-   }
-   .t_a {
-      height: 25%;
-      position: relative;
-   }
-   .t_a p3 {
-      font-size: 4em;
-      line-height: 100%
    }
    .about {
       flex-wrap: wrap;
