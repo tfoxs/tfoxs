@@ -1,6 +1,9 @@
+.text--manga{
+   margin: 60px 0 40px;
+}
 @media (max-width: 12450px) {
    .text {
-      font-size: 7em;
+      font-size: 3rem;
       padding-top: 40px;
       text-align: center;
       color: var(--white);
@@ -10,5 +13,9 @@
 }
 @media (max-width: 620px) {
    .text p1 {
-      font-size: 0.5em;
+      font-size: 1.5rem;
    }
+   .nowall{
+      padding-top: 80px;
+   }
+}

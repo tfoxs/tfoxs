@@ -1,0 +1,68 @@
+.ad_all{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+}
+
+.ad_left{
+   width: 40%;
+   display: flex;
+   justify-content: center;
+}
+.title--ads--one{
+   :root {
+      --title_size: 200px;
+   }
+}
+.ad_rightt{
+   width: 60%;
+   margin: 1.5vw 0 0;
+   color: var(--white);
+   font-size: 1rem;
+   display: block;
+}
+.ad_text_title{
+   font-size: 1.3rem;
+}
+.ad_textt{
+   margin-top: 10px;
+}
+p{
+   padding-bottom: 5px;
+   margin: 0;
+}
+
+.price_list{
+   width: 70%;
+   display: flex;
+   justify-content: space-around;
+}
+.price{
+   width: 10vw;
+   height: auto;
+   background-color: #fff;
+   border-radius: 5px;
+   overflow: hidden;
+}
+.price_item{
+   color: var(--black);
+   text-align: center;
+   padding: 5px;
+}
+.price_item:first-child{
+   background-color: #bbb;
+   transition: all 0.2s;
+}
+.price:hover .price_item:first-child{
+   background-color: #aaa;
+}
+
+
+
+
+
+
+
+
+
+
