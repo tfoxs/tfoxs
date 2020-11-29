@@ -4,6 +4,7 @@
    display: flex;
    justify-content: center;
    flex-wrap: wrap;
+   margin-bottom: 40px;
 }
 
 .chapter_item{
@@ -20,3 +21,46 @@
 .chapter_item:hover{
    text-decoration: underline;
 }
+
+.manga_info{
+   width: 100%;
+   height: auto;
+   display: flex;
+   margin: 0 0 40px;
+}
+
+.manga_info_img{
+   width: 20%;
+   padding: 0 50px;
+}
+
+.manga_img{
+   width: 100%;
+   height: auto;
+   border-radius: 5px;
+}
+
+.manga_info_text{
+   font-size: 1rem;
+}
+
+.manga_info_text span{
+   color: #ccc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
