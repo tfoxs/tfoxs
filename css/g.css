@@ -30,17 +30,17 @@
       width: 100%;
       text-align: center;
       padding-top: 50px;
-      font-size: 3em;
+      font-size: 3rem;
       font-family: 'Balsamiq Sans', cursive;
    }
    .about_adress {
       width: 80%;
       text-align: center;
-      font-size: 2em;
+      font-size: 1.5rem;
       padding: 20px 0;
    }
    .about_info {
-      font-size: 2em;
+      font-size: 1.5rem;
       width: 80%;
       text-align: center;
       padding: 20px 0 0px;
@@ -88,14 +88,14 @@
       text-align: center;
    }
    .ico {
-      font-size: 5em;
+      font-size: 5rem;
       padding: 2.5vw;
       border-radius: 0.4em;
       background-color: #7f39b0;
       box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .4);
    }
    .stat_number {
-      font-size: 2vw;
+      font-size: 2rem;
       margin: 0 0 30px;
    }
    .stat_info {
@@ -103,7 +103,7 @@
       overflow: hidden;
       opacity: 0;
       padding: 10px 0 5px;
-      font-size: 1.3vw;
+      font-size: 1.5rem;
       transition: 0.3s;
    }
    .stat_item:hover .stat_info {
@@ -121,7 +121,7 @@
    }
    .about_item .about_name {
       padding: 20px 0 10px;
-      font-size: 3em;
+      font-size: 3rem;
    }
    .about_item div {
       padding: 0 0 10px;
@@ -169,14 +169,14 @@
       padding-top: 30px;
    }
    .ico {
-      font-size: 5em;
+      font-size: 5rem;
       padding: 5vw;
    }
 }
 
 @media only screen and (max-device-width: 620px) {
    .text p1 {
-      font-size: 1.5em;
+      font-size: 1.5rem;
    }
    .about {
       flex-wrap: wrap;
@@ -209,13 +209,13 @@
       padding-top: 50px;
    }
    .ico {
-      font-size: 15em;
+      font-size: 15rem;
       padding: 5vw;
    }
    .stat_info {
-      font-size: 4em;
+      font-size: 4rem;
    }
    .stat_number {
-      font-size: 5em;
+      font-size: 5rem;
    }
 }

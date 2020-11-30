@@ -51,7 +51,7 @@
 }
 
 .t_info p2 {
-   font-size: 140%;
+   font-size: 1rem;
    word-wrap: inherit;
    display: block;
    text-align: center;
@@ -88,9 +88,10 @@
 }
 
 .t_a p3 {
-   font-family: 'Vollkorn', serif;
+   font-family: 'Open Sans';
+   font-weight: 500;
    transition: 0.3s;
-   font-size: 2em;
+   font-size: 1.5rem;
    color: var(--black);
    padding: 10px;
    width: 90%;
@@ -154,7 +155,7 @@
       position: relative;
    }
    .t_a p3 {
-      font-size: 1.3rem;
+      font-size: 1rem;
    }
 }
 
@@ -163,7 +164,7 @@
       height: 5%;
    }
    .t_info p2 {
-      font-size: 1.5em;
+      font-size: 1rem;
    }
    .t_img {
       height: 75%;
@@ -173,7 +174,7 @@
       position: relative;
    }
    .t_a p3 {
-      font-size: 2em;
+      font-size: 1rem;
       line-height: 100%
    }
 }
@@ -186,10 +187,10 @@
       height: calc(var(--title_size)*1.7);
    }
    .t_info p2 {
-      font-size: 0.5em;
+      font-size: 1rem;
    }
    .t_a p3 {
-      font-size: 1.5em;
+      font-size: 1rem;
       line-height: 100%
    }
    .t_info {
@@ -211,7 +212,7 @@
       height: 5%;
    }
    .t_info p2 {
-      font-size: 3em;
+      font-size: 1rem;
    }
    .t_img {
       height: 70%;
@@ -221,7 +222,7 @@
       position: relative;
    }
    .t_a p3 {
-      font-size: 4em;
+      font-size: 1rem;
       line-height: 100%
    }
 }

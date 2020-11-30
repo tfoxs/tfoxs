@@ -3,12 +3,17 @@
 }
 @media (max-width: 12450px) {
    .text {
-      font-size: 3rem;
+      font-size: 3.5rem;
       padding-top: 40px;
       text-align: center;
       color: var(--white);
       font-family: 'Lobster', cursive;
       z-index: 9;
+   }
+   .text_chapter{
+      font-family: 'Open Sans';
+      font-size: 2rem;
+      padding-top: 0;
    }
 }
 @media (max-width: 620px) {

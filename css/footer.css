@@ -15,19 +15,19 @@ footer{
 .footer_a{
     color: #999;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 1.5rem;
     padding: 0 10px 0 0;
 }
 .f_right a img{
-    height:15px;
-    width:15px;
+    height:1.5rem;
+    width:1.5rem;
 }
 .footer_p1{
-    font-size: 20px;
+    font-size: 1.5rem;
     padding: 10px 0;
 }
 .footer_p3{
-    font-size: 20px;
+    font-size: 1.5rem;
     padding: 10px 0 0;
     text-decoration: none;
     color: var(--white);
@@ -35,6 +35,6 @@ footer{
 .f_logo{width:15%;text-align:center;}
 .f_img{width:70%; height:auto}
 .footer_p2{
-    font-size: 15px;
+    font-size: 1rem;
     padding: 10px 0 0;
 }

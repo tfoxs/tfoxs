@@ -4,11 +4,13 @@
    --dark_black: #111111;
    --title_size: 20vw;
 }
-
+html{
+   font-size: 10px;
+}
 body {
    margin: 0;
    padding: 0;
-   font-size: 0.6em;
+   font-size: 1rem;
    font-family: 'Balsamiq Sans', cursive;
    background-color: var(--black);
    color: var(--white);

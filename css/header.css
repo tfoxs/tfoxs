@@ -24,8 +24,8 @@
    }
    header a {
       color: var(--white);
-      font-size: 1.5rem;
-      font-family: 'Balsamiq Sans', cursive;
+      font-size: 2rem;
+      font-family: 'Balsamiq Sans';
       margin-left: 35px;
       text-decoration: none;
    }
@@ -91,7 +91,7 @@
       width: 100%;
       padding: 0 0 15px;
       text-align: right;
-      font-size: 1rem;
+      font-size: 2rem;
    }
    #menu_toggle:checked ~ .menu_btn > span {
       transform: rotate(45deg);
@@ -169,7 +169,7 @@
       width: 100%;
       padding: 0 0 30px;
       text-align: right;
-      font-size: 75px;
+      font-size: 4rem;
    }
    #menu_toggle:checked ~ .menu_btn > span {
       transform: rotate(45deg);

@@ -18,13 +18,14 @@
    width: 60%;
    margin: 1.5vw 0 0;
    color: var(--white);
-   font-size: 1rem;
+   font-size: 1.5rem;
    display: block;
 }
 .ad_text_title{
-   font-size: 1.3rem;
+   font-size: 2rem;
 }
 .ad_textt{
+   width: 95%;
    margin-top: 10px;
 }
 p{
