@@ -91,7 +91,7 @@
    font-family: 'Open Sans';
    font-weight: 500;
    transition: 0.3s;
-   font-size: 1.5rem;
+   font-size: 1.3rem;
    color: var(--black);
    padding: 10px;
    width: 90%;
@@ -112,120 +112,6 @@
    color: var(--white);
 }
 
-@media (max-width: 1083px) {
-   .t_info {
-      height: 7%;
-   }
-   .t_img {
-      height: 68%;
-   }
-   .t_a {
-      height: 25%;
-   }
-}
-
-@media (max-width: 930px) {
-   :root {
-      --title_size: 27vw;
-   }
-   .t_info {
-      height: 5%;
-   }
-   .t_img {
-      height: 75%;
-   }
-   .t_a {
-      height: 20%;
-      position: relative;
-   }
-}
-
-@media (max-width: 780px) {
-   :root {
-      --title_size: 42vw;
-   }
-   .t_info {
-      height: 5%;
-   }
-   .t_img {
-      height: 75%;
-   }
-   .t_a {
-      height: 20%;
-      position: relative;
-   }
-   .t_a p3 {
-      font-size: 1rem;
-   }
-}
-
-@media (max-width: 620px) {
-   .t_info {
-      height: 5%;
-   }
-   .t_info p2 {
-      font-size: 1rem;
-   }
-   .t_img {
-      height: 75%;
-   }
-   .t_a {
-      height: 20%;
-      position: relative;
-   }
-   .t_a p3 {
-      font-size: 1rem;
-      line-height: 100%
-   }
-}
-
-@media (max-width: 480px) {
-   :root {
-      --title_size: 75vw;
-   }
-   .title:hover {
-      height: calc(var(--title_size)*1.7);
-   }
-   .t_info p2 {
-      font-size: 1rem;
-   }
-   .t_a p3 {
-      font-size: 1rem;
-      line-height: 100%
-   }
-   .t_info {
-      height: 7%;
-   }
-   .t_img {
-      height: 68%;
-   }
-   .t_a {
-      height: 25%;
-   }
-}
-
-@media only screen and (max-device-width: 620px) {
-   :root {
-      --title_size: 42vw;
-   }
-   .t_info {
-      height: 5%;
-   }
-   .t_info p2 {
-      font-size: 1rem;
-   }
-   .t_img {
-      height: 70%;
-   }
-   .t_a {
-      height: 25%;
-      position: relative;
-   }
-   .t_a p3 {
-      font-size: 1rem;
-      line-height: 100%
-   }
-}
 .title--ads--buy{
    :root {
       --title_size: 27vw;

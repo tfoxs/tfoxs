@@ -1,34 +1,11 @@
-@media (max-width: 12450px) {
-   .wallpaper {
-      width: 100%;
-      height: 30vw;
-      overflow: hidden;
-      box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .4);
-   }
-   .wallpaper img {
-      width: 100%;
-      height: auto;
-      margin-top: -50px
-   }
+.wallpaper {
+   width: 100%;
+   height: 300px;
+   overflow: hidden;
+   box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .4);
 }
 
-@media (max-width: 930px) {
-   .wallpaper {
-      height: 300px;
-   }
-   .wallpaper img {
-      margin-top: -10px;
-   }
-}
-
-@media (max-width: 620px) {
-   .nowall {
-      padding-top: 100px;
-   }
-}
-
-@media only screen and (max-device-width: 620px) {
-   .nowall {
-      padding-top: 160px;
-   }
+.wallpaper img {
+   width: 100%;
+   height: auto;
 }

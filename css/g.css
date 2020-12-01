@@ -29,7 +29,7 @@
    .about_name {
       width: 100%;
       text-align: center;
-      padding-top: 50px;
+      padding-top: 40px;
       font-size: 3rem;
       font-family: 'Balsamiq Sans', cursive;
    }
@@ -83,7 +83,7 @@
    }
    .stat_item {
       display: block;
-      width: auto;
+      width: 25%;
       height: auto;
       text-align: center;
    }
@@ -111,111 +111,3 @@
    }
 }
 
-@media (max-width: 930px) {
-   .about {
-      flex-wrap: wrap;
-   }
-   .about_item {
-      width: 100vw;
-      height: auto;
-   }
-   .about_item .about_name {
-      padding: 20px 0 10px;
-      font-size: 3rem;
-   }
-   .about_item div {
-      padding: 0 0 10px;
-   }
-   .about_work,
-   .about_info,
-   .about_adress {
-      padding: 0px 0 0px;
-   }
-}
-
-
-@media (max-width: 620px) {
-   .about {
-      flex-wrap: wrap;
-   }
-   .about_item {
-      width: 100vw;
-      height: auto;
-   }
-   .about_item_tab {
-      display: flex
-   }
-   .about_item_notab {
-      display: none
-   }
-   .about_item div {
-      padding: 0 0 20px;
-   }
-   .about_item .about_name {
-      padding: 25px;
-   }
-}
-
-@media (max-width: 480px) {
-   .stat {
-      display: flex;
-      justify-content: space-around;
-      height: auto;
-      padding: 0 0 0;
-      flex-wrap: wrap;
-   }
-   .stat_item {
-      width: 50%;
-      padding-top: 30px;
-   }
-   .ico {
-      font-size: 5rem;
-      padding: 5vw;
-   }
-}
-
-@media only screen and (max-device-width: 620px) {
-   .text p1 {
-      font-size: 1.5rem;
-   }
-   .about {
-      flex-wrap: wrap;
-   }
-   .about_item {
-      width: 100vw;
-      height: auto;
-   }
-   .about_item_tab {
-      display: flex;
-   }
-   .about_item_notab {
-      display: none;
-   }
-   .about_item div {
-      padding: 0 0 20px;
-   }
-   .about_item .about_name {
-      padding: 25px;
-   }
-   .stat {
-      display: flex;
-      justify-content: space-around;
-      height: auto;
-      padding: 0 0 0;
-      flex-wrap: wrap;
-   }
-   .stat_item {
-      width: 50%;
-      padding-top: 50px;
-   }
-   .ico {
-      font-size: 15rem;
-      padding: 5vw;
-   }
-   .stat_info {
-      font-size: 4rem;
-   }
-   .stat_number {
-      font-size: 5rem;
-   }
-}
