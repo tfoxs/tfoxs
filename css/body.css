@@ -1,11 +1,17 @@
-:root{
+:root {
    --white: #eeeeee;
    --black: #202020;
    --dark_black: #111111;
    --title_size: 20vw;
+   --br: 10px;
 }
-html{
+
+html {
    font-size: 10px;
+}
+a{
+   color: inherit;
+   text-decoration: none;
 }
 body {
    margin: 0;
@@ -16,6 +22,28 @@ body {
    color: var(--white);
 }
 
+.page {
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
 .hide {
    display: none
+}
+
+::-webkit-scrollbar {
+   width: 10px;
+   height: 10px;
+}
+::-webkit-scrollbar-thumb {
+   background: var(--white);
+   border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover{
+   background: #7f39b0;
+}
+::-webkit-scrollbar-track{
+   background: #404040;
 }

@@ -15,11 +15,11 @@
 }
 
 .list img:first-child{
-   border-radius: 5px 5px 0 0;
+   border-radius: var(--br) var(--br) 0 0;
 }
 
 .list img:last-child{
-   border-radius: 0 0 5px 5px;
+   border-radius: 0 0 var(--br) var(--br);
 }
 
 .pagenav{

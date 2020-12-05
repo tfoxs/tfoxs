@@ -43,7 +43,7 @@ p{
    width: 10vw;
    height: auto;
    background-color: #fff;
-   border-radius: 5px;
+   border-radius: var(--br);
    overflow: hidden;
 }
 .price_item{

@@ -3,7 +3,7 @@
    height: auto;
    display: flex;
    justify-content: center;
-   flex-wrap: wrap;
+   flex-wrap: wrap-reverse;
    margin-bottom: 40px;
 }
 
@@ -12,13 +12,14 @@
    background-color: #303030;
    color: var(--white);
    font-size: 1.5rem;
-   border-radius: 5px;
+   border-radius: var(--br);
    padding: 5px 15px;
    margin-bottom: 7px;
-   text-decoration: none;
 }
-
-.chapter_item:hover{
+.chapter_item_10{
+   background-color: #393939;
+}
+.chapter_item:hover, .link:hover{
    text-decoration: underline;
 }
 
@@ -37,7 +38,7 @@
 .manga_img{
    width: 100%;
    height: auto;
-   border-radius: 5px;
+   border-radius: var(--br);
 }
 
 .manga_info_text{
