@@ -337,6 +337,9 @@
    .text {
     font-size: 4rem;
    }
+   .text--manga{
+      margin-top: 200px;
+   }
    .t_info p2 {
     font-size: 2rem;
    }
@@ -403,6 +406,10 @@
    .footer_p2, .footer_p3 {
     font-size: 2rem;
    }
+   .f_right a img {
+    height: 2.3rem;
+    width: 2.3rem;
+}
    .title--ads--one{
       width: var(--title_size);
       height: calc(var(--title_size)*1.4);
@@ -436,7 +443,7 @@
       font-size: 3rem;
    }
    .list img{
-      width: 90%;
+      width: 100%;
    }
    .pagenav_item{
       font-size: 3rem;
