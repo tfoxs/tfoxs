@@ -27,6 +27,9 @@
    .manga_info_img{
       width: 30%;
    }
+   .manga_info_text{
+   width: 70%;
+   }
    .list img{
       width: 80%;
    }
