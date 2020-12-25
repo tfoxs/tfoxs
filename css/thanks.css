@@ -1,0 +1,20 @@
+.thanks_site{
+   display: flex;
+   justify-content: center;
+   margin: 40px 0;
+}
+.thanks_site_item{
+   width: 25vw;
+   height: 50px;
+   display: flex;
+   padding: 7px;
+   background-color: #404040;
+   border-radius: var(--br);
+   align-items: center;
+   margin: auto;
+}
+.thanks_site_item img{
+   height: 100%;
+   width: auto;
+   padding-right: 7px;
+}
