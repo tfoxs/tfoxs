@@ -87,6 +87,16 @@
    .list img{
       width: 90%;
    }
+   .thanks_site{
+      flex-wrap: wrap;
+   }
+   .thanks_site_item{
+      width: 45vw;
+      margin-bottom: 20px;
+   }
+   .thanks_site_item img{
+      padding-left: 20px;
+   }
 }
    
 @media (max-width: 600px) {
@@ -450,6 +460,16 @@
    }
    .pagenav_item{
       font-size: 3rem;
+   }
+   .thanks_site{
+      flex-wrap: wrap;
+   }
+   .thanks_site_item{
+      width: 45vw;
+      margin-bottom: 20px;
+   }
+   .thanks_site_item img{
+      padding-left: 20px;
    }
 } 
    

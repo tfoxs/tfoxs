@@ -4,7 +4,7 @@
    margin: 40px 0;
 }
 .thanks_site_item{
-   width: 25vw;
+   width: 30vw;
    height: 50px;
    display: flex;
    padding: 7px;
@@ -17,4 +17,12 @@
    height: 100%;
    width: auto;
    padding-right: 7px;
+}
+
+
+
+.thanks_artist{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
 }
