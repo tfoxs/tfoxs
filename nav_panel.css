@@ -1,0 +1,89 @@
+body{
+    margin: 0;
+    background-color: #333;
+}
+
+header {
+    width: 100%;
+    background-color: #111111;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .4);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    padding-left: 70px;
+}
+header a {
+    color: #f9a14a;
+    font-family: 'Comfortaa', cursive;
+    padding: 15px 22px;
+    text-decoration: none;
+}
+header a:hover {
+    color: #111111;
+    background-color: #f9a14a;
+}
+
+
+
+
+
+.content{
+    width: 100%;
+    padding-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item{
+    width: 48.5vw;
+    height: 220px;
+    overflow: hidden;
+    color: #fadad2;
+    margin-bottom: 0.8vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid #fadad2;
+    background: rgb(17,17,17);
+    background: linear-gradient(90deg, rgb(17, 17, 17) 50%, rgba(17, 17, 17, 0.97) 60%, rgba(17, 17, 17, 0.9) 70%, rgba(17, 17, 17, 0.7) 80%, rgba(0, 0, 0, 0.1) 100%);
+    font-family: 'Comfortaa', cursive;
+}
+.item:hover {
+    border: 1px solid #f9a14a;
+    transition: 0.2s;
+}
+.item .item-img{
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+.item-text{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    bottom: 30px;
+    left: 30px;
+}
+p{
+    width: 80%;
+    margin: 30px 80px 0 30px;
+}
+.link{
+    margin-left: 10px;
+    color: #fadad2;
+    background-color: #111111;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid #fadad2;
+    margin-top: 7px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.link:hover{
+    color: #111111;
+    background-color: #f9a14a;
+    border: 1px solid #f9a14a;
+}
