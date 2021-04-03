@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
     <link rel="icon" href="no_bg_4.png" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="filter.js"></script>
 </head>
 
 <body>
@@ -23,27 +25,34 @@
         <a href="https://mangalib.me/team/tfoxspure">Lib2</a>
     </header>
 
+    <div class="fil-block">
+        <button class="filter-button" type="button" data-filter="all">All</button>
+        <button class="filter-button" type="button" data-filter="azulla">Azulla</button>
+        <button class="filter-button" type="button" data-filter="none">None</button>
+    </div>
+
     <div class="content">
+
         <!-- Навыки ассасина сделают вас сильнейшим в другом мире.. -->
-        <div class="item">
-            <img src="https://api.remanga.org/media/titles/the-strongest-in-another-world-with-assassination-skills--i-who-has-mastered-alchemy-and-assassination-dominate-the-world-from-behind/cbaa391840b03e1e89a767005231edeb.jpg" alt="" class="item-img">
+        <div class="item filter azulla">
+        <img src="https://api.remanga.org/media/titles/the-strongest-in-another-world-with-assassination-skills--i-who-has-mastered-alchemy-and-assassination-dominate-the-world-from-behind/cbaa391840b03e1e89a767005231edeb.jpg" alt="" class="item-img">
 
-            <p>
-                Навыки ассасина сделают вас сильнейшим в другом мире. Я тот, кто овладел алхимией и навыками убийства, буду править миром из тени!
-            </p>
-            <div class="item-text">
+        <p>
+            Навыки ассасина сделают вас сильнейшим в другом мире. Я тот, кто овладел алхимией и навыками убийства, буду править миром из тени!
+        </p>
+        <div class="item-text">
 
-                <a href="https://remanga.org/manga/the-strongest-in-another-world-with-assassination-skills--i-who-has-mastered-alchemy-and-assassination-dominate-the-world-from-behind" class="link">
-                    Re
-                </a>
-                <a href="https://mangalib.me/ansatsu-skill-de-isekai-saikyo" class="link">
-                    Lib
-                </a>
-            </div>
+            <a href="https://remanga.org/manga/the-strongest-in-another-world-with-assassination-skills--i-who-has-mastered-alchemy-and-assassination-dominate-the-world-from-behind" class="link">
+                Re
+            </a>
+            <a href="https://mangalib.me/ansatsu-skill-de-isekai-saikyo" class="link">
+                Lib
+            </a>
         </div>
+    </div>
 
         <!-- История о "безработном" чемпионе.. -->
-        <div class="item">
+        <div class="item filter azulla">
             <img src="https://api.remanga.org/media/titles/story-of-a-jobless-champion-and-a-princess-who-together-find-their-happiness/8d78212eefd2d49358efdce99016f63a.jpg" alt="" class="item-img">
 
             <p>
@@ -67,7 +76,7 @@
         </div>
 
         <!-- Хотя бы в седьмой раз дайте мне пожить спокойно! -->
-        <div class="item">
+        <div class="item filter azulla">
             <img src="
                 https://api.remanga.org/media/titles/the-villainess-wants-to-enjoy-a-carefree-married-life-in-a-former-enemy-country-in-her-seventh-loop/a27b785bfcfc4882b41f4e7be0a32690.jpg
             " alt="" class="item-img">
@@ -96,7 +105,7 @@
         </div>
 
         <!-- Мой потусторонний сосед -->
-        <div class="item">
+        <div class="item filter azulla">
             <img src="https://api.remanga.org/media/titles/my-roommate-isnt-from-this-world/97a3aa7fbe8924edeb008e9d4c68f755.jpg" alt="" class="item-img">
 
             <p>
@@ -117,7 +126,7 @@
         </div>
 
         <!-- Сильнейший стражник~ Изгнанный воин с защитой 9999, непревзойденный стражник столицы королевства -->
-        <div class="item">
+        <div class="item filter azulla">
             <img src="https://api.remanga.org/media/titles/sono-monban-saikyou-nitsuki-tsuihou-sareta-bougyo-ryoku-9999-no-senshi-ou-miyako-no-monban-toshite-musou-suru/ad634dc29d02f1bac6f58540782876a0.jpg" alt="" class="item-img">
 
             <p>
@@ -144,7 +153,7 @@
         </div>
 
         <!-- Злодейка, которую убили 108 раз, но она все вспомнила. Дева с рубином творит чудеса -->
-        <div class="item">
+        <div class="item filter azulla">
             <img src="https://api.remanga.org/media/titles/108kai-korosareta-akuyaku-reijou-subete-wo-omoidashitanode-otome-wa-ruby-due-kiseki-shimasu/d24daf60b24e6286304baf2485c53615.jpg" alt="" class="item-img">
 
             <p>
@@ -168,7 +177,7 @@
         </div>
 
         <!-- Школьный хулиган со сверхспособностями -->
-        <div class="item">
+        <div class="item filter azulla">
             <img src="https://api.remanga.org/media/titles/super-bad-schoolmaster/63aabf01605cc70719fa8f5489ce81ef.jpg" alt="" class="item-img">
 
             <p>
@@ -192,7 +201,7 @@
         </div>
 
         <!-- Богиня дала мне систему -->
-        <div class="item">
+        <div class="item filter azulla">
             <img src="https://api.remanga.org/media/titles/the-goddess-took-me-to-be-a-master/e4e0d9d77b4827494a3dc1e7fa7f7b3d.jpg" alt="" class="item-img">
 
             <p>
@@ -213,7 +222,7 @@
         </div>
 
         <!-- Что, если чрезвычайно развитая РПГ с полным погружением вызывает большее привыкание, чем реальность -->
-        <div class="item">
+        <div class="item filter azulla">
             <img src="https://api.remanga.org/media/titles/new-game-was-born-it-was-accepted-with-shock-and-enthusiasm-but-no-one-can-clear-it/3289e0f0e120ae5ba7577c91d5fc7aeb.jpg" alt="" class="item-img">
 
             <p>
@@ -230,35 +239,8 @@
             </div>
         </div>
 
-        <!-- Шаблон -->
-        <div class="item">
-            <img src="" alt="" class="item-img">
-
-            <p>
-
-            </p>
-            <div class="item-text">
-
-                <a href="" class="link">
-                    Re
-                </a>
-                <a href="" class="link">
-                    Lib
-                </a>
-                <a href="" class="link">
-                    Read
-                </a>
-                <a href="" class="link">
-                    Dex
-                </a>
-                <a href="" class="link">
-                    Raw
-                </a>
-            </div>
-        </div>
-
         <!-- Небесная жемчужина: перевоплощение -->
-        <div class='item'>
+        <div class='item filter'>
             <img src='https://api.remanga.org/media/titles/heavenly-jewel-change/6c663fed33b08c56953bb3f89305f2d4.jpg' alt='' class='item-img'>
 
             <p>Небесная жемчужина: перевоплощение</p>
@@ -274,7 +256,7 @@
         </div>
 
         <!-- Жнец смерти -->
-        <div class='item'>
+        <div class='item filter'>
             <img src='https://api.remanga.org/media/titles/the-boy-of-death/high_cover.jpg' alt='' class='item-img'>
 
             <p>Жнец смерти</p>
@@ -290,7 +272,7 @@
         </div>
 
         <!-- Старик, который получил второй шанс в другом мире -->
-        <div class='item'>
+        <div class='item filter'>
             <img src='https://api.remanga.org/media/titles/the-old-man-who-got-a-second-round-in-another-world/high_cover.jpg' alt='' class='item-img'>
 
             <p>Старик, который получил второй шанс в другом мире</p>
@@ -306,7 +288,7 @@
         </div>
 
         <!-- Знаете ли вы, что бездельник может стать мудрецом? — Шут 99-го уровня, исключенный из отряда героев, достиг звания «Великого мудреца» -->
-        <div class='item'>
+        <div class='item filter'>
             <img src='https://api.remanga.org/media/titles/did-you-know-that-a-playboy-can-change-his-job-to-a-sage/high_cover.jpg' alt='' class='item-img'>
 
             <p>Знаете ли вы, что бездельник может стать мудрецом? — Шут 99-го уровня, исключенный из отряда героев, достиг звания «Великого мудреца»</p>
@@ -321,7 +303,210 @@
             </div>
         </div>
 
+        <!-- Величайший Повелитель Демонов перерождается как типичное ничтожество -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/the-greatest-demon-lord-is-reborn-as-a-typical-nobody/ef9d34f1f8f77cba3abd2b6b7f121899.jpg' alt='' class='item-img'>
 
+            <p>Величайший Повелитель Демонов перерождается как типичное ничтожество</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/the-greatest-demon-lord-is-reborn-as-a-typical-nobody' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/shijou-saikyou-no-daimaou-murabito-a-ni-tensei-suru?section=info' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
+
+        <!-- Самый сильный мудрец был понижен в должности и, став учителем, создал беспрецедентный класс. -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/the-strongest-sage-was-demoted-and-became-a-teacher-creating-unparalleled-classes/afc2580226ff45bbcd159ac55b81177c.jpg' alt='' class='item-img'>
+
+            <p>Самый сильный мудрец был понижен в должности и, став учителем, создал беспрецедентный класс.</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/the-strongest-sage-was-demoted-and-became-a-teacher-creating-unparalleled-classes' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/sasen-sareta-saikyo-kenja-kyoushi-ni-natte-muteki-no-class-wo-tsukuriageru?section=info' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
+
+        <!-- Бунтарь Академии короля демонов: Первый кандидат человечества стремится взойти на трон вместе со своими служанками -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/maou-gakuen-no-hangyakusha/77f6bda2bf067443ede30b9dcc1be928.jpg' alt='' class='item-img'>
+
+            <p>Бунтарь Академии короля демонов: Первый кандидат человечества стремится взойти на трон вместе со своими служанками</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/maou-gakuen-no-hangyakusha?subpath=content' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/maou-gakuen-no-hangyakusha?' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
+
+        <!-- Перерождение Бога Демонов -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/the-rebirth-of-the-demon-god/90df18371a060c964117d3da751c9f72.jpg' alt='' class='item-img'>
+
+            <p>Перерождение Бога Демонов</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/the-rebirth-of-the-demon-god' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/rebirth-of-the-demon-reign?section=info' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
+
+        <!-- Авантюрист, что удочерил героя и короля демонов -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/uncle-pick-up-a-brave-man-and-a-demon-king/f15fbccd8d9a310b854479f88d3cf0b4.jpg' alt='' class='item-img'>
+
+            <p>Авантюрист, что удочерил героя и короля демонов</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/uncle-pick-up-a-brave-man-and-a-demon-king' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/ossan-yusha-to-mao-o-hirou?section=info' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
+
+        <!-- Врата Тьмы -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/heiyuan-lingmingshi/7ec975a5b284a1755849b56c4cb80726.jpg' alt='' class='item-img'>
+
+            <p>Врата Тьмы</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/heiyuan-lingmingshi' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/heiyuan-lingmingshi?section=info' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
+
+        <!-- Подчинись мне -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/obey-me-/9293f168459dec3b8dd02191bb685610.jpg' alt='' class='item-img'>
+
+            <p>Подчинись мне</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/obey-me-' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/naege-bogjonghaseyo?section=info' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
+
+        <!-- Темная дорога святого рыцаря -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/the-holy-knights-dark-road/6ad4cb371a675c4ef543ac4f4e585f1a.jpg' alt='' class='item-img'>
+
+            <p>Темная дорога святого рыцаря</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/the-holy-knights-dark-road' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/the-holy-knights-dark-road?section=info' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
+
+        <!-- Реинкарнировавший авантюрист с проклятой печатью -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/reincarnated-adventurer-with-curse-stamp/352b9f07f45a9584306923b674f59090.jpg' alt='' class='item-img'>
+
+            <p>Реинкарнировавший авантюрист с проклятой печатью</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/reincarnated-adventurer-with-curse-stamp' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/jukokuin-no-tensei-boukensha?section=info' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
+
+        <!-- Невероятный новичок средних лет, прошедший тренировки на грани смерти. -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/the-middleaged-newbie-adventurer-trained-to-the-brink-of-death-by-the-strongest-party-became-unbeatable/0d3b0644a3697349e275471e2f43e922.jpg' alt='' class='item-img'>
+
+            <p>Невероятный новичок средних лет, прошедший тренировки на грани смерти.</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/the-middleaged-newbie-adventurer-trained-to-the-brink-of-death-by-the-strongest-party-became-unbeatable?subpath=content' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/shinmai-ossan-bouken-sha-saikyou-paati-ni-shinu-hodo-kitae-rarete-muteki-ni-naru?section=info' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
+
+        <!-- Дневник желаний -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/desire-diary/b3a9e95966c8ee7fc36a9b64316512a5.jpg' alt='' class='item-img'>
+
+            <p>Дневник желаний</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/desire-diary?subpath=content' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/yogmang-ilgi?section=info' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
+
+        <!-- Генеральный директор, ваша жена убегает -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/ceo-your-wife-is-running-away/8218789d0e5bfec196055ff79f6a59b9.jpg' alt='' class='item-img'>
+
+            <p>Генеральный директор, ваша жена убегает</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/ceo-your-wife-is-running-away' class='link'>
+                    Re
+                </a>
+            </div>
+        </div>
+
+        <!-- Вызывающий дрожь маг и пять императорских зверей -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/trembling-magician-and-the-five-emperor-beasts/8f33269563e6ad24aae1e5b7a61d18b2.jpg' alt='' class='item-img'>
+
+            <p>Вызывающий дрожь маг и пять императорских зверей</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/trembling-magician-and-the-five-emperor-beasts?subpath=content' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/senritsu-no-majutsushi-to-goteijuu?section=info' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
 
     </div>
 

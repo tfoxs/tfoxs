@@ -2,7 +2,20 @@ body{
     margin: 0;
     background-color: #333;
 }
-
+::-webkit-scrollbar {
+    width: 1vw;
+    height: 1vw;
+}
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #f9a14a;
+}
+::-webkit-scrollbar-track{
+    background: #404040;
+}
 header {
     width: 100%;
     background-color: #111111;
@@ -24,18 +37,35 @@ header a:hover {
     background-color: #f9a14a;
 }
 
-
-
+.fil-block{
+    padding-top: 60px;
+    padding-left: 10px;
+}
+.filter-button{
+    font-family: 'Comfortaa', cursive;
+    font-size: 1rem;
+    border: none;
+    background-color: inherit;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+.filter-button:hover{
+    color: #f9a14a;
+}
+.checked{
+    background-color: #f9a14a;
+    color: inherit;
+}
 
 
 .content{
     width: 100%;
-    padding-top: 60px;
+    padding-top: 10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: left;
 }
-
 .item{
     width: 48.5vw;
     height: 220px;
@@ -50,7 +80,9 @@ header a:hover {
     background: rgb(17,17,17);
     background: linear-gradient(90deg, rgb(17, 17, 17) 50%, rgba(17, 17, 17, 0.97) 60%, rgba(17, 17, 17, 0.9) 70%, rgba(17, 17, 17, 0.7) 80%, rgba(0, 0, 0, 0.1) 100%);
     font-family: 'Comfortaa', cursive;
+    margin-left: .6vw;
 }
+
 .item:hover {
     border: 1px solid #f9a14a;
     transition: 0.2s;
@@ -86,4 +118,7 @@ p{
     color: #111111;
     background-color: #f9a14a;
     border: 1px solid #f9a14a;
+}
+.hide {
+    display: none;
 }
