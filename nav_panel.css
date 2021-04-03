@@ -78,7 +78,7 @@ header a:hover {
     border-radius: 10px;
     border: 1px solid #fadad2;
     background: rgb(17,17,17);
-    background: linear-gradient(90deg, rgb(17, 17, 17) 50%, rgba(17, 17, 17, 0.97) 60%, rgba(17, 17, 17, 0.9) 70%, rgba(17, 17, 17, 0.7) 80%, rgba(0, 0, 0, 0.1) 100%);
+    background: linear-gradient(90deg, rgb(17, 17, 17) 52%, rgba(17, 17, 17, 0.97) 60%, rgba(17, 17, 17, 0.9) 70%, rgba(17, 17, 17, 0.7) 80%, rgba(0, 0, 0, 0.1) 100%);
     font-family: 'Comfortaa', cursive;
     margin-left: .6vw;
 }
@@ -91,6 +91,8 @@ header a:hover {
     position: absolute;
     right: 0;
     z-index: -1;
+    width: 70%;
+    top: -10%;
 }
 .item-text{
     position: absolute;
@@ -121,4 +123,10 @@ p{
 }
 .hide {
     display: none;
+}
+
+@media (max-width: 720px) {
+    .item {
+        width: 97.5vw;
+    }
 }
