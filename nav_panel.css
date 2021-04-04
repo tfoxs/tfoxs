@@ -3,8 +3,8 @@ body{
     background-color: #333;
 }
 ::-webkit-scrollbar {
-    width: 1vw;
-    height: 1vw;
+    width: 10px;
+    height: 10px;
 }
 ::-webkit-scrollbar-thumb {
     background: #ffffff;
@@ -40,6 +40,8 @@ header a:hover {
 .fil-block{
     padding-top: 60px;
     padding-left: 10px;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1rem;
 }
 .filter-button{
     font-family: 'Comfortaa', cursive;
@@ -93,6 +95,12 @@ header a:hover {
     z-index: -1;
     width: 70%;
     top: -10%;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently*/
 }
 .item-text{
     position: absolute;
