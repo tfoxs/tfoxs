@@ -42,10 +42,12 @@ header a:hover {
     padding-left: 10px;
     font-family: 'Comfortaa', cursive;
     font-size: 1rem;
+    color: #fadad2;
 }
 .filter-button{
     font-family: 'Comfortaa', cursive;
     font-size: 1rem;
+    color: #fadad2;
     border: none;
     background-color: inherit;
     padding: 10px;
@@ -57,7 +59,7 @@ header a:hover {
 }
 .checked{
     background-color: #f9a14a;
-    color: inherit;
+    color: #111111;
 }
 
 
@@ -97,7 +99,6 @@ header a:hover {
     top: -10%;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none;   /* Chrome/Safari/Opera */
-    -khtml-user-select: none;    /* Konqueror */
     -moz-user-select: none;      /* Firefox */
     -ms-user-select: none;       /* Internet Explorer/Edge */
     user-select: none;           /* Non-prefixed version, currently*/
