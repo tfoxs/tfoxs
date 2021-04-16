@@ -71,8 +71,9 @@ header a:hover {
     justify-content: left;
 }
 .item{
-    width: 48.5vw;
+    width: 40vw;
     height: 220px;
+    flex-grow: 1;
     overflow: hidden;
     color: #fadad2;
     margin-bottom: 0.8vw;
@@ -134,8 +135,48 @@ p{
     display: none;
 }
 
-@media (max-width: 720px) {
+@media screen and (max-width: 800px) {
     .item {
-        width: 97.5vw;
+        width: 98%;
     }
+}
+@media only screen and (max-device-width: 480px) {
+    body{
+        font-size: 30px;
+    }
+    .item {
+        width: 98%;
+        height: 420px;
+    }
+    header {
+        padding-left: 0;
+        justify-content: center;
+    }
+    header a {
+        padding: 23px 25px;
+    }
+    .fil-block{
+        padding-top: 100px;
+        padding-left: 10px;
+        font-size: 30px;
+    }
+    .filter-button{
+        font-size: 30px;
+        margin-bottom: 20px;
+        padding: 3px 22px 3px 15px;
+        border-right: 3px solid #fadad2;
+    }
+    p{
+        width: 80%;
+        margin: 40px 80px 0 40px;
+        line-height: 1.2;
+    }
+    .link{
+        margin-right: 10px;
+        padding: 15px 15px;
+        border-radius: 10px;
+        border: 2px solid #fadad2;
+        margin-top: 0px;
+    }
+
 }
