@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Nav</title>
     <style>
         @import 'nav_panel.css';
+        @import 'header.css';
     </style>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
@@ -16,16 +17,26 @@
 <body>
 
     <header>
-        <a title="Группа ВК" href="https://vk.com/tfoxsmanga">Vk</a>
-        <a title="Рабочая группа ВК" href="https://vk.com/club201866401">VkW</a>
-        <a title="Статья с различными ссылками" href="https://vk.com/@tfoxsvk-raznye-ssylki-dlya-komandy-tfoxs">Links</a>
-        <a title="UpClick" href="https://app.clickup.com/3825101/v/b/li/26709540">Up</a>
-        <a title="ReManga" href="https://remanga.org/team/peacekeepingsquad">Re1</a>
-        <a title="MangaLib" href="https://mangalib.me/team/peacefulsquad">Lib1</a>
-        <a title="ReadManga" href="https://readmanga.live/list/person/tfoxs">Read</a>
-        <a href="https://remanga.org/team/tfoxs">Re2</a>
-        <a href="https://mangalib.me/team/tfoxspure">Lib2</a>
+        <div class="hamburger-menu">
+            <input id="menu_toggle" type="checkbox" />
+            <label class="menu_btn" for="menu_toggle"> <span></span> </label>
+            <div class="menu_box">
+                <a class="header_a" title="Группа ВК" href="https://vk.com/tfoxsmanga">Vk</a>
+                <a class="header_a" title="Рабочая группа ВК" href="https://vk.com/club201866401">VkW</a>
+                <a class="header_a" title="Статья с различными ссылками" href="https://vk.com/@tfoxsvk-raznye-ssylki-dlya-komandy-tfoxs">Link</a>
+                <a class="header_a" title="UpClick" href="https://app.clickup.com/3825101/v/b/li/26709540">Up</a>
+                <a class="header_a" title="ReManga" href="https://remanga.org/team/peacekeepingsquad">R1</a>
+                <a class="header_a" title="MangaLib" href="https://mangalib.me/team/peacefulsquad">L1</a>
+                <a class="header_a" title="ReadManga" href="https://readmanga.live/list/person/tfoxs">Read</a>
+                <a class="header_a" href="https://remanga.org/team/tfoxs">R2</a>
+                <a class="header_a" href="https://mangalib.me/team/tfoxspure">L2</a>
+            </div>
+        </div>
+
     </header>
+
+
+    <div id="footer"></div>
 
     <div class="fil-block">
         Sort:
@@ -772,7 +783,21 @@
             </div>
         </div>
 
+        <!-- Сильнейший наездник на драконах, силком притащенный в столичную академию, оказывается тем еще простаком -->
+        <div class='item filter'>
+            <img src='https://api.remanga.org/media/titles/the-strongest-dragon-rider-who-was-forcibly-taken-to-the-school-of-the-royal-capital-is-a-countryman-so-much-that-it-gets-super/07357b5f43fe1c939a2e19c56ce70950.jpg' alt='' class='item-img'>
 
+            <p>Сильнейший наездник на драконах, силком притащенный в столичную академию, оказывается тем еще простаком</p>
+            <div class='item-text'>
+
+                <a href='https://remanga.org/manga/the-strongest-dragon-rider-who-was-forcibly-taken-to-the-school-of-the-royal-capital-is-a-countryman-so-much-that-it-gets-super?subpath=content' class='link'>
+                    Re
+                </a>
+                <a href='https://mangalib.me/o-miyako-no-gakuen-ni-kyosei-renko-sareta-saikyo-no-dragon-rider-ha-cho-ga-tsuku-hodo-inakamono?section=chapters' class='link'>
+                    Lib
+                </a>
+            </div>
+        </div>
 
 
 
