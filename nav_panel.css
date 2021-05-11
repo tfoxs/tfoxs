@@ -12,6 +12,7 @@
         margin: 0;
         background-color: var(--black);
         font-size: 16px;
+        padding-top: 38px;
     }
     ::-webkit-scrollbar {
         width: 10px;
@@ -29,7 +30,7 @@
     }
 
     .fil-block{
-        padding-top: 60px;
+        padding-top: 20px;
         padding-left: 10px;
         font-family: 'Comfortaa', cursive;
         font-size: 1rem;
