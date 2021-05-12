@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Nav</title>
+    <style>
+        @import 'nav_panel.css';
+        @import 'link_panel.css';
+        @import 'header.css';
+    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link rel="icon" href="no_bg_4.png" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="filter.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="hamburger-menu">
+            <input id="menu_toggle" type="checkbox" />
+            <label class="menu_btn" for="menu_toggle"> <span></span> </label>
+            <div class="menu_box">
+                <a class="header_a" title="Нав-панель" href="https://tfoxs.github.io/tfoxs/nav_panel.html">Nav</a>
+                <a class="header_a" title="Группа ВК" href="https://vk.com/tfoxsmanga">Vk</a>
+                <a class="header_a" title="Рабочая группа ВК" href="https://vk.com/club201866401">VkW</a>
+                <a class="header_a" title="Статья с различными ссылками" href="https://tfoxs.github.io/tfoxs/link_panel.html">Link</a>
+                <a class="header_a" title="UpClick" href="https://app.clickup.com/3825101/v/b/li/26709540">Up</a>
+                <a class="header_a" title="ReManga" href="https://remanga.org/team/peacekeepingsquad">R1</a>
+                <a class="header_a" title="MangaLib" href="https://mangalib.me/team/peacefulsquad">L1</a>
+                <a class="header_a" title="ReadManga" href="https://readmanga.live/list/person/tfoxs">Read</a>
+                <a class="header_a" href="https://remanga.org/team/tfoxs">R2</a>
+                <a class="header_a" href="https://mangalib.me/team/tfoxspure">L2</a>
+            </div>
+        </div>
+    </header>
+
+        <div class="content">
+            <!-- Основанная группа вк -->
+            <a class="item item__link" href="https://vk.com/tfoxsmanga">
+                <img src="https://cs4.pikabu.ru/post_img/big/2015/09/18/11/1442602532_2191021.jpg" alt="" class="item-img">
+                <p class="">Основанная группа вк</p>
+            </a>
+
+            <!-- Рабочая группа вк -->
+            <a class="item item__link" href="https://vk.com/club201866401">
+                <img src="https://cs4.pikabu.ru/post_img/big/2015/09/18/11/1442602532_2191021.jpg" alt="" class="item-img">
+                <p class="">Рабочая группа вк</p>
+            </a>
+
+            <!-- Внутренний распорядок команды -->
+            <a class="item item__link" href="https://vk.com/topic-198638643_46932351">
+                <img src="https://cs4.pikabu.ru/post_img/big/2015/09/18/11/1442602532_2191021.jpg" alt="" class="item-img">
+                <p class="">Внутренний распорядок команды</p>
+            </a>
+
+            <!-- Как пользоваться сайтом ClickUp -->
+            <a class="item item__link" href="https://vk.com/@-201866401-kak-polzovatsya-saitom-clickup">
+                <img src="https://cs4.pikabu.ru/post_img/big/2015/09/18/11/1442602532_2191021.jpg" alt="" class="item-img">
+                <p class="">Как пользоваться сайтом ClickUp</p>
+            </a>
+
+            <!-- Сервер дискорд -->
+            <a class="item item__link" href="https://vk.com/away.php?to=https%3A%2F%2Fdiscord.com%2Finvite%2FPDbWugEcS4&cc_key=">
+                <img src="https://cs4.pikabu.ru/post_img/big/2015/09/18/11/1442602532_2191021.jpg" alt="" class="item-img">
+                <p class="">Сервер дискорд</p>
+            </a>
+
+            <!-- Постановление переводчикам -->
+            <a class="item item__link" href="https://vk.com/@-201866401-postanovlenie-dlya-perevodchikov">
+                <img src="https://cs4.pikabu.ru/post_img/big/2015/09/18/11/1442602532_2191021.jpg" alt="" class="item-img">
+                <p class="">Постановление переводчикам</p>
+            </a>
+
+            <!-- Мануал для клинера -->
+            <a class="item item__link" href="https://vk.com/@-201866401-kak-klin-it">
+                <img src="https://cs4.pikabu.ru/post_img/big/2015/09/18/11/1442602532_2191021.jpg" alt="" class="item-img">
+                <p class="">Мануал для клинера:</p>
+            </a>
+
+            <!-- Мануал для тайпера -->
+            <a class="item item__link" href="https://vk.com/@-201866401-manual-dlya-taipera">
+                <img src="https://cs4.pikabu.ru/post_img/big/2015/09/18/11/1442602532_2191021.jpg" alt="" class="item-img">
+                <p class="">Мануал для тайпера</p>
+            </a>
+
+            <!-- Last picture для тайпера/эдитора -->
+            <a class="item item__link" href="https://vk.com/@-201866401-last-picture">
+                <img src="https://cs4.pikabu.ru/post_img/big/2015/09/18/11/1442602532_2191021.jpg" alt="" class="item-img">
+                <p class="">Last picture для тайпера/эдитора</p>
+            </a>
+
+            <!-- Ссылка на меня -->
+            <a class="item item__link" href="https://vk.com/tfoxsvk">
+                <img src="https://cs4.pikabu.ru/post_img/big/2015/09/18/11/1442602532_2191021.jpg" alt="" class="item-img">
+                <p class="">Ссылка на меня</p>
+            </a>
+
+
+
+
+
+    </div>
+
+</body>
+</html>
