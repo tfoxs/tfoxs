@@ -49,6 +49,10 @@
     }
 }
 @media only screen and (max-device-width: 700px) {
+    body{
+        padding-top: 118px;
+    }
+
     .hamburger-menu {
         width: 100%;
         height: auto;
@@ -111,6 +115,6 @@
         padding-top: 10px;
     }
     .fil-block{
-        padding-top: 150px;
+        padding-top: 40px;
     }
 }

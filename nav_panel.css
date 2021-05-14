@@ -12,7 +12,7 @@
         margin: 0;
         background-color: var(--black);
         font-size: 16px;
-        padding-top: 38px;
+        padding-top: 48px;
     }
     ::-webkit-scrollbar {
         width: 10px;
@@ -30,8 +30,7 @@
     }
 
     .fil-block{
-        padding-top: 20px;
-        padding-left: 10px;
+        padding: 10px 0 10px 10px;
         font-family: 'Comfortaa', cursive;
         font-size: 1rem;
         color: var(--white);
@@ -57,7 +56,6 @@
 
     .content{
         width: 100%;
-        padding-top: 10px;
         display: flex;
         flex-wrap: wrap;
         justify-content: left;
@@ -76,7 +74,7 @@
         font-family: 'Comfortaa', cursive;
         border-bottom: 4px solid var(--orange);
     }
-    .item__end{
+    .item:last-child {
         flex: 1 1 33%;
     }
     .item:hover {
