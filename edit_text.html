@@ -58,6 +58,7 @@
       newtext = newtext.replace(/(\.+[\s.]*\.+)+/g, "...")
       newtext = newtext.replace(/\.([a-zA-Zа-яА-Я])/g, ". $1")
       newtext = newtext.replace(/([a-zA-Zа-яА-Я])\s+\./g, "$1.")
+      newtext = newtext.replace(/[!?]*(!+\?+)[!?]*/g, "?!")
 	  
       newtext = newtext.replace(/[?.]*(\.+\?+)[?.]*|[?.]*(\?+\.+)[?.]*/g, "?..")
       newtext = newtext.replace(/[!.]*(\.+!+)[!.]*|[!.]*(!+\.+)[!.]*/g, "!..")
