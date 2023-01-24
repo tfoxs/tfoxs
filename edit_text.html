@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edt-o</title>
+	<style type="text/css">
+	   body{ 
+		text-align: center;
+		font-family: Verdana, Arial, Helvetica, sans-serif; 
+		font-size: 12px;
+	   }
+	   textarea{ 
+		width: 95%;
+		height: 30vh;
+		resize: none;
+		font-size: inherit;
+		font-family: inherit;
+		overflow-y: scroll;
+	   }
+	   p{ 
+		text-align: left;
+		padding: 5px 10px;
+		margin: 0;
+	   }
+	   div{
+		overflow-y: scroll;
+		width: 95%;
+		height: 60vh;
+		margin: 0 auto;
+		border-width: 1px;
+		border-style: solid;
+		border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+	   }
+  </style>
+</head>
+<body>
+<textarea id="textarea" name="comment" cols="70" rows="10"></textarea>
+<button onclick="fff()">Обработать</button>
+<div><p id="new"></p></div>
+
+<script type="text/javascript">
+  function fff() {
+
+      let textarea = document.getElementById('textarea');
+      let text = textarea.value;
+      let newtext = text.replace(/\n/g, "<br>")
+      newtext = newtext.replace(/\s+/g, " ")
+      newtext = newtext.replace(/(^\s*)|(\s*$)/g, "")
+	  
+      newtext = newtext.replace(/(^… )|(…)/g, "...")
+      newtext = newtext.replace(/\?{3,}/g, "azu")
+      newtext = newtext.replace(/!{3,}/g, "zazu")
+      newtext = newtext.replace(/\?{1,2}/g, "?")
+      newtext = newtext.replace(/!{1,2}/g, "!")
+      newtext = newtext.replace(/zazu/g, "!!!")
+      newtext = newtext.replace(/azu/g, "???")
+	  
+      newtext = newtext.replace(/(\.+[\s.]*\.+)+/g, "...")
+      newtext = newtext.replace(/\.([a-zA-Zа-яА-Я])/g, ". $1")
+      newtext = newtext.replace(/([a-zA-Zа-яА-Я])\s+\./g, "$1.")
+	  
+      newtext = newtext.replace(/[?.]*(\.+\?+)[?.]*|[?.]*(\?+\.+)[?.]*/g, "?..")
+      newtext = newtext.replace(/[!.]*(\.+!+)[!.]*|[!.]*(!+\.+)[!.]*/g, "!..")
+      newtext = newtext.replace(/[.!?]*(\.+!+\?+|\.+\?+!+|\?+\.+!+|\?+!+\.+|!+\.+\?+|!+\?+\.+)[.!?]*/g, "?!.")
+      newtext = newtext.replace(/!\?/g, "?!")
+
+      // alert(newtext);
+      document.getElementById('new').innerHTML = newtext;
+
+      // str = str.replace(/(\w+)\s(\w+)/, '$2, $1');
+
+
+
+  }
+</script>
+
+</body>
+</html>
