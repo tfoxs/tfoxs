@@ -88,7 +88,8 @@
       let textarea = document.getElementById('textarea');
       let text = textarea.value;
       // console.log(text.split("\n"))
-      let text_list = text.replace(/(\s[/\\]\s)|(\s[/\\])|([/\\]\s)|([/\\])|(\n+)/g, "AZUZU").split("AZUZU");
+      let text_list = text.replace(/(\n+)/g, "AZUZU").split("AZUZU");
+      //let text_list = text.replace(/(\s[/\\]\s)|(\s[/\\])|([/\\]\s)|([/\\])|(\n+)/g, "AZUZU").split("AZUZU");
       document.getElementById('result').innerHTML = "";
 
       text_list = text_list.map(function(el) {
