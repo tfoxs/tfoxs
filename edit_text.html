@@ -83,49 +83,61 @@
 
 <script type="text/javascript">
 
+    function ttt() {
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+        });
+        let text = params.text;
+        text = text.replace("AZUZU", "\n");
+        let text_list = text.split("AZUZU");
+        document.getElementById('result').innerHTML = "";
+
+        text_list = text_list.map(function(el) {
+            let ell = el.replace(/\s{2,}/g, " ")
+            ell = ell.replace(/(^\s*)|(\s*$)/g, "")
+
+            ell = ell.replace(/(^… )|(…)/g, "...")
+
+            ell = ell.replace(/\?{3,}/g, "azu")
+            ell = ell.replace(/!{3,}/g, "zazu")
+            ell = ell.replace(/\?{1,2}/g, "?")
+            ell = ell.replace(/!{1,2}/g, "!")
+            ell = ell.replace(/zazu/g, "!!!")
+            ell = ell.replace(/azu/g, "???")
+
+            ell = ell.replace(/(\.+[\s.]*\.+)+/g, "...")
+            ell = ell.replace(/\.([a-zA-Zа-яА-Я])/g, ". $1")
+            ell = ell.replace(/([a-zA-Zа-яА-Я])\s+\./g, "$1.")
+            ell = ell.replace(/[!?]*(!+\?+)[!?]*/g, "?!")
+            ell = ell.replace(/[?.]*(\.+\?+)[?.]*|[?.]*(\?+\.+)[?.]*/g, "?..")
+            ell = ell.replace(/[!.]*(\.+!+)[!.]*|[!.]*(!+\.+)[!.]*/g, "!..")
+            ell = ell.replace(/[.!?]*(\.+!+\?+|\.+\?+!+|\?+\.+!+|\?+!+\.+|!+\.+\?+|!+\?+\.+)[.!?]*/g, "?!.")
+            ell = ell.replace(/^\.{3}\s+/g, "...")
+
+            ell = ell.replace(/—---/g, "")
+
+            if (el === ell){
+                document.getElementById('result').innerHTML += `<p>${ell}</p>`
+            } else {
+                document.getElementById('result').innerHTML += `<p class = "edit">${ell}</p>`
+            }
+            return ell;
+        });
+
+        text = text_list.join('\n\n')
+        navigator.clipboard.writeText(text)
+
+    }
+    window.onload = ttt;
+
   function fff() {
 
       let textarea = document.getElementById('textarea');
       let text = textarea.value;
-      // console.log(text.split("\n"))
-      let text_list = text.replace(/(\n+)/g, "AZUZU").split("AZUZU");
-      //let text_list = text.replace(/(\s[/\\]\s)|(\s[/\\])|([/\\]\s)|([/\\])|(\n+)/g, "AZUZU").split("AZUZU");
-      document.getElementById('result').innerHTML = "";
+      text = text.replace(/\n{2,}/g, "AZUZUAZUZU");
+      text = text.replace(/(\s[/\\]\s)|(\s[/\\])|([/\\]\s)|([/\\])|(\n)/g, "AZUZU");
+      window.open (`edit_text.html?text=${text}`,'_self',false)
 
-      text_list = text_list.map(function(el) {
-          let ell = el.replace(/\s{2,}/g, " ")
-          ell = ell.replace(/(^\s*)|(\s*$)/g, "")
-
-          ell = ell.replace(/(^… )|(…)/g, "...")
-
-          ell = ell.replace(/\?{3,}/g, "azu")
-          ell = ell.replace(/!{3,}/g, "zazu")
-          ell = ell.replace(/\?{1,2}/g, "?")
-          ell = ell.replace(/!{1,2}/g, "!")
-          ell = ell.replace(/zazu/g, "!!!")
-          ell = ell.replace(/azu/g, "???")
-
-          ell = ell.replace(/(\.+[\s.]*\.+)+/g, "...")
-          ell = ell.replace(/\.([a-zA-Zа-яА-Я])/g, ". $1")
-          ell = ell.replace(/([a-zA-Zа-яА-Я])\s+\./g, "$1.")
-          ell = ell.replace(/[!?]*(!+\?+)[!?]*/g, "?!")
-          ell = ell.replace(/[?.]*(\.+\?+)[?.]*|[?.]*(\?+\.+)[?.]*/g, "?..")
-          ell = ell.replace(/[!.]*(\.+!+)[!.]*|[!.]*(!+\.+)[!.]*/g, "!..")
-          ell = ell.replace(/[.!?]*(\.+!+\?+|\.+\?+!+|\?+\.+!+|\?+!+\.+|!+\.+\?+|!+\?+\.+)[.!?]*/g, "?!.")
-          ell = ell.replace(/^\.{3}\s+/g, "...")
-
-          ell = ell.replace(/—---/g, "")
-
-          if (el === ell){
-              document.getElementById('result').innerHTML += `<p>${ell}</p>`
-          } else {
-              document.getElementById('result').innerHTML += `<p class = "edit">${ell}</p>`
-          }
-          return ell;
-      });
-
-      text = text_list.join('\n\n')
-      navigator.clipboard.writeText(text)
   }
 </script>
 
