@@ -3,96 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <title>Edt-o</title>
-	<style type="text/css">
-	   *{
-		margin: 0;
-	   }
-	   body{ 
-		text-align: center;
-		font-family: Verdana, Arial, Helvetica, sans-serif; 
-		font-size: 12px;
-		display: flex;
-		flex-direction: column;
-	   }
-	   header{
-		height: 10vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-content: center;
-		background: rgb(253,29,29);
-		background: linear-gradient(30deg, rgba(253,29,29,1) 0%, rgba(252,176,69,1) 100%);
-		color: white;
-	   }
-	   button{
-		height: 10vh;
-        width: 100%;
-		background-color: initial;
-		border: 0;
-		color: white;
-		font-size: 14px;
-		font-family: Verdana, Arial, Helvetica, sans-serif;
-		font-weight: 900;
-		cursor: pointer;
-	   }
-	   button:hover{
-		background-color: initial;
-		background-color: rgba(0, 0, 0, .2);
-	   }
-	   textarea{ 
-		width: 100%;
-		height: 30vh;
-		resize: none;
-		font-size: inherit;
-		font-family: inherit;
-		overflow-y: scroll;
-		box-sizing: border-box;
-	   }
-	   p{
-		text-align: left;
-		padding: 5px 10px;
-	   }
-       .edit{
-           box-shadow: inset 5px 0 #fd532c;
-       }
-	   .control{
-		width: 100%;
-		height: 10vh;
-		background: rgb(253,29,29);
-		background: linear-gradient(30deg, rgba(253,29,29,1) 0%, rgba(252,176,69,1) 100%);
+    <style type="text/css">
+        * {
+            margin: 0;
+            font-size: 12px;
+        }
 
-	   }
-	   #result{
-		overflow-y: scroll;
-		width: 100%;
-		height: 50vh;
-		margin: 0 auto;
-		border-width: 1px;
-		border-style: solid;
-		box-sizing: border-box;
-	   }
-  </style>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        #header {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+
+        body {
+            text-align: center;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 1em;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            height: 10vh;
+            background: rgb(253, 29, 29);
+            background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
+            color: white;
+        }
+
+        button {
+            height: 10vh;
+            /*width: 100%;*/
+            flex-grow: 9;
+            background-color: initial;
+            border: 0;
+            color: white;
+            font-size: 14px;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: initial;
+            background-color: rgba(0, 0, 0, .2);
+        }
+
+        textarea {
+            width: 100%;
+            height: 30vh;
+            resize: none;
+            font-size: inherit;
+            font-family: inherit;
+            overflow-y: scroll;
+            box-sizing: border-box;
+        }
+
+        p {
+            text-align: left;
+            padding: 5px 10px;
+            min-height: 1em;
+            /*border-bottom: #fd532c80 1px dashed;*/
+        }
+
+        p:nth-child(even) {
+            background-color: #fd532c12;
+        }
+
+        .edit {
+            box-shadow: inset 5px 0 #fd532c;
+        }
+
+        .control {
+            display: flex;
+            width: 100%;
+            height: 10vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            background: rgb(253, 29, 29);
+            background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
+        }
+        .control-boxs{
+            margin: 0;
+            flex-grow: 2;
+            font-size: 12px;
+            padding-left: 10px;
+        }
+
+        .noselect {
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+        }
+
+        #result {
+            overflow-y: scroll;
+            width: 100%;
+            height: 50vh;
+            margin: 0 auto;
+            border-width: 1px;
+            border-style: solid;
+            box-sizing: border-box;
+        }
+
+        .b-contain *,
+        .b-contain *::before,
+        .b-contain *::after {
+            box-sizing: content-box !important;
+        }
+
+        .b-contain input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .b-contain span {
+            line-height: 1.6;
+            font-size: 0.8em;
+            color: white;
+            font-family: inherit;
+        }
+
+        .b-contain {
+            display: table;
+            position: relative;
+            padding-left: 2rem;
+            cursor: pointer;
+            margin-bottom: 0.4rem;
+            /*margin: 7px 10px;*/
+        }
+
+        .b-contain input[type="checkbox"] ~ .b-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 1.25rem;
+            width: 1.25rem;
+            background: rgba(0, 0, 0, 0);
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 0.46rem;
+        }
+
+        .b-contain input[type="checkbox"] ~ .b-input::after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 5px;
+            top: 1px;
+            width: 0.3rem;
+            height: 0.6rem;
+            border: solid rgb(0, 0, 0);
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .b-contain input[type="checkbox"]:disabled ~ .b-input::after {
+            border-color: rgb(255, 255, 255);
+        }
+
+        .b-contain input:checked ~ .b-input::after {
+            display: block;
+        }
+
+        .b-contain:hover input[type="checkbox"]:not([disabled]) ~ .b-input,
+        .b-contain input[type="checkbox"]:focus ~ .b-input {
+            background: rgba(0, 0, 0, 0);
+            border-color: rgb(255, 255, 255);
+        }
+
+        .b-contain input:focus ~ .b-input {
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0);
+        }
+
+        .b-contain input[type="checkbox"]:checked ~ .b-input {
+            background: rgb(255, 255, 255);
+            border-color: rgb(255, 255, 255);
+        }
+
+        .b-contain input[type="checkbox"]:disabled ~ .b-input{
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .b-contain:hover input[type="checkbox"]:not([disabled]):checked ~ .b-input,
+        .b-contain input[type="checkbox"]:checked:focus ~ .b-input {
+            background: rgb(255, 255, 255);
+            border-color: rgb(255, 255, 255);
+        }
+
+        @media only screen and (max-width: 300px) {
+            body{
+                font-size: 0.7em;
+            }
+            h3{
+                font-size: .8em;
+            }
+            textarea{
+                height: 20vh;
+            }
+            .control{
+                flex-direction: column;
+                height: 20vh;
+                overflow: hidden;
+            }
+            .control-boxs {
+                padding: 10px 0;
+            }
+            .b-contain span {
+                font-size: 0.7em;
+            }
+            button{
+                width: 100%;
+            }
+            .b-contain input[type="checkbox"] ~ .b-input {
+                height: 0.85rem;
+                width: 0.85rem;
+                top: 2px;
+                left: 5px;
+            }
+            .b-contain input[type="checkbox"] ~ .b-input::after {
+                left: 3px;
+                top: 2px;
+                width: 0.2rem;
+                height: 0.3rem;
+            }
+        }
+        @media only screen and (max-device-width: 480px) {
+            *{
+                font-size: 45px;
+            }
+            textarea{
+                height: 20vh;
+                font-size: 0.8em;
+            }
+            .control{
+                flex-direction: column;
+                height: 20vh;
+                overflow: hidden;
+            }
+            .control-boxs {
+                padding: 30px 0;
+            }
+            .b-contain span {
+                font-size: 0.9em;
+            }
+            p{
+                font-size: 1.3em;
+            }
+            button{
+                width: 100%;
+                height: auto;
+                font-size: 1em;
+            }
+            .b-contain input[type="checkbox"] ~ .b-input {
+                height: 0.85rem;
+                width: 0.85rem;
+                top: 2px;
+                left: 5px;
+                border-radius: 15px;
+            }
+            .b-contain input[type="checkbox"] ~ .b-input::after {
+                left: 14px;
+                top: 6px;
+                width: 0.2rem;
+                height: 0.3rem;
+            }
+        }
+
+    </style>
 </head>
 <body>
 
-<header><h1>Tfoxs</h1><h3 class="description">(BETA v1.1.) Правим текст вместе</h3></header>
+
+<header>
+    <a href="https://remanga.org/team/peacekeepingsquad" id="header"><h1>Tfoxs</h1>
+    <h3 class="description">(BETA v1.3.) Правим текст вместе</h3></a>
+</header>
+
 <textarea id="textarea" name="comment" cols="70" rows="10" placeholder='Вставьте текст...
 (После обработки текст копируется в буфер обмена)'></textarea>
-<div class="control"><button onclick="fff()">Обработать</button></div>
+
+<div class="control">
+    <div class="control-boxs">
+        <label class="b-contain">
+            <span class="noselect">"?!." => "?!"</span>
+            <input type="checkbox" id="c1"/>
+            <div class="b-input"></div>
+        </label>
+        <label class="b-contain">
+            <span class="noselect">Двойной бабл на строки</span>
+            <input type="checkbox" id="c2"/>
+            <div class="b-input"></div>
+        </label>
+    </div>
+
+    <button onclick="fff()">Обработать</button>
+</div>
+
 <div id="result"></div>
+
 
 <script type="text/javascript">
 
-    function ttt() {
-        const params = new Proxy(new URLSearchParams(window.location.search), {
-            get: (searchParams, prop) => searchParams.get(prop),
-        });
-        let text = params.text;
-        text = text.replace("AZUZU", "\n");
-        let text_list = text.split("AZUZU");
+    function fff() {
+
+        let textarea = document.getElementById('textarea');
+        let text = textarea.value;
+        text = text.replace(/\n{2,}/g, "\n");
+        if (document.getElementById('c2').checked) {
+            text = text.replace(/(\s[/\\]\s)|(\s[/\\])|([/\\]\s)|([/\\])/g, "\n");
+        }
+
+        let text_list = text.split("\n");
+
+        console.log(text_list)
+
         document.getElementById('result').innerHTML = "";
 
-        text_list = text_list.map(function(el) {
+        text_list = text_list.map(function (el) {
             let ell = el.replace(/\s{2,}/g, " ")
             ell = ell.replace(/(^\s*)|(\s*$)/g, "")
 
@@ -112,11 +353,15 @@
             ell = ell.replace(/[?.]*(\.+\?+)[?.]*|[?.]*(\?+\.+)[?.]*/g, "?..")
             ell = ell.replace(/[!.]*(\.+!+)[!.]*|[!.]*(!+\.+)[!.]*/g, "!..")
             ell = ell.replace(/[.!?]*(\.+!+\?+|\.+\?+!+|\?+\.+!+|\?+!+\.+|!+\.+\?+|!+\?+\.+)[.!?]*/g, "?!.")
+            if (document.getElementById('c1').checked) {
+                ell = ell.replace("?!.", "?!")
+            }
             ell = ell.replace(/^\.{3}\s+/g, "...")
+
 
             ell = ell.replace(/—---/g, "")
 
-            if (el === ell){
+            if (el === ell) {
                 document.getElementById('result').innerHTML += `<p>${ell}</p>`
             } else {
                 document.getElementById('result').innerHTML += `<p class = "edit">${ell}</p>`
@@ -124,21 +369,10 @@
             return ell;
         });
 
-        text = text_list.join('\n\n')
+        text = text_list.join('\n')
         navigator.clipboard.writeText(text)
 
     }
-    window.onload = ttt;
-
-  function fff() {
-
-      let textarea = document.getElementById('textarea');
-      let text = textarea.value;
-      text = text.replace(/\n{2,}/g, "AZUZUAZUZU");
-      text = text.replace(/(\s[/\\]\s)|(\s[/\\])|([/\\]\s)|([/\\])|(\n)/g, "AZUZU");
-      window.open (`edit_text.html?text=${text}`,'_self',false)
-
-  }
 </script>
 
 </body>
