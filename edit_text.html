@@ -302,7 +302,7 @@
 
 <textarea id="textarea" name="comment" cols="70" rows="10" placeholder='Вставьте текст...
 (После обработки текст копируется в буфер обмена)
-(1.4. Добавил сохранение галочек и немного адаптивности)'></textarea>
+(1.4. Добавил немного адаптивности)'></textarea>
 
 <div class="control">
     <div class="control-boxs">
@@ -341,12 +341,12 @@
 				inputs.forEach(function(input){
 					arrData.push({ id: input.id, checked: input.checked });
 				});
-				sessionStorage.setItem('inputs', JSON.stringify(arrData));				
+				localStorage.setItem('inputs', JSON.stringify(arrData));				
 			})
 		})
 	}
 	function load(){    
-		var inputs = JSON.parse(sessionStorage.getItem('inputs'));
+		var inputs = JSON.parse(localStorage.getItem('inputs'));
 		inputs.forEach(function(input){
 			try{
 			document.getElementById(input.id).checked = input.checked;}
