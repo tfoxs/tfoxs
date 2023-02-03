@@ -341,12 +341,12 @@
 				inputs.forEach(function(input){
 					arrData.push({ id: input.id, checked: input.checked });
 				});
-				localStorage.setItem('inputs', JSON.stringify(arrData));				
+				sessionStorage.setItem('inputs', JSON.stringify(arrData));				
 			})
 		})
 	}
 	function load(){    
-		var inputs = JSON.parse(localStorage.getItem('inputs'));
+		var inputs = JSON.parse(sessionStorage.getItem('inputs'));
 		inputs.forEach(function(input){
 			try{
 			document.getElementById(input.id).checked = input.checked;}
