@@ -12,40 +12,48 @@
         a {
             text-decoration: none;
             color: inherit;
+			height: 100%;
         }
 
         #header {
             width: 100%;
-            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-content: center;
         }
-
+		/*h1{
+			padding-top: 5px;
+		}
+		h3{
+			padding-bottom: 5px;
+		}*/
         body {
             text-align: center;
             font-family: Verdana, Arial, Helvetica, sans-serif;
             font-size: 1em;
             display: flex;
             flex-direction: column;
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
         }
-
+		body > *{
+			flex: 1 1 1%;
+		}
         header {
-            height: 10vh;
             background: rgb(253, 29, 29);
             background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
             color: white;
         }
 
         button {
-            height: 10vh;
-            /*width: 100%;*/
+            height: 100%;
             flex-grow: 9;
             background-color: initial;
             border: 0;
             color: white;
-            font-size: 14px;
+            font-size: 1em;
             font-family: Verdana, Arial, Helvetica, sans-serif;
             font-weight: 900;
             cursor: pointer;
@@ -58,12 +66,12 @@
 
         textarea {
             width: 100%;
-            height: 30vh;
             resize: none;
             font-size: inherit;
             font-family: inherit;
             overflow-y: scroll;
             box-sizing: border-box;
+			flex: 1 1 30%;
         }
 
         p {
@@ -84,15 +92,14 @@
         .control {
             display: flex;
             width: 100%;
-            height: 10vh;
             justify-content: center;
             align-items: center;
             flex-direction: row;
             background: rgb(253, 29, 29);
             background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
+			padding: 5px 0;
         }
         .control-boxs{
-            margin: 0;
             flex-grow: 2;
             font-size: 12px;
             padding-left: 10px;
@@ -116,6 +123,7 @@
             border-width: 1px;
             border-style: solid;
             box-sizing: border-box;
+			flex: 1 1 30%;
         }
 
         .b-contain *,
@@ -212,22 +220,22 @@
                 font-size: .8em;
             }
             textarea{
-                height: 20vh;
             }
             .control{
                 flex-direction: column;
-                height: 20vh;
-                overflow: hidden;
-            }
-            .control-boxs {
-                padding: 10px 0;
+				padding: 0;
             }
             .b-contain span {
                 font-size: 0.7em;
             }
             button{
                 width: 100%;
+				padding: 5px 0;
             }
+			.control-boxs {
+				padding-left: 0;
+				padding-top: 5px;
+			}
             .b-contain input[type="checkbox"] ~ .b-input {
                 height: 0.85rem;
                 width: 0.85rem;
@@ -246,27 +254,26 @@
                 font-size: 45px;
             }
             textarea{
-                height: 20vh;
                 font-size: 0.8em;
             }
             .control{
                 flex-direction: column;
-                height: 20vh;
-                overflow: hidden;
+				padding: 0;
             }
             .control-boxs {
-                padding: 30px 0;
+                padding-left: 0;
+				padding-top: 10px;
             }
             .b-contain span {
                 font-size: 0.9em;
             }
             p{
-                font-size: 1.3em;
+                font-size: 1.1em;
             }
             button{
                 width: 100%;
-                height: auto;
-                font-size: 1em;
+				padding: 15px 0;
+                font-size: 1.2em;
             }
             .b-contain input[type="checkbox"] ~ .b-input {
                 height: 0.85rem;
@@ -285,16 +292,17 @@
 
     </style>
 </head>
-<body>
+<body onload="load()">
 
 
 <header>
     <a href="https://remanga.org/team/peacekeepingsquad" id="header"><h1>Tfoxs</h1>
-    <h3 class="description">(BETA v1.3.) Правим текст вместе</h3></a>
+    <h3 class="description">(BETA v1.4.) Правим текст вместе</h3></a>
 </header>
 
 <textarea id="textarea" name="comment" cols="70" rows="10" placeholder='Вставьте текст...
-(После обработки текст копируется в буфер обмена)'></textarea>
+(После обработки текст копируется в буфер обмена)
+(1.4. Добавил сохранение галочек и немного адаптивности)'></textarea>
 
 <div class="control">
     <div class="control-boxs">
@@ -308,6 +316,11 @@
             <input type="checkbox" id="c2"/>
             <div class="b-input"></div>
         </label>
+		<label class="b-contain">
+            <span class="noselect">Только «ёлочки»</span>
+            <input type="checkbox" id="c3"/>
+            <div class="b-input"></div>
+        </label>
     </div>
 
     <button onclick="fff()">Обработать</button>
@@ -317,9 +330,35 @@
 
 
 <script type="text/javascript">
-
+	
+	function save(){
+		var inputs = document.querySelectorAll("input[type=checkbox]");
+		let enabledSettings = []
+			
+		inputs.forEach(function(checkbox) {
+			checkbox.addEventListener('change', function() {
+				var arrData = [];
+				inputs.forEach(function(input){
+					arrData.push({ id: input.id, checked: input.checked });
+				});
+				localStorage.setItem('inputs', JSON.stringify(arrData));				
+			})
+		})
+	}
+	function load(){    
+		var inputs = JSON.parse(localStorage.getItem('inputs'));
+		inputs.forEach(function(input){
+			try{
+			document.getElementById(input.id).checked = input.checked;}
+			catch (error) {
+			inputs = inputs.filter(val => val !== input);
+			}
+		});
+		save();
+	}
+	
     function fff() {
-
+		
         let textarea = document.getElementById('textarea');
         let text = textarea.value;
         text = text.replace(/\n{2,}/g, "\n\n");
@@ -329,7 +368,7 @@
 
         let text_list = text.split("\n");
 
-        console.log(text_list)
+        //console.log(text_list)
 
         document.getElementById('result').innerHTML = "";
 
@@ -357,6 +396,12 @@
                 ell = ell.replace("?!.", "?!")
             }
             ell = ell.replace(/^\.{3}\s+/g, "...")
+            
+			if (document.getElementById('c3').checked) {
+				ell = ell.replace(/["'](.*)["']/g, "«$1»")
+			}
+			
+			ell = ell.replace(/\s+([!?,.]+)/gm, "$1")
 
 
             ell = ell.replace(/—---/g, "")
