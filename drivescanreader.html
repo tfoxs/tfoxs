@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DriveScanReader</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            height: 100%;
+        }
+
+        #header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+
+        }
+        body {
+            text-align: center;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 1em;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-height: 100vh;
+        }
+        header {
+            background: rgb(253, 29, 29);
+            background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
+            color: white;
+            padding: 5px 50vw 5px 0;
+            position: fixed;
+            left: 0;
+            right: 0;
+        }
+        form{
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+        .input-file {
+            position: relative;
+            display: inline-block;
+        }
+        .input-file span {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            outline: none;
+            text-decoration: none;
+            color: rgb(255 255 255);
+            text-align: center;
+            border-radius: 4px;
+            background-color: initial;
+            line-height: 22px;
+            height: 40px;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            border: none;
+            margin: 0;
+            transition: background-color 0.2s;
+            width: 50vw;
+            font-weight: 1000;
+        }
+        .input-file input[type=file] {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            display: block;
+            width: 0;
+            height: 0;
+        }
+
+        /* Hover/active */
+        .input-file:hover span {
+            background-color: rgb(253, 29, 29);
+        }
+        .input-file:active span {
+            background-color: rgb(253, 29, 29);
+        }
+
+        /* Disabled */
+        .input-file input[type=file]:disabled + span {
+            background-color: #eee;
+        }
+        #img_place{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="https://remanga.org/team/peacekeepingsquad" id="header"><h1>Tfoxs</h1>
+    <h3 class="description">(BETA v1.1.) Загрузка занимает около 20 секунд</h3></a>
+<!--    <input type="file" id="archiveInput" accept=".zip">-->
+
+</header>
+<form method="post" enctype="multipart/form-data">
+    <label class="input-file">
+        <input type="file" name="file" id="archiveInput" accept=".zip">
+        <span>Выберите архив</span>
+    </label>
+</form>
+<div id="img_place"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+<script>
+    // Получаем элемент input
+    var input = document.getElementById('archiveInput');
+
+    // Добавляем обработчик события change
+    input.addEventListener('change', function(event) {
+        // Получаем выбранный файл
+        var file = event.target.files[0];
+
+        // Создаем объект FileReader для чтения содержимого файла
+        var reader = new FileReader();
+
+        // Устанавливаем обработчик события onload для FileReader
+        reader.onload = function(event) {
+            // Получаем все элементы img на странице
+            var images = document.querySelectorAll('img');
+
+            // Проходимся по каждому элементу и удаляем его
+            for (var i = 0; i < images.length; i++) {
+                images[i].remove();
+            }
+            // Получаем содержимое файла
+            var data = event.target.result;
+
+            // Создаем объект JSZip для работы с архивом
+            var zip = new JSZip();
+
+            // Распаковываем архив
+            zip.loadAsync(data).then(function() {
+                // Получаем массив имен файлов из архива
+                let fileNames = Object.keys(zip.files);
+
+                // Создаем массив обещаний на получение содержимого изображений
+                var promises = fileNames.filter(fileName => fileName.match(/.(jpg|jpeg|png|gif)$/i))
+                    .map(fileName => zip.file(fileName).async('base64'));
+
+                // Ожидаем завершения всех обещаний и добавляем изображения в DOM
+                Promise.all(promises).then(function(contents) {
+                    // Создаем объект с ключами - именами файлов и значениями - содержимым файлов
+                    var files = {};
+                    fileNames.forEach(function(fileName, i) {
+                        files[fileName] = contents[i];
+                    });
+
+                    // Получаем отсортированный массив имен файлов из архива
+                    let sortedFileNames = fileNames.filter(fileName => fileName.match(/.(jpg|jpeg|png|gif)$/i))
+                        .sort(function(a, b) {
+                            var numA = parseInt(a.match(/\d+\./)[0]);
+                            var numB = parseInt(b.match(/\d+\./)[0]);
+                            return numA - numB;
+                        });
+
+                    // Получаем контейнер, в который будем добавлять изображения
+                    var container = document.getElementById('img_place');
+
+                    // Добавляем изображения в контейнер в порядке сортировки
+                    sortedFileNames.forEach(function(fileName) {
+                        var content = files[fileName];
+                        var img = document.createElement('img');
+                        img.src = 'data:image/png;base64,' + content;
+                        container.appendChild(img);
+                    });
+                });
+            });
+        };
+
+// Читаем содержимое файла в формате ArrayBuffer
+        reader.readAsArrayBuffer(file);
+    });
+</script>
+
+</body>
+</html>
