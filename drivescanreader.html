@@ -3,7 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>DriveScanReader</title>
+    <link rel="icon" href="no_bg_4.png" type="image/x-icon">
     <style type="text/css">
+      ::-webkit-scrollbar {
+          width: 10px;
+          height: 10px;
+      }
+
+        ::-webkit-scrollbar-thumb {
+            background: #fcb045;
+            border-radius: 0;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #fcb045;
+        }
+        ::-webkit-scrollbar-thumb:active {
+            background: #fd1d1d;
+        }
+        ::-webkit-scrollbar-track {
+            background: #666666;
+            border-radius: 0;
+        }
+        ::-webkit-scrollbar-track:hover {
+            background: #666666;
+        }
+        ::-webkit-scrollbar-track:active {
+            background: #333333;
+        }
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
         * {
             margin: 0;
             font-size: 12px;
@@ -12,17 +41,9 @@
         a {
             text-decoration: none;
             color: inherit;
-            height: 100%;
+            padding: 0 20px;
         }
 
-        #header {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
-
-        }
         body {
             text-align: center;
             font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -32,24 +53,30 @@
             width: 100%;
             min-height: 100vh;
         }
+
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             background: rgb(253, 29, 29);
             background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
             color: white;
-            padding: 5px 50vw 5px 0;
-            position: fixed;
-            left: 0;
-            right: 0;
+            /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+            z-index: 100;
         }
-        form{
-            position: fixed;
-            top: 0;
-            right: 0;
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
         .input-file {
             position: relative;
             display: inline-block;
         }
+
         .input-file span {
             position: relative;
             display: inline-block;
@@ -58,11 +85,10 @@
             text-decoration: none;
             color: rgb(255 255 255);
             text-align: center;
-            border-radius: 4px;
             background-color: initial;
             line-height: 22px;
-            height: 40px;
-            padding: 10px 20px;
+            height: 50px;
+            padding: 15px 20px;
             box-sizing: border-box;
             border: none;
             margin: 0;
@@ -91,35 +117,86 @@
         .input-file input[type=file]:disabled + span {
             background-color: #eee;
         }
+
         #img_place{
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 50px;
         }
+          .page {
+              width: 100%;
+              max-width: 400px;
+              background-color: #fd6f23;
+              color: white;
+          }
         img {
             width: 100%;
             max-width: 400px;
             height: auto;
+        }
+        #back-to-top-btn {
+            display: none; /* по умолчанию кнопка скрыта */
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fcb045;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            z-index: 99;
+        }
+
+        #back-to-top-btn:hover {
+            background-color: #fd1d1d;
+        }
+        @media screen and (max-width: 750px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            a {
+                width: 100%;
+                padding: 5px 0;
+            }
+            .input-file span {
+                width: 100vw;
+                height: 40px;
+                padding: 10px 20px;
+            }
+            #img_place{
+                margin-top: 80px;
+            }
         }
 
     </style>
 </head>
 <body>
 
-<header>
-    <a href="https://remanga.org/team/peacekeepingsquad" id="header"><h1>Tfoxs</h1>
-    <h3 class="description">(BETA v1.1.) Загрузка занимает около 20 секунд</h3></a>
-<!--    <input type="file" id="archiveInput" accept=".zip">-->
-
+<header class="header-container">
+    <a href="https://remanga.org/team/peacekeepingsquad" id="header">
+        <h1>Tfoxs</h1>
+        <h3 class="description">(BETA v1.2.) Загрузка занимает какое-то время</h3>
+    </a>
+    <form method="post" enctype="multipart/form-data">
+        <label class="input-file">
+            <input type="file" name="file" id="archiveInput" accept=".zip">
+            <span>Выберите архив</span>
+        </label>
+    </form>
 </header>
-<form method="post" enctype="multipart/form-data">
-    <label class="input-file">
-        <input type="file" name="file" id="archiveInput" accept=".zip">
-        <span>Выберите архив</span>
-    </label>
-</form>
-<div id="img_place"></div>
+
+<div id="img_place">
+    <p>
+        Инструкция:<br>
+        1. Скачайте архив с диска (или любой другой формата .zip)<br>
+        2. Нажмите "Выберите архив" и выберете интересующий
+    </p>
+</div>
+<button id="back-to-top-btn" title="Вернуться наверх">↑</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
 <script>
     // Получаем элемент input
@@ -133,16 +210,11 @@
         // Создаем объект FileReader для чтения содержимого файла
         var reader = new FileReader();
 
+        var img_place = document.getElementById('img_place');
+        img_place.innerHTML = "<p>Идёт загрузка</p>"
+
         // Устанавливаем обработчик события onload для FileReader
         reader.onload = function(event) {
-            // Получаем все элементы img на странице
-            var images = document.querySelectorAll('img');
-
-            // Проходимся по каждому элементу и удаляем его
-            for (var i = 0; i < images.length; i++) {
-                images[i].remove();
-            }
-            // Получаем содержимое файла
             var data = event.target.result;
 
             // Создаем объект JSZip для работы с архивом
@@ -156,7 +228,6 @@
                 // Создаем массив обещаний на получение содержимого изображений
                 var promises = fileNames.filter(fileName => fileName.match(/.(jpg|jpeg|png|gif)$/i))
                     .map(fileName => zip.file(fileName).async('base64'));
-
                 // Ожидаем завершения всех обещаний и добавляем изображения в DOM
                 Promise.all(promises).then(function(contents) {
                     // Создаем объект с ключами - именами файлов и значениями - содержимым файлов
@@ -175,12 +246,16 @@
 
                     // Получаем контейнер, в который будем добавлять изображения
                     var container = document.getElementById('img_place');
-
+                    img_place.innerHTML = ""
                     // Добавляем изображения в контейнер в порядке сортировки
                     sortedFileNames.forEach(function(fileName) {
                         var content = files[fileName];
+                        var par = document.createElement('p');
+                        par.classList.add("page");
+                        par.innerHTML = "↓ " + fileName.split('/').at(-1) + " ↓"
                         var img = document.createElement('img');
                         img.src = 'data:image/png;base64,' + content;
+                        container.appendChild(par);
                         container.appendChild(img);
                     });
                 });
@@ -189,6 +264,22 @@
 
 // Читаем содержимое файла в формате ArrayBuffer
         reader.readAsArrayBuffer(file);
+    });
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            document.getElementById("back-to-top-btn").style.display = "block";
+        } else {
+            document.getElementById("back-to-top-btn").style.display = "none";
+        }
+    }
+
+    // скроллим наверх страницы при нажатии на кнопку
+    document.getElementById("back-to-top-btn").addEventListener("click", function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     });
 </script>
 

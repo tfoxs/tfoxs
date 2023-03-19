@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Edt-o</title>
+    <link rel="icon" href="no_bg_4.png" type="image/x-icon">
     <style type="text/css">
         * {
             margin: 0;
@@ -22,12 +23,6 @@
             justify-content: center;
             align-content: center;
         }
-		/*h1{
-			padding-top: 5px;
-		}
-		h3{
-			padding-bottom: 5px;
-		}*/
         body {
             text-align: center;
             font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -330,22 +325,22 @@
 
 
 <script type="text/javascript">
-	
+
 	function save(){
 		var inputs = document.querySelectorAll("input[type=checkbox]");
 		let enabledSettings = []
-			
+
 		inputs.forEach(function(checkbox) {
 			checkbox.addEventListener('change', function() {
 				var arrData = [];
 				inputs.forEach(function(input){
 					arrData.push({ id: input.id, checked: input.checked });
 				});
-				localStorage.setItem('inputs', JSON.stringify(arrData));				
+				localStorage.setItem('inputs', JSON.stringify(arrData));
 			})
 		})
 	}
-	function load(){    
+	function load(){
 		var inputs = JSON.parse(localStorage.getItem('inputs'));
 		inputs.forEach(function(input){
 			try{
@@ -356,9 +351,9 @@
 		});
 		save();
 	}
-	
+
     function fff() {
-		
+
         let textarea = document.getElementById('textarea');
         let text = textarea.value;
         text = text.replace(/\n{2,}/g, "\n\n");
@@ -396,11 +391,11 @@
                 ell = ell.replace("?!.", "?!")
             }
             ell = ell.replace(/^\.{3}\s+/g, "...")
-            
+
 			if (document.getElementById('c3').checked) {
 				ell = ell.replace(/["'](.*)["']/g, "«$1»")
 			}
-			
+
 			ell = ell.replace(/\s+([!?,.]+)/gm, "$1")
 
 
