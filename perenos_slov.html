@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Perenos-o</title>
+    <link rel="icon" href="no_bg_4.png" type="image/x-icon">
+    <style type="text/css">
+        * {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+			height: 100%;
+        }
+
+        #header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+        body {
+            text-align: center;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 1em;
+            display: flex;
+            flex-direction: column;
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+        }
+        header {
+            background: rgb(253, 29, 29);
+            background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
+            color: white;
+            padding: 10px 0;
+        }
+        #control{
+            width: 100%;
+            padding-top: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+        }
+        p {
+            font-size: 3em;
+        }
+        input {
+            padding: 5px;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none !important;
+        }
+        button {
+            background: rgb(253, 29, 29);
+            background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
+            border: none;
+            padding: 7px 15px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 300px) {
+            body{
+                font-size: 0.7em;
+            }
+        }
+        @media only screen and (max-device-width: 480px) {
+            *{
+                font-size: 45px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+
+<header>
+    <a href="https://remanga.org/team/peacekeepingsquad" id="header"><h1>Tfoxs</h1>
+    <h3 class="description">(BETA v1.1.) Расстановка переносов (может не совподать с правилами русского языка)</h3></a>
+</header>
+
+<div id="control">
+    <input type="text" id="input">
+    <button id="btn" onclick="fff()">Переносы</button>
+</div>
+<p id="output">При-мер</p>
+
+
+<script type="text/javascript">
+
+    document.getElementById("input")
+        .addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                document.getElementById("btn").click();
+            }
+        });
+
+    const regex = /[бвгджзйклмнпрстфхцчшщ]+[аеёиоуыэюя][бвджзйклмнпрстфхцчшщ](?=[бвгджзйклмнпрстфхцчшщьъ ])[ьъй]?|[бвгджзйклмнпрстфхцчшщ]+[аеёиоуыэюя][й]?|[аеёиоуыэюя][бвгджзйклмнпрстфхцчшщ](?=[бвгджзйклмнпрстфхцчшщьъ ])[ъь]?|[аеёиоуыэюя](?=[а-я]{2})|(?<= +)[^\s]+(?= +|$)/gmi;
+
+    function fff() {
+
+        let textarea = document.getElementById('input');
+        let text_raw = textarea.value.split(" ");
+        let text_out = ""
+        let out = []
+
+        for (const text of text_raw) {
+
+            let offset = 0, limit = 3, defis = 0;
+            out = []
+            let matches = text.matchAll(regex);
+
+            for (const m of matches) {
+                out.push(m[0]);
+                offset += m[0].length;
+            }
+            try {
+                defis = text.match(/[-]/g).length
+            } catch (e) {
+            }
+            if (text.length !== offset + defis) {
+                out.push(text.slice(offset))
+            }
+            try {
+                if (out[0].length === 1 && out[1].length > 0) {
+                    out[1] = out[0] + out[1]
+                    out.shift()
+                }
+                limit = out.length - 1
+                if (out[limit].length === 1) {
+                    out[limit - 1] = out[limit - 1] + out[limit]
+                    out.pop()
+                }
+            } catch (e) {}
+            console.log(out.join('-'))
+            text_out += " "+out.join('-')
+        }
+        document.getElementById('output').innerHTML = text_out
+        textarea.value = ""
+
+    }
+</script>
+
+</body>
+</html>
