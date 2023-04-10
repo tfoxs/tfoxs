@@ -358,7 +358,7 @@
         let text = textarea.value;
         text = text.replace(/\n{2,}/g, "\n\n");
         if (document.getElementById('c2').checked) {
-            text = text.replace(/(\s[/\\]\s)|(\s[/\\])|([/\\]\s)|([/\\])/g, "\n##Слитный бабл\n");
+            text = text.replace(/(\s*[/\\]+\s*)/g, "\n##Слитный бабл\n");
         }
 
         let text_list = text.split("\n");
