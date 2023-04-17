@@ -1,753 +1,110 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tfoxs</title>
-    <style>
-        @import 'nav_panel.css';
-        @import 'header.css';
-    </style>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <title>Manager-o</title>
     <link rel="icon" href="no_bg_4.png" type="image/x-icon">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="filter.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            height: 100%;
+        }
+        #header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+        body {
+            text-align: center;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 1em;
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        header {
+            background: rgb(253, 29, 29);
+            background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
+            color: white;
+            height: 55px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .button-link {
+            width: 90%;
+            height: auto;
+            margin-top: 15px;
+            padding: 10px;
+            background: #fd6832;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-link:hover {
+            background-color: #fd1d1d;
+        }
+
+        .button-link:active {
+            background-color: #fd1d1d;
+        }
+
+        @media only screen and (max-width: 300px) {
+            body{
+                font-size: 0.7em;
+            }
+            h3{
+                font-size: .8em;
+            }
+        }
+        @media only screen and (max-device-width: 480px) {
+            *{
+                font-size: 45px;
+            }
+        }
+
+    </style>
 </head>
+<body onload="load()">
 
-<body>
 
-    <header>
-        <div class="hamburger-menu">
-            <input id="menu_toggle" type="checkbox" />
-            <label class="menu_btn" for="menu_toggle"> <span></span> </label>
-            <div class="menu_box">
-                <a class="header_a" title="Группа ВК" href="https://vk.com/tfoxsmanga">Vk</a>
-                <a class="header_a" title="ReManga" href="https://remanga.org/team/peacekeepingsquad">ReManga</a>
-                <a class="header_a" title="MangaLib" href="https://mangalib.me/team/peacefulsquad">MangaLib</a>
-            </div>
-        </div>
+<header>
+    <a href="https://remanga.org/team/peacekeepingsquad" id="header"><h1>Tfoxs</h1>
+        <h3 class="description">Менеджер приложений</h3></a>
+</header>
 
-    </header>
+<div class="button-container">
+    <a href="https://tfoxs.github.io/tfoxs/edit_text.html" class="button-link">Исправить знаки</a>
+    <a href="https://tfoxs.github.io/tfoxs/drivescanreader.html" class="button-link">Открыть архив с диска как в читалке</a>
+    <a href="https://tfoxs.github.io/tfoxs/perenos_slov.html" class="button-link">Перенос слов (Кривая бета)</a>
+</div>
 
-    <div class="content">
 
-        <!-- Навыки ассасина сделают вас сильнейшим в другом мире.. -->
-        <div class="item">
-        <img src="https://api.remanga.org/media/titles/the-strongest-in-another-world-with-assassination-skills--i-who-has-mastered-alchemy-and-assassination-dominate-the-world-from-behind/cbaa391840b03e1e89a767005231edeb.jpg" alt="" class="item-img">
+<script type="text/javascript">
 
-        <p>
-            Навыки ассасина сделают вас сильнейшим в другом мире. Я тот, кто овладел алхимией и навыками убийства, буду править миром из тени!
-        </p>
-        <div class="item-text">
 
-            <a href="https://remanga.org/manga/the-strongest-in-another-world-with-assassination-skills--i-who-has-mastered-alchemy-and-assassination-dominate-the-world-from-behind" class="link">
-                Re
-            </a>
-            <a href="https://mangalib.me/ansatsu-skill-de-isekai-saikyo" class="link">
-                Lib
-            </a>
-        </div>
-    </div>
-
-        <!-- История о "безработном" чемпионе.. -->
-        <div class="item">
-            <img src="https://api.remanga.org/media/titles/story-of-a-jobless-champion-and-a-princess-who-together-find-their-happiness/3d204ca882a720fcef741c89dc7a1948.jpg" alt="" class="item-img">
-
-            <p>
-                История о "безработном" чемпионе и принцессе, которые вместе находят свое счастье
-            </p>
-            <div class="item-text">
-
-                <a href="https://remanga.org/manga/story-of-a-jobless-champion-and-a-princess-who-together-find-their-happiness" class="link">
-                    Re
-                </a>
-                <a href="https://mangalib.me/story-of-a-jobless-champion-and-a-princess-who-together-find-their-happiness?section=info" class="link">
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Хотя бы в седьмой раз дайте мне пожить спокойно! -->
-        <div class="item">
-            <img src="
-                https://api.remanga.org/media/titles/the-villainess-wants-to-enjoy-a-carefree-married-life-in-a-former-enemy-country-in-her-seventh-loop/a27b785bfcfc4882b41f4e7be0a32690.jpg
-            " alt="" class="item-img">
-
-            <p>
-                Хотя бы в седьмой раз дайте мне пожить спокойно! (Злодейка, 7)
-            </p>
-            <div class="item-text">
-
-                <a href="https://remanga.org/manga/the-villainess-wants-to-enjoy-a-carefree-married-life-in-a-former-enemy-country-in-her-seventh-loop" class="link">
-                    Re
-                </a>
-                <a href="https://mangalib.me/the-villainess-wants-to-enjoy-a-carefree-married-life-in-a-former-enemy-country-in-her-seventh-loop?section=info" class="link">
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Nier Automata: Высадка команды YoRHa в Пёрл-Харбор -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/nier-automata-yorha-pearl-harbor-descent-mission-record/46704d6de7e84097b4bc633bf5ef81af.jpg' alt='' class='item-img'>
-
-            <p>Nier Automata: Высадка команды YoRHa в Пёрл-Харбор</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/nier-automata-yorha-pearl-harbor-descent-mission-record' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/nier-automata-yorha-shinjuwan-takashika-sakusen-kiroku?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Начало неторопливой жизни лорда с помощью чит-магии растений. Повторная жизнь со знаниями о земледелии -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/start-a-leisurely-lord-life-with-a-plant-magic-cheat-after-farming-with-the-knowledge-of-the-previous-life-a-reversal-life-began/7955b3c83638651eb8237b5fd3e88234.jpg' alt='' class='item-img'>
-
-            <p>Начало неторопливой жизни лорда с помощью чит-магии растений. Повторная жизнь со знаниями о земледелии</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/start-a-leisurely-lord-life-with-a-plant-magic-cheat-after-farming-with-the-knowledge-of-the-previous-life-a-reversal-life-began' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/shokubutsu-mahou-cheat-de-nonbiri-ryoushu-seikatsu-hajimemasu-zensei-no-chishiki-o-kushi-shite-nougyou-shitara-gyakuten-jinsei-hajimatta-ken?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Мой потусторонний сосед -->
-        <div class="item">
-            <img src="https://api.remanga.org/media/titles/my-roommate-isnt-from-this-world/97a3aa7fbe8924edeb008e9d4c68f755.jpg" alt="" class="item-img">
-
-            <p>
-                Мой потусторонний сосед
-            </p>
-            <div class="item-text">
-
-                <a href="https://remanga.org/manga/my-roommate-isnt-from-this-world" class="link">
-                    Re
-                </a>
-                <a href="https://mangalib.me/dokyo-hito-ga-konoyo-no-mon-janai?section=info" class="link">
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Сильнейший стражник~ Изгнанный воин с защитой 9999, непревзойденный стражник столицы королевства -->
-        <div class="item">
-            <img src="https://api.remanga.org/media/titles/sono-monban-saikyou-nitsuki-tsuihou-sareta-bougyo-ryoku-9999-no-senshi-ou-miyako-no-monban-toshite-musou-suru/ad634dc29d02f1bac6f58540782876a0.jpg" alt="" class="item-img">
-
-            <p>
-                Сильнейший стражник~ Изгнанный воин с защитой 9999, непревзойденный стражник столицы королевства
-            </p>
-            <div class="item-text">
-
-                <a href="https://remanga.org/manga/sono-monban-saikyou-nitsuki-tsuihou-sareta-bougyo-ryoku-9999-no-senshi-ou-miyako-no-monban-toshite-musou-suru" class="link">
-                    Re
-                </a>
-                <a href="https://mangalib.me/sono-monban-saikyou-nitsuki-tsuihou-sareta-bougyo-ryoku-9999-no-senshi-ou-miyako-no-monban-toshite-musou-suru" class="link">
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Злодейка, которую убили 108 раз, но она все вспомнила. Дева с рубином творит чудеса -->
-        <div class="item">
-            <img src="https://api.remanga.org/media/titles/108kai-korosareta-akuyaku-reijou-subete-wo-omoidashitanode-otome-wa-ruby-due-kiseki-shimasu/d24daf60b24e6286304baf2485c53615.jpg" alt="" class="item-img">
-
-            <p>
-                Злодейка, которую убили 108 раз, но она все вспомнила. Дева с рубином творит чудеса
-            </p>
-            <div class="item-text">
-
-                <a href="https://remanga.org/manga/108kai-korosareta-akuyaku-reijou-subete-wo-omoidashitanode-otome-wa-ruby-due-kiseki-shimasu" class="link">
-                    Re
-                </a>
-                <a href="https://mangalib.me/108-kai-korosareta-akuyaku-reijou-subete-wo-omoidashitanode-otome-wa-ruby-due-kiseki-shimasu?section=info" class="link">
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Школьный хулиган со сверхспособностями -->
-        <div class="item">
-            <img src="https://api.remanga.org/media/titles/super-bad-schoolmaster/63aabf01605cc70719fa8f5489ce81ef.jpg" alt="" class="item-img">
-
-            <p>
-                Школьный хулиган со сверхспособностями
-            </p>
-            <div class="item-text">
-
-                <a href="https://remanga.org/manga/super-bad-schoolmaster" class="link">
-                    Re
-                </a>
-                <a href="https://mangalib.me/chao-neng-buliang-xue-ba?section=info" class="link">
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Богиня дала мне систему -->
-        <div class="item">
-            <img src="https://api.remanga.org/media/titles/the-goddess-took-me-to-be-a-master/e4e0d9d77b4827494a3dc1e7fa7f7b3d.jpg" alt="" class="item-img">
-
-            <p>
-                Богиня дала мне систему
-            </p>
-            <div class="item-text">
-
-                <a href="https://remanga.org/manga/the-goddess-took-me-to-be-a-master" class="link">
-                    Re
-                </a>
-                <a href="https://mangalib.me/nushen-dai-wo-dang-xue-ba?section=info" class="link">
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Что, если чрезвычайно развитая РПГ с полным погружением вызывает большее привыкание, чем реальность -->
-        <div class="item">
-            <img src="https://api.remanga.org/media/titles/new-game-was-born-it-was-accepted-with-shock-and-enthusiasm-but-no-one-can-clear-it/3289e0f0e120ae5ba7577c91d5fc7aeb.jpg" alt="" class="item-img">
-
-            <p>
-                Что, если чрезвычайно развитая РПГ с полным погружением вызывает большее привыкание, чем реальность
-            </p>
-            <div class="item-text">
-
-                <a href="https://remanga.org/manga/new-game-was-born-it-was-accepted-with-shock-and-enthusiasm-but-no-one-can-clear-it" class="link">
-                    Re
-                </a>
-            </div>
-        </div>
-
-        <!-- Небесная жемчужина: перевоплощение -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/heavenly-jewel-change/6c663fed33b08c56953bb3f89305f2d4.jpg' alt='' class='item-img'>
-
-            <p>Небесная жемчужина: перевоплощение</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/heavenly-jewel-change' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/tianzhu-change?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Жнец смерти -->
-        <div class='item '>
-            <img src='https://api.remanga.org/media/titles/the-boy-of-death/high_cover.jpg' alt='' class='item-img'>
-
-            <p>Жнец смерти</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/the-boy-of-death' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/the-boy-of-death?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Старик, который получил второй шанс в другом мире -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/the-old-man-who-got-a-second-round-in-another-world/high_cover.jpg' alt='' class='item-img'>
-
-            <p>Старик, который получил второй шанс в другом мире</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/the-old-man-who-got-a-second-round-in-another-world' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/isekai-de-nishuume-play-wo-mankitsu-chuu?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Знаете ли вы, что бездельник может стать мудрецом? — Шут 99-го уровня, исключенный из отряда героев, достиг звания «Великого мудреца» -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/did-you-know-that-a-playboy-can-change-his-job-to-a-sage/high_cover.jpg' alt='' class='item-img'>
-
-            <p>Знаете ли вы, что бездельник может стать мудрецом? — Шут 99-го уровня, исключенный из отряда героев, достиг звания «Великого мудреца»</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/did-you-know-that-a-playboy-can-change-his-job-to-a-sage' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/asobinin-wa-kenja-ni-tenshoku-dekiru-tte-shittemashita-yuusha-party-o-tsuihou-sareta-lv99?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Величайший Повелитель Демонов перерождается как типичное ничтожество -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/the-greatest-demon-lord-is-reborn-as-a-typical-nobody/8cb3b68cab2ef487cecbfedecda21bbe.jpg' alt='' class='item-img'>
-
-            <p>Величайший Повелитель Демонов перерождается как типичное ничтожество</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/the-greatest-demon-lord-is-reborn-as-a-typical-nobody' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/shijou-saikyou-no-daimaou-murabito-a-ni-tensei-suru?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Самый сильный мудрец был понижен в должности и, став учителем, создал беспрецедентный класс. -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/the-strongest-sage-was-demoted-and-became-a-teacher-creating-unparalleled-classes/afc2580226ff45bbcd159ac55b81177c.jpg' alt='' class='item-img'>
-
-            <p>Самый сильный мудрец был понижен в должности и, став учителем, создал беспрецедентный класс.</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/the-strongest-sage-was-demoted-and-became-a-teacher-creating-unparalleled-classes' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/sasen-sareta-saikyo-kenja-kyoushi-ni-natte-muteki-no-class-wo-tsukuriageru?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Бунтарь Академии короля демонов: Первый кандидат человечества стремится взойти на трон вместе со своими служанками -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/maou-gakuen-no-hangyakusha/77f6bda2bf067443ede30b9dcc1be928.jpg' alt='' class='item-img'>
-
-            <p>Бунтарь Академии короля демонов: Первый кандидат человечества стремится взойти на трон вместе со своими служанками</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/maou-gakuen-no-hangyakusha?subpath=content' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/maou-gakuen-no-hangyakusha?' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Перерождение Бога Демонов -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/the-rebirth-of-the-demon-god/90df18371a060c964117d3da751c9f72.jpg' alt='' class='item-img'>
-
-            <p>Перерождение Бога Демонов</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/the-rebirth-of-the-demon-god' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/rebirth-of-the-demon-reign?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Авантюрист, что удочерил героя и короля демонов -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/uncle-pick-up-a-brave-man-and-a-demon-king/f15fbccd8d9a310b854479f88d3cf0b4.jpg' alt='' class='item-img'>
-
-            <p>Авантюрист, что удочерил героя и короля демонов</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/uncle-pick-up-a-brave-man-and-a-demon-king' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/ossan-yusha-to-mao-o-hirou?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Врата Тьмы -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/heiyuan-lingmingshi/7ec975a5b284a1755849b56c4cb80726.jpg' alt='' class='item-img'>
-
-            <p>Врата Тьмы</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/heiyuan-lingmingshi' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/heiyuan-lingmingshi?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Подчинись мне -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/obey-me-/c1e1396edc199a30f2ec90a0439bff3d.jpg' alt='' class='item-img'>
-
-            <p>Подчинись мне</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/obey-me-' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/naege-bogjonghaseyo?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Темная дорога святого рыцаря -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/the-holy-knights-dark-road/6ad4cb371a675c4ef543ac4f4e585f1a.jpg' alt='' class='item-img'>
-
-            <p>Темная дорога святого рыцаря</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/the-holy-knights-dark-road' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/the-holy-knights-dark-road?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Реинкарнировавший авантюрист с проклятой печатью -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/reincarnated-adventurer-with-curse-stamp/352b9f07f45a9584306923b674f59090.jpg' alt='' class='item-img'>
-
-            <p>Реинкарнировавший авантюрист с проклятой печатью</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/reincarnated-adventurer-with-curse-stamp' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/jukokuin-no-tensei-boukensha?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Невероятный новичок средних лет, прошедший тренировки на грани смерти. -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/the-middleaged-newbie-adventurer-trained-to-the-brink-of-death-by-the-strongest-party-became-unbeatable/0d3b0644a3697349e275471e2f43e922.jpg' alt='' class='item-img'>
-
-            <p>Невероятный новичок средних лет, прошедший тренировки на грани смерти.</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/the-middleaged-newbie-adventurer-trained-to-the-brink-of-death-by-the-strongest-party-became-unbeatable?subpath=content' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/shinmai-ossan-bouken-sha-saikyou-paati-ni-shinu-hodo-kitae-rarete-muteki-ni-naru?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Дневник желаний -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/desire-diary/b3a9e95966c8ee7fc36a9b64316512a5.jpg' alt='' class='item-img'>
-
-            <p>Дневник желаний</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/desire-diary?subpath=content' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/yogmang-ilgi?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Генеральный директор, ваша жена убегает -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/ceo-your-wife-is-running-away/8218789d0e5bfec196055ff79f6a59b9.jpg' alt='' class='item-img'>
-
-            <p>Генеральный директор, ваша жена убегает</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/ceo-your-wife-is-running-away' class='link'>
-                    Re
-                </a>
-            </div>
-        </div>
-
-        <!-- Вызывающий дрожь маг и пять императорских зверей -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/trembling-magician-and-the-five-emperor-beasts/8f33269563e6ad24aae1e5b7a61d18b2.jpg' alt='' class='item-img'>
-
-            <p>Вызывающий дрожь маг и пять императорских зверей</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/trembling-magician-and-the-five-emperor-beasts?subpath=content' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/senritsu-no-majutsushi-to-goteijuu?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Авторежим отключился на 6-м раунде отомэ-игры -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/automode-expired-in-the-6th-round-of-the-otome-game--otome-game-rokkushuume-automode-ga-kiremashita/f1410ba9b395973ef911fd10286675f8.jpg' alt='' class='item-img'>
-
-            <p>Авторежим отключился на 6-м раунде отомэ-игры</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/automode-expired-in-the-6th-round-of-the-otome-game--otome-game-rokkushuume-automode-ga-kiremashita?subpath=content' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/auto-mode-expired-in-the-6th-round-of-the-otome-game?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Ты ведь понимаешь, что я от тебя не откажусь? -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/i-wont-be-breaking-off-this-engagement-you-know-that-right/0d60cbf3cafb3fb0e8f32f1049510498.jpg' alt='' class='item-img'>
-
-            <p>Ты ведь понимаешь, что я от тебя не откажусь?</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/i-wont-be-breaking-off-this-engagement-you-know-that-right' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/boku-wa-konyaku-haki-nante-shimasenkara-ne' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Перевоплощенный принц становится алхимиком и возвращается в деревню. -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/the-reincarnated-prince-becomes-an-alchemist-and-rises-to-the-country/41fdf14e62374e01c09877e6e5750f71.jpg' alt='' class='item-img'>
-
-            <p>Перевоплощенный принц становится алхимиком и возвращается в деревню.</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/the-reincarnated-prince-becomes-an-alchemist-and-rises-to-the-country' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/tensei-oji-wa-renkinjutsu-shi-to-nari-kokoku-suru?section=chapters' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Воспоминания Канглима -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/19359-ganglim-electric-revised-machine/0a28215070c78620991d43d7e36c7a25.jpg' alt='' class='item-img'>
-
-            <p>Воспоминания Канглима</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/19359-ganglim-electric-revised-machine' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/ganglimjeongi-gaejeong-gi?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Перерождение близняшек -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/twin-brothers-new-life/e889fb2594e32f1ea8622c8a7dbf8d90.jpg' alt='' class='item-img'>
-
-            <p>Перерождение близняшек</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/twin-brothers-new-life' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/cangdongyi-nammaen-nuraife?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Я стала матерью злодея -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/i-become-a-villiane-mother/61dbc6e62dd35731ee992cc963cc73ec.jpg' alt='' class='item-img'>
-
-            <p>Я стала матерью злодея</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/i-become-a-villiane-mother' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/i-became-the-mother-of-the-villian?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Возвращение Господа -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/return-of-the-lord/59f1438b12f87b4cc2e919a5f0d30bb5.jpg' alt='' class='item-img'>
-
-            <p>Возвращение Господа</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/return-of-the-lord' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/zhuzai-guilai?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Наставник в приграничном городе -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/border-city-breeders/9bc3c80b6443ec8864fd2c3d8f7828c9.jpg' alt='' class='item-img'>
-
-            <p>Наставник в приграничном городе</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/border-city-breeders' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/henkyou-toshi-no-ikuseisha-hajimari-no-kaminari-hime?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Романтическая фантастика -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/romance-fantasy-manhwa-binge/157cc4e968b97659870c287e5ca044cb.jpg' alt='' class='item-img'>
-
-            <p>Романтическая фантастика</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/romance-fantasy-manhwa-binge' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/lopan-bing-ui-manhwa?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Бывший герой, которого прозвали неудачником, был изгнан из дома своей семьи и решил жить так, как ему заблагорассудится -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/the-former-hero-was-called-as-a-failure-and-expelled-from-his-home-decided-to-live-on-his-own/5c921c91450252eda94d254cbee10ba3.jpg' alt='' class='item-img'>
-
-            <p>Бывший герой, которого прозвали неудачником, был изгнан из дома своей семьи и решил жить так, как ему заблагорассудится</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/the-former-hero-was-called-as-a-failure-and-expelled-from-his-home-decided-to-live-on-his-own' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/dekisokonai-to-yobareta-moto-eiyuu-wa-jikka-kara-tsuihousa-retanode-suki-katte-ni-ikiru-koto-ni-shita?section=chapters' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Я спасла проклятого герцога -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/jeoju-badeun-gongjag-nim-eul-gu-haessseubnida/5bd7e3f651147ad1af852687eb2e22b5.jpg' alt='' class='item-img'>
-
-            <p>Я спасла проклятого герцога</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/jeoju-badeun-gongjag-nim-eul-gu-haessseubnida' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/i-saved-the-cursed-duke?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Ча Чонби из страны Итан -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/cha-chonbis-altruism/352f8c1fd4fe47fa4d1755caf7724a99.jpg' alt='' class='item-img'>
-
-            <p>Ча Чонби из страны Итан</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/cha-chonbis-altruism' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/itangug-ui-jacheongbi?section=info' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-        <!-- Сильнейший наездник на драконах, силком притащенный в столичную академию, оказывается тем еще простаком -->
-        <div class='item'>
-            <img src='https://api.remanga.org/media/titles/the-strongest-dragon-rider-who-was-forcibly-taken-to-the-school-of-the-royal-capital-is-a-countryman-so-much-that-it-gets-super/07357b5f43fe1c939a2e19c56ce70950.jpg' alt='' class='item-img'>
-
-            <p>Сильнейший наездник на драконах, силком притащенный в столичную академию, оказывается тем еще простаком</p>
-            <div class='item-text'>
-
-                <a href='https://remanga.org/manga/the-strongest-dragon-rider-who-was-forcibly-taken-to-the-school-of-the-royal-capital-is-a-countryman-so-much-that-it-gets-super?subpath=content' class='link'>
-                    Re
-                </a>
-                <a href='https://mangalib.me/o-miyako-no-gakuen-ni-kyosei-renko-sareta-saikyo-no-dragon-rider-ha-cho-ga-tsuku-hodo-inakamono?section=chapters' class='link'>
-                    Lib
-                </a>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- Конец -->
-        <div class='item'>
-            <img src='https://cs4.pikabu.ru/post_img/big/2015/09/18/11/1442602532_2191021.jpg' alt='' class='item-img'>
-
-            <p>На этом все. Если чего-то не хватает - пишите мне.<br>Спасибо, что выбрали нас.</p>
-            <div class='item-text'>
-
-                <a href='https://vk.com/tfoxsvk' class='link'>
-                    Ссылка на меня
-                </a>
-            </div>
-        </div>
-
-    </div>
+</script>
 
 </body>
 </html>

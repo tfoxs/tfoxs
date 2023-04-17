@@ -65,7 +65,14 @@
             /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
             z-index: 100;
         }
-
+        #header{
+            display: flex;
+            align-items: center;
+        }
+        #back{
+            height: 100%;
+            width: auto;
+        }
         .header-container {
             display: flex;
             justify-content: space-between;
@@ -177,10 +184,13 @@
 <body>
 
 <header class="header-container">
-    <a href="https://remanga.org/team/peacekeepingsquad" id="header">
-        <h1>Tfoxs</h1>
-        <h3 class="description">(BETA v1.2.) Загрузка занимает какое-то время</h3>
-    </a>
+    <div id="header">
+        <a href="https://tfoxs.github.io/tfoxs/" id="back"><</a>
+        <a href="https://remanga.org/team/peacekeepingsquad">
+            <h1>Tfoxs</h1>
+            <h3 class="description">(BETA v1.2.) Загрузка занимает какое-то время</h3>
+        </a>
+    </div>
     <form method="post" enctype="multipart/form-data">
         <label class="input-file">
             <input type="file" name="file" id="archiveInput" accept=".zip">
