@@ -15,14 +15,6 @@
             color: inherit;
 			height: 100%;
         }
-
-        #header {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
-        }
         body {
             text-align: center;
             font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -34,14 +26,35 @@
 			overflow: hidden;
         }
 		body > *{
-			flex: 1 1 1%;
+			flex: 1 1 3%;
 		}
         header {
+            display: flex;
+            align-items: center;
             background: rgb(253, 29, 29);
             background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
             color: white;
+            max-height: 55px;
         }
-
+        #back {
+            display: block;
+            height: 55px;
+            width: 55px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 2em;
+        }
+        #back:hover {
+            background: #FCB045FF;
+        }
+        #header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            flex-grow: 1;
+        }
         button {
             height: 100%;
             flex-grow: 9;
@@ -67,6 +80,10 @@
             overflow-y: scroll;
             box-sizing: border-box;
 			flex: 1 1 30%;
+            border: none;
+        }
+        textarea:focus {
+            outline: none;
         }
 
         p {
@@ -92,7 +109,6 @@
             flex-direction: row;
             background: rgb(253, 29, 29);
             background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
-			padding: 5px 0;
         }
         .control-boxs{
             flex-grow: 2;
@@ -119,6 +135,7 @@
             border-style: solid;
             box-sizing: border-box;
 			flex: 1 1 30%;
+            border: none;
         }
 
         .b-contain *,
@@ -291,6 +308,7 @@
 
 
 <header>
+    <a href="https://tfoxs.github.io/tfoxs" id="back"><</a>
     <a href="https://remanga.org/team/peacekeepingsquad" id="header"><h1>Tfoxs</h1>
     <h3 class="description">(BETA v1.5.) Правим текст вместе</h3></a>
 </header>

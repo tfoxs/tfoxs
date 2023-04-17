@@ -9,7 +9,10 @@
             margin: 0;
             font-size: 12px;
         }
-
+        h2 {
+            margin-bottom: 5px;
+            color: #fd7034;
+        }
         a {
             text-decoration: none;
             color: inherit;
@@ -51,25 +54,38 @@
             width: 90%;
             height: auto;
             margin-top: 15px;
-            padding: 10px;
-            background: #fd6832;
+            padding: 10px 25px;
+            background: white;
             border-radius: 10px;
-            color: white;
-            text-align: center;
+            color: black;
+            text-align: left;
             text-decoration: none;
             cursor: pointer;
             box-sizing: border-box;
-            transition: background-color 0.3s ease;
+            transition: all 0.2s ease;
+            -webkit-box-shadow: 0px 5px 20px -7px rgba(34, 60, 80, 0.3);
+            -moz-box-shadow: 0px 5px 20px -7px rgba(34, 60, 80, 0.3);
+            box-shadow: 0px 5px 20px -7px rgba(34, 60, 80, 0.3);
         }
 
         .button-link:hover {
-            background-color: #fd1d1d;
+            border-left: 5px solid #FD1D1DFF;
+            box-sizing: border-box;
+        }
+        .button-link:hover h2 {
+            color: #FD1D1DFF;
         }
 
         .button-link:active {
-            background-color: #fd1d1d;
+            border-left: 5px solid #FD1D1DFF;
+            box-sizing: border-box;
         }
-
+        .button-link:active h2 {
+            color: #FD1D1DFF;
+        }
+        .button-link p {
+            color: darkgray;
+        }
         @media only screen and (max-width: 300px) {
             body{
                 font-size: 0.7em;
@@ -95,9 +111,18 @@
 </header>
 
 <div class="button-container">
-    <a href="https://tfoxs.github.io/tfoxs/edit_text.html" class="button-link">Исправить знаки</a>
-    <a href="https://tfoxs.github.io/tfoxs/drivescanreader.html" class="button-link">Открыть архив с диска как в читалке</a>
-    <a href="https://tfoxs.github.io/tfoxs/perenos_slov.html" class="button-link">Перенос слов (Кривая бета)</a>
+    <a href="https://tfoxs.github.io/tfoxs/edit_text.html" class="button-link">
+        <h2>Edit-o</h2>
+        <p>Позволит обработать текст, исправив большую часть неправельных знаков.</p>
+    </a>
+    <a href="https://tfoxs.github.io/tfoxs/drivescanreader.html" class="button-link">
+        <h2>Reader-o</h2>
+        <p>Позволит открыть архив с диска как в читалке</p>
+    </a>
+    <a href="https://tfoxs.github.io/tfoxs/perenos_slov.html" class="button-link">
+        <h2>Perenos-o</h2>
+        <p>Позволит разбить любое слово на части для переноса</p>
+    </a>
 </div>
 
 
