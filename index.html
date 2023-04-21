@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Manager-o</title>
     <link rel="icon" href="no_bg_4.png" type="image/x-icon">
     <style type="text/css">
+
         * {
             margin: 0;
             font-size: 12px;
+            transition: font-size 0.2s;
         }
         h2 {
             margin-bottom: 5px;
@@ -17,12 +21,51 @@
             color: inherit;
             height: 100%;
         }
+        .hover-orange:hover {
+            background: rgb(252,176,69);
+            background: linear-gradient(45deg, rgba(252,176,69,1) 0%, rgba(252,176,69,0.500437675070028) 100%);
+            cursor: pointer;
+        }
+        header {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            background: rgb(253, 29, 29);
+            background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
+            color: white;
+            min-height: 55px;
+        }
         #header {
             width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-content: center;
+            align-items: flex-start;
+            padding-left: 20px;
+        }
+        #header:hover > h1{
+            text-decoration: underline;
+        }
+        #back{
+            display: block;
+            height: 100%;
+            width: auto;
+            min-width: 55px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.5em;
+            transition: font-size 0.2s;
+        }
+        svg {
+            display: block;
+            width: auto;
+            height: 100%;
+        }
+        svg > g{
+            fill: white;
         }
         body {
             text-align: center;
@@ -35,12 +78,6 @@
             overflow: hidden;
         }
 
-        header {
-            background: rgb(253, 29, 29);
-            background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
-            color: white;
-            height: 55px;
-        }
 
         .button-container {
             display: flex;
@@ -90,19 +127,29 @@
         .button-link p {
             color: darkgray;
         }
-        @media only screen and (max-width: 300px) {
-            body{
-                font-size: 0.7em;
-            }
-            h3{
-                font-size: .8em;
-            }
-        }
-        @media only screen and (max-device-width: 480px) {
-            *{
-                font-size: 45px;
+
+        @media screen and (max-width: 1200px)  {}
+        @media screen and (max-width: 992px) {}
+        @media screen and (max-width: 768px) {
+            .button-link {
+                width: 95%;
             }
         }
+        @media screen and (max-width: 480px) {
+            * {
+                font-size: 10px;
+
+            }
+            #back {
+                font-size: 2.0em;
+            }
+        }
+        @media screen and (max-width: 320px) {
+            svg {
+                display: none;
+            }
+        }
+
 
     </style>
 </head>
@@ -110,6 +157,32 @@
 
 
 <header>
+    <a href="https://tfoxs.github.io/tfoxs" id="back" class="hover-orange"><</a>
+    <a href="https://remanga.org/team/peacekeepingsquad" class="hover-orange"><svg version="1.0"
+         viewBox="0 0 1331.000000 1331.000000"
+         preserveAspectRatio="xMidYMid meet">
+
+        <g transform="translate(0.000000,1331.000000) scale(0.100000,-0.100000)"
+           fill="#000000" stroke="none">
+            <path d="M6125 12013 c-67 -9 -202 -33 -237 -43 l-38 -11 37 -72 c180 -357
+                302 -864 303 -1254 l0 -101 -142 -71 c-427 -210 -798 -516 -1082 -894 -300
+                -401 -486 -836 -571 -1343 -33 -197 -63 -259 -189 -402 -113 -129 -379 -390
+                -496 -488 -206 -173 -503 -383 -677 -480 -35 -20 -63 -42 -63 -50 0 -19 62
+                -142 113 -224 105 -168 262 -347 412 -470 422 -345 996 -494 1525 -394 47 9
+                96 17 110 18 14 1 477 164 1030 361 553 196 1034 366 1070 377 670 197 1397 4
+                1882 -500 243 -252 410 -567 482 -910 88 -418 33 -850 -158 -1230 -25 -51 -44
+                -92 -42 -92 2 0 52 71 109 157 855 1283 1057 2861 551 4313 -319 916 -898
+                1708 -1674 2291 -69 52 -153 112 -186 133 -56 36 -63 45 -79 95 -32 106 -108
+                272 -169 374 -298 495 -788 821 -1359 902 -93 13 -383 18 -462 8z m-258 -2909
+                c18 -5 21 -11 16 -42 -32 -231 -192 -420 -409 -485 -70 -21 -169 -29 -229 -19
+                l-50 7 3 40 c17 218 200 429 423 489 54 15 205 21 246 10z"/>
+            <path d="M7618 5910 c-1270 -83 -2345 -933 -2713 -2145 -129 -426 -164 -877
+                -99 -1315 51 -348 187 -747 357 -1044 l62 -109 2 39 c2 21 8 82 14 134 66 579
+                410 1109 911 1401 47 28 383 152 1125 415 582 207 1091 391 1131 410 110 50
+                206 118 311 219 462 446 475 1184 27 1643 -167 172 -338 270 -571 328 -115 29
+                -337 39 -557 24z"/>
+        </g>
+    </svg></a>
     <a href="https://remanga.org/team/peacekeepingsquad" id="header"><h1>Tfoxs</h1>
         <h3 class="description">Менеджер приложений</h3></a>
 </header>
@@ -117,7 +190,7 @@
 <div class="button-container">
     <a href="https://tfoxs.github.io/tfoxs/edit_text.html" class="button-link">
         <h2>Edit-o</h2>
-        <p>Позволит обработать текст, исправив большую часть неправельных знаков.</p>
+        <p>Позволит обработать текст, исправив большую часть неправильных знаков.</p>
     </a>
     <a href="https://tfoxs.github.io/tfoxs/drivescanreader.html" class="button-link">
         <h2>Reader-o</h2>
