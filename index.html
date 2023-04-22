@@ -2,12 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="user-scalable=no" />
+    <meta name="viewport" content="user-scalable=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Manager-o</title>
     <link rel="icon" href="no_bg_4.png" type="image/x-icon">
-    <style type="text/css">
+    <style>
+        :root {
+            --var-orange-lite: #FCB045FF;
+            --var-orange-lite50: #FCB0457F;
+            --var-orange: #FD7034FF;
+            --var-red: #FD1D1DFF;
+            --var-blue: #07a8e8;
+            --var-black: #000;
+            --var-shadow: rgba(0, 0, 0, 0.5);
+            --var-white: #ffffff;
+            --var-accent: #ffffff;
+            --var-gradient-header: linear-gradient(30deg, var(--var-red) 0%, var(--var-orange-lite) 100%);
+        }
 
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --var-orange-lite: #444654;
+                --var-orange-lite50: #444654;
+                --var-orange: #FD7034FF;
+                --var-red: #FD1D1DFF;
+                --var-blue: #07a8e8;
+                --var-black: #c0c4cb;
+                --var-shadow: rgba(255, 255, 255, 0.3);
+                --var-white: #343541;
+                --var-accent: #FD7034FF;
+                --var-gradient-header: #202123;
+            }
+        }
+        body {
+            background-color: var(--var-white);
+            text-align: center;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 1em;
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
         * {
             margin: 0;
             font-size: 12px;
@@ -22,8 +59,8 @@
             height: 100%;
         }
         .hover-orange:hover {
-            background: rgb(252,176,69);
-            background: linear-gradient(45deg, rgba(252,176,69,1) 0%, rgba(252,176,69,0.500437675070028) 100%);
+            background: var(--var-orange-lite);
+            background: linear-gradient(45deg, var(--var-orange-lite) 0%, var(--var-orange-lite50) 100%);
             cursor: pointer;
         }
         header {
@@ -32,10 +69,11 @@
             justify-content: center;
             align-content: center;
             align-items: center;
-            background: rgb(253, 29, 29);
-            background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
-            color: white;
+            background: var(--var-red);
+            background: var(--var-gradient-header);
+            color: var(--var-accent);
             min-height: 55px;
+            max-height: 55px;
         }
         #header {
             width: 100%;
@@ -65,17 +103,7 @@
             height: 100%;
         }
         svg > g{
-            fill: white;
-        }
-        body {
-            text-align: center;
-            font-family: Verdana, Arial, Helvetica, sans-serif;
-            font-size: 1em;
-            display: flex;
-            flex-direction: column;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
+            fill: var(--var-accent);
         }
 
 
@@ -91,33 +119,33 @@
             height: auto;
             margin-top: 15px;
             padding: 10px 25px;
-            background: white;
+            background: var(--var-white);
             border-radius: 10px;
-            color: #fd7034;
+            color: var(--var-orange);
             text-align: left;
             text-decoration: none;
             cursor: pointer;
             box-sizing: border-box;
             transition: all 0.2s ease;
-            -webkit-box-shadow: 0 5px 20px -7px rgba(34, 60, 80, 0.3);
-            -moz-box-shadow: 0 5px 20px -7px rgba(34, 60, 80, 0.3);
-            box-shadow: 0 5px 20px -7px rgba(34, 60, 80, 0.3);
+            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow);
+            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow);
+            box-shadow: 0 5px 20px -7px var(--var-shadow);
         }
         .button-link--blue{
-            color: #07a8e8;
+            color: var(--var-blue);
         }
 
         .button-link:hover, .button-link:active {
             /*border-left: 5px solid #FD1D1DFF;*/
             /*box-sizing: border-box;*/
-            -webkit-box-shadow: 0 5px 20px -7px #fd7034;
-            -moz-box-shadow: 0 5px 20px -7px #fd7034;
-            box-shadow: 0 5px 20px -7px #fd7034;
+            -webkit-box-shadow: 0 5px 20px -7px var(--var-orange);
+            -moz-box-shadow: 0 5px 20px -7px var(--var-orange);
+            box-shadow: 0 5px 20px -7px var(--var-orange);
         }
         .button-link--blue:hover, .button-link--blue:active {
-            -webkit-box-shadow: 0 5px 20px -7px #07a8e8;
-            -moz-box-shadow: 0 5px 20px -7px #07a8e8;
-            box-shadow: 0 5px 20px -7px #07a8e8;
+            -webkit-box-shadow: 0 5px 20px -7px var(--var-blue);
+            -moz-box-shadow: 0 5px 20px -7px var(--var-blue);
+            box-shadow: 0 5px 20px -7px var(--var-blue);
         }
         .button-link:hover h2, .button-link:active h2 {
             /*color: #FD1D1DFF;*/
@@ -125,7 +153,8 @@
         }
 
         .button-link p {
-            color: darkgray;
+            color: var(--var-black);
+            opacity: 50%;
         }
 
         @media screen and (max-width: 1200px)  {}
@@ -148,6 +177,9 @@
             svg {
                 display: none;
             }
+            #header{
+                padding-left: 0;
+            }
         }
 
 
@@ -157,8 +189,8 @@
 
 
 <header>
-    <a href="https://tfoxs.github.io/tfoxs" id="back" class="hover-orange"><</a>
-    <a href="https://remanga.org/team/peacekeepingsquad" class="hover-orange"><svg version="1.0"
+    <a href="https://remanga.org/team/peacekeepingsquad" id="back"></a>
+    <a href="https://remanga.org/team/peacekeepingsquad" class="hover-orange"><svg version="1.1"
          viewBox="0 0 1331.000000 1331.000000"
          preserveAspectRatio="xMidYMid meet">
 
