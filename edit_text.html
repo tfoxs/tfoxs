@@ -23,15 +23,13 @@
             :root {
                 --var-orange-lite: #444654;
                 --var-orange-lite50: #444654;
-                --var-orange: #FD7034FF;
-                --var-red: #FD1D1DFF;
-                --var-blue: #07a8e8;
                 --var-black: #c0c4cb;
-                --var-shadow: rgba(255, 255, 255, 0.3);
-                --var-white: #343541;
-                --var-accent: #FD7034FF;
-                --var-gradient-header: #202123;
+                --var-shadow: rgba(255, 255, 255, 0.1);
+                --var-white: #1f2326;
+                --var-accent: #e3e6ea;
+                --var-gradient-header: #282c2f;
             }
+
         }
         ::-webkit-scrollbar {
             width: 10px;
@@ -40,14 +38,14 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #fcb045;
+            background: var(--var-orange);
             border-radius: 0;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #fcb045;
+            background: var(--var-orange);
         }
         ::-webkit-scrollbar-thumb:active {
-            background: #fd1d1d;
+            background: var(--var-red);
         }
         ::-webkit-scrollbar-track {
             background: #666666;
@@ -90,7 +88,7 @@
             color: inherit;
 			height: 100%;
         }
-        .hover-orange:hover {
+        .hover-orange:hover, .control button:hover {
             background: var(--var-orange-lite);
             background: linear-gradient(45deg, var(--var-orange-lite) 0%, var(--var-orange-lite50) 100%);
             cursor: pointer;
@@ -137,6 +135,7 @@
         svg > g{
             fill: var(--var-accent);
         }
+
 
         button {
             height: 100%;
@@ -191,7 +190,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: row;
-            background: rgb(253, 29, 29);
+            background: var(--var-red);
             background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
         }
         .control-boxs{
@@ -339,6 +338,23 @@
             }
             .control-boxs{
                 padding-bottom: 10px;
+            }
+        }
+        @media (prefers-color-scheme: dark) {
+            .hover-orange:hover svg > g{
+                fill: var(--var-orange);
+            }
+            .hover-orange:hover {
+                color: var(--var-orange);
+            }
+            #header:hover > h1 {
+                color: var(--var-orange);
+            }
+            .control {
+                background: var(--var-gradient-header);
+            }
+            .control button {
+                color: var(--var-orange);
             }
         }
         /*@media only screen and (max-width: 300px) {*/
