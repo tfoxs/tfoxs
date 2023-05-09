@@ -31,6 +31,35 @@
                 --var-gradient-header: #282c2f;
             }
         }
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+            cursor: pointer;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--var-orange);
+            border-radius: 0;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--var-orange);
+        }
+        ::-webkit-scrollbar-thumb:active {
+            background: var(--var-red);
+        }
+        ::-webkit-scrollbar-track {
+            background: #666666;
+            border-radius: 0;
+        }
+        ::-webkit-scrollbar-track:hover {
+            background: #666666;
+        }
+        ::-webkit-scrollbar-track:active {
+            background: #333333;
+        }
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
         body {
             background-color: var(--var-white);
             text-align: center;
@@ -38,9 +67,10 @@
             font-size: 1em;
             display: flex;
             flex-direction: column;
-            width: 100vw;
+            /*width: 100vw;*/
             height: 100vh;
-            overflow: hidden;
+            width: calc(100vw - 10px);
+            overflow-x: hidden;
         }
         * {
             margin: 0;
@@ -61,14 +91,26 @@
             cursor: pointer;
         }
         header {
+            position: fixed;
+            top: 0;
             display: flex;
+            width: 100%;
             flex-direction: row;
             justify-content: center;
             align-content: center;
             align-items: center;
+            background: rgba(40, 44, 47, 0.5);
+            border-bottom: solid rgba(255, 255, 255, 0.39) 1px;
+            /*background: var(--var-gradient-header);*/
+            color: var(--var-accent);
+            min-height: 55px;
+            max-height: 55px;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+        }
+        .header_back{
             background: var(--var-red);
             background: var(--var-gradient-header);
-            color: var(--var-accent);
             min-height: 55px;
             max-height: 55px;
         }
@@ -98,6 +140,8 @@
             display: block;
             width: auto;
             height: 100%;
+            min-height: 55px;
+
         }
         svg > g{
             fill: var(--var-accent);
@@ -112,9 +156,13 @@
         }
 
         .button-link {
-            width: 90%;
+            /*width: 90%;*/
+            flex-grow: 1;
+            flex-basis: 55%;
             height: auto;
-            margin-top: 15px;
+            max-height: 8rem;
+            /*margin-top: 15px;*/
+            margin: 7px;
             padding: 10px 25px;
             background: var(--var-white);
             border-radius: 10px;
@@ -130,6 +178,12 @@
         }
         .button-link--blue{
             color: var(--var-blue);
+        }
+        .third{
+            flex-basis: 30%;
+        }
+        .max{
+            flex-basis: 100%;
         }
 
         .button-link:hover, .button-link:active {
@@ -152,30 +206,68 @@
         .button-link p {
             color: var(--var-black);
             opacity: 50%;
+            max-height: calc(1.2em * 4);
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
         }
 
         @media screen and (max-width: 1200px)  {}
         @media screen and (max-width: 992px) {}
         @media screen and (max-width: 768px) {
             .button-link {
-                width: 95%;
+                max-height: 10rem;
+                padding: 15px 25px;
+            }
+            .button-link p {
+                max-height: calc(1.2em * 3);
+                -webkit-line-clamp: 3;
+            }
+            .third{
+                flex-basis: 45%;
             }
         }
         @media screen and (max-width: 480px) {
             * {
-                font-size: 10px;
-
+                font-size: 12px;
+            }
+            header {
+                min-height: 60px;
+                max-height: 60px;
+            }
+            .button-container {
+                margin-top: 10px;
             }
             #back {
                 font-size: 2.0em;
             }
+            .button-link {
+                flex-basis: 100%;
+                max-height: 8rem;
+                padding: 25px 30px;
+            }
         }
         @media screen and (max-width: 320px) {
+            * {
+                font-size: 12px;
+            }
             svg {
+                display: none;
+            }
+            h1, #back {
                 display: none;
             }
             #header{
                 padding-left: 0;
+                align-items: center;
+            }
+            .button-link {
+                max-height: 11rem;
+            }
+            .button-link p {
+                max-height: calc(1.2em * 4);
+                -webkit-line-clamp: 4;
             }
         }
 
@@ -215,7 +307,7 @@
     <a href="https://remanga.org/team/peacekeepingsquad" id="header"><h1>Tfoxs</h1>
         <h3 class="description">Менеджер приложений</h3></a>
 </header>
-
+<div class="header_back"></div>
 <div class="button-container">
     <a href="https://tfoxs.github.io/tfoxs/edit_text.html" class="button-link">
         <h2>Edit-o</h2>
@@ -229,9 +321,21 @@
         <h2>Perenos-o</h2>
         <p>(Beta) Позволит разбить любое слово на части для переноса</p>
     </a>
-    <a href="https://textcompare.ru/app" class="button-link button-link--blue">
+    <a href="https://textcompare.ru/app" class="button-link button-link--blue max">
         <h2>Textcompare</h2>
         <p>Позволит сравнить два текста</p>
+    </a>
+    <a href="#" class="button-link third">
+        <h2>Правила</h2>
+        <p>для переводчиков и редакторов. (В процессе)</p>
+    </a>
+    <a href="https://vk.com/tfoxs.azulla" class="button-link third">
+        <h2>Куратор</h2>
+        <p>Azulla - ко всем вопросам относительно перевода, вы можете обратиться к нему.</p>
+    </a>
+    <a href="https://vk.com/away.php?to=https%3A%2F%2Fremanga.org%2Fteam%2Fpeacekeepingsquad&cc_key=" class="button-link third">
+        <h2>Реманга</h2>
+        <p>Не придумал, что написать</p>
     </a>
 </div>
 
