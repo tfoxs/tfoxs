@@ -15,8 +15,10 @@
             --var-blue: #07a8e8;
             --var-purple: #905cf1;
             --var-black: #000;
-            --var-shadow: rgba(0, 0, 0, 0.5);
+            --var-shadow: rgba(0, 0, 0, 0.2);
+            --var-shadow-group: rgba(0, 0, 0, 0.1);
             --var-white: #ffffff;
+            --var-lite-gray: #f5f1ef;
             --var-accent: #ffffff;
             --var-gradient-header: linear-gradient(30deg, var(--var-red) 0%, var(--var-orange-lite) 100%);
         }
@@ -24,10 +26,12 @@
         @media (prefers-color-scheme: dark) {
             :root {
                 --var-orange-lite: #444654;
-                --var-orange-lite50: #444654;
+                --var-orange-lite50: rgba(68, 70, 84, 0.5);
                 --var-black: #c0c4cb;
-                --var-shadow: rgba(255, 255, 255, 0.1);
+                --var-shadow: rgba(255, 255, 255, 0.2);
+                --var-shadow-group: rgba(255, 255, 255, 0.1);
                 --var-white: #1f2326;
+                --var-lite-gray: #191b1c;
                 --var-accent: #e3e6ea;
                 --var-gradient-header: #282c2f;
             }
@@ -100,7 +104,7 @@
             justify-content: center;
             align-content: center;
             align-items: center;
-            background: rgba(40, 44, 47, 0.5);
+            background: var(--var-orange-lite50);
             border-bottom: solid rgba(255, 255, 255, 0.39) 1px;
             /*background: var(--var-gradient-header);*/
             color: var(--var-accent);
@@ -155,6 +159,32 @@
             justify-content: center;
             margin-top: 10px;
         }
+        .group-link > h2{
+            width: 100%;
+            color: var(--var-black);
+            text-align: center;
+            margin: 10px 0 15px 0;
+        }
+        .group-link{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            flex-basis: 100%;
+            height: auto;
+            /*max-height: 8rem;*/
+            /*margin-top: 15px;*/
+            margin: 7px 7px 25px 7px;
+            padding: 10px 10px;
+            background: var(--var-lite-gray);
+            border-radius: 10px;
+            text-align: left;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow);
+            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow);
+            box-shadow: 0 5px 20px -7px var(--var-shadow);
+        }
 
         .button-link {
             /*width: 90%;*/
@@ -176,6 +206,13 @@
             -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow);
             -moz-box-shadow: 0 5px 20px -7px var(--var-shadow);
             box-shadow: 0 5px 20px -7px var(--var-shadow);
+        }
+        .group-link .button-link{
+            /*background: var(--var-lite-gray);*/
+            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
+            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
+            box-shadow: 0 5px 20px -7px var(--var-shadow-group);
+
         }
         .button-link--blue{
             color: var(--var-blue);
@@ -209,7 +246,7 @@
         }
         .button-link:hover h2, .button-link:active h2 {
             /*color: #FD1D1DFF;*/
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .button-link p {
@@ -319,18 +356,21 @@
 <div class="header_back"></div>
 <div class="button-container">
 
-    <a href="https://vk.com/danatxx" class="button-link third">
-        <h2>Командир</h2>
-        <p>Данат - командир команды «tfoxs».</p>
-    </a>
-    <a href="https://vk.com/tfoxs.azulla" class="button-link third">
-        <h2>Куратор</h2>
-        <p>Azulla - куратор перевода и редакта. Отвечает за распределение работы и подсчёт оплаты труда.</p>
-    </a>
-    <a href="https://vk.com/a.valger" class="button-link third">
-        <h2>Куратор</h2>
-        <p>Андрей - куратор клина/тайпа.</p>
-    </a>
+    <div class="group-link">
+        <h2>Контакты</h2>
+        <a href="https://vk.com/danatxx" class="button-link third">
+            <h2>Данат</h2>
+            <p>Командир команды «tfoxs»</p>
+        </a>
+        <a href="https://vk.com/tfoxs.azulla" class="button-link third">
+            <h2>Azulla</h2>
+            <p>Куратор перевода и редакта. Отвечает за распределение работы и подсчёт оплаты труда.</p>
+        </a>
+        <a href="https://vk.com/a.valger" class="button-link third">
+            <h2>Андрей</h2>
+            <p>Куратор клина/тайпа.</p>
+        </a>
+    </div>
     <a href="https://tfoxs.github.io/tfoxs/rules.html" class="button-link button-link--purple">
         <h2>Правила</h2>
         <p>для переводчиков и редакторов.</p>
@@ -353,56 +393,108 @@
         <h2>Perenos-o</h2>
         <p>(Beta) Позволит разбить любое слово на части для переноса</p>
     </a>
+
     <a href="https://textcompare.ru/app" class="button-link button-link--blue max">
         <h2>Textcompare</h2>
         <p>Позволит сравнить два текста</p>
     </a>
-    <a href="https://therules.ru/" class="button-link button-link--blue third">
-        <h2>Правила русского языка</h2>
-    </a>
-    <a href="http://www.rosental-book.ru/" class="button-link button-link--blue third">
-        <h2>Справочник по правописанию и стилистике</h2>
-        <p>Д. Э. Розенталь. </p>
-    </a>
-    <a href="https://gufo.me" class="button-link button-link--blue third">
-        <h2>Gufo</h2>
-        <p>Словари и энциклопедии</p>
-    </a>
-    <a href="https://glvrd.ru" class="button-link button-link--blue third">
-        <h2>Главред β</h2>
-        <p>Помогает очистить текст от словесного мусора, проверяет на соответствие информационному стилю.</p>
-    </a>
-    <a href="https://silverstone-studio.ru/forums/topic/sklonyaem-imennye-suffiksy-v-mange/" class="button-link button-link--blue third">
-        <h2>Суффиксы в манге</h2>
-    </a>
-    <a href="https://www.freepapers.ru/3/zvukopodrazhaniya-v-korejskom-yazyke/166725.1023989.list1.html" class="button-link button-link--blue third">
-        <h2>Звукоподражания в корейском языке</h2>
-        <p>(Временно)</p>
-    </a>
-    <a href="https://www.wattpad.com/413555511-корейский-язык-50-часто-используемых" class="button-link button-link--blue third">
-        <h2>50 часто используемых звукоподражательных слов</h2>
-        <p>(Временно)</p>
-    </a>
-    <a href="https://dearmemories.ucoz.ru/Files/perevod_zvukov.pdf" class="button-link button-link--blue third">
-        <h2>Японско-английско-русская таблица ономатопоэтических соответствий в манге</h2>
-        <p></p>
-    </a>
-    <a href="https://dictionary.cambridge.org" class="button-link button-link--blue third">
-        <h2>Cambridge Dictionary</h2>
-        <p>Английско-русский словарик</p>
-    </a>
-    <a href="http://www.rauk.ru/ru/?option=com_content&view=article&id=591" class="button-link button-link--blue third">
-        <h2>Rauk</h2>
-        <p><Р></Р>усская и латинская системы транскрипции корейских слов и имен собственных</p>
-    </a>
-    <a href="https://translate.yandex.ru/ocr" class="button-link button-link--blue third">
-        <h2>Яндекс ORS</h2>
-        <p>Распознать текст с картинки</p>
-    </a>
-    <a href="https://lens.google.com/search?ep=gisbubb&hl=ru-UA&p=ATHekxdguUiS5dYI4QIMoASRtYtceYcxkG-4wfg5VK-zgiPuawsSgtUBNmGk8-Hom6L8z028Z6ngNkzmvLcu1twGH1D5gdLv4JDmMRuoZu97ytbrpY2-jfUcyB7zZkAfJX28RsA4cLg6PnEhvtfDNpwryVeYhbrIw3GLByOrlJA_COHhvelpqzx2mHOY9Ktt1otMe37BPjDqRQ213apnPeIHUZfBk-C2l0EBRXy1V_2S71FarmcihfVgYDr6yigprc4kY5Tqcmlh7w0dk0PZzG8oRdP3ic_dbsBYsmGobJk%3D#lns=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsIkVrY0tKREF3TUdVeU5EWXpMV1UwT1RndE5EWTNNeTA0TWpGbExUWmlaVEZoTnpreE5HRTFPQklmYnpsUE4zRkpSSG90VG10bU5FaEZlRmhpTFdJNVpVSk1UeTF3T1dsQ1p3PT0iLG51bGwsbnVsbCxudWxsLDMsWyJhdXRvIiwia28iXSxbW10sbnVsbCxudWxsLG51bGwsOF0sbnVsbCxudWxsXQ==" class="button-link button-link--blue third">
-        <h2>Google Lens</h2>
-        <p>Распознать текст с картинки</p>
-    </a>
+
+    <div class="group-link">
+        <h2>Разные переводчики</h2>
+        <a href="https://translate.yandex.ru/ocr" class="button-link button-link--blue third">
+            <h2>Яндекс ORS</h2>
+            <p>Распознать текст с картинки</p>
+        </a>
+        <a href="https://lens.google.com/search?ep=gisbubb&hl=ru-UA&p=ATHekxdguUiS5dYI4QIMoASRtYtceYcxkG-4wfg5VK-zgiPuawsSgtUBNmGk8-Hom6L8z028Z6ngNkzmvLcu1twGH1D5gdLv4JDmMRuoZu97ytbrpY2-jfUcyB7zZkAfJX28RsA4cLg6PnEhvtfDNpwryVeYhbrIw3GLByOrlJA_COHhvelpqzx2mHOY9Ktt1otMe37BPjDqRQ213apnPeIHUZfBk-C2l0EBRXy1V_2S71FarmcihfVgYDr6yigprc4kY5Tqcmlh7w0dk0PZzG8oRdP3ic_dbsBYsmGobJk%3D#lns=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsIkVrY0tKREF3TUdVeU5EWXpMV1UwT1RndE5EWTNNeTA0TWpGbExUWmlaVEZoTnpreE5HRTFPQklmYnpsUE4zRkpSSG90VG10bU5FaEZlRmhpTFdJNVpVSk1UeTF3T1dsQ1p3PT0iLG51bGwsbnVsbCxudWxsLDMsWyJhdXRvIiwia28iXSxbW10sbnVsbCxudWxsLG51bGwsOF0sbnVsbCxudWxsXQ==" class="button-link button-link--blue third">
+            <h2>Google Lens</h2>
+            <p>Распознать текст с картинки</p>
+        </a>
+        <a href="https://papago.naver.com" class="button-link button-link--blue third">
+            <h2>Papago</h2>
+            <p>Переводчик с разных языков</p>
+        </a>
+    </div>
+
+    <div class="group-link">
+        <h2>Русский язык</h2>
+        <a href="https://therules.ru/" class="button-link button-link--blue third">
+            <h2>Правила русского языка</h2>
+        </a>
+        <a href="http://www.rosental-book.ru/" class="button-link button-link--blue third">
+            <h2>Справочник по правописанию и стилистике</h2>
+            <p>Д. Э. Розенталь. </p>
+        </a>
+        <a href="https://gufo.me" class="button-link button-link--blue third">
+            <h2>Gufo</h2>
+            <p>Словари и энциклопедии</p>
+        </a>
+        <a href="https://glvrd.ru" class="button-link button-link--blue third">
+            <h2>Главред β</h2>
+            <p>Помогает очистить текст от словесного мусора, проверяет на соответствие информационному стилю.</p>
+        </a>
+        <a href="https://silverstone-studio.ru/forums/topic/sklonyaem-imennye-suffiksy-v-mange/" class="button-link button-link--blue third">
+            <h2>Суффиксы в манге</h2>
+        </a>
+    </div>
+
+    <div class="group-link">
+        <h2>Корейский язык</h2>
+        <a href="https://dict.naver.com/rukodict/#/main" class="button-link button-link--blue third">
+            <h2>Корейско-русский словарь</h2>
+            <p></p>
+        </a>
+        <a href="https://www.freepapers.ru/3/zvukopodrazhaniya-v-korejskom-yazyke/166725.1023989.list1.html" class="button-link button-link--blue third">
+            <h2>Звукоподражания в корейском языке</h2>
+            <p>(Временно)</p>
+        </a>
+        <a href="https://www.wattpad.com/413555511-корейский-язык-50-часто-используемых" class="button-link button-link--blue third">
+            <h2>50 часто используемых звукоподражательных слов</h2>
+            <p>(Временно)</p>
+        </a>
+        <a href="http://www.rauk.ru/ru/?option=com_content&view=article&id=591" class="button-link button-link--blue third">
+            <h2>Rauk</h2>
+            <p>Русская и латинская системы транскрипции корейских слов и имен собственных</p>
+        </a>
+    </div>
+
+    <div class="group-link">
+        <h2>Китайский язык</h2>
+        <a href="https://bkrs.info/slovo.php" class="button-link button-link--blue third">
+            <h2>Переводчик слов с китайского</h2>
+            <p>(Может работать с предложениями)</p>
+        </a>
+        <a href="https://cidian.ru/r.php" class="button-link button-link--blue third">
+            <h2>Переводчик слов с китайского</h2>
+            <p></p>
+        </a>
+        <a href="https://www.archchinese.com/chinese_english_dictionary.html?" class="button-link button-link--blue third">
+            <h2>Система изучения китайского языка</h2>
+            <p></p>
+        </a>
+    </div>
+
+    <div class="group-link">
+        <h2>Японский язык</h2>
+        <a href="https://dearmemories.ucoz.ru/Files/perevod_zvukov.pdf" class="button-link button-link--blue third">
+            <h2>Японско-английско-русская таблица звуков</h2>
+            <p></p>
+        </a>
+        <a href="https://jisho.org" class="button-link button-link--blue third">
+            <h2>Японско-английский словарь</h2>
+            <p></p>
+        </a>
+    </div>
+
+    <div class="group-link">
+        <h2>Английский язык</h2>
+        <a href="https://dictionary.cambridge.org" class="button-link button-link--blue third">
+            <h2>Cambridge Dictionary</h2>
+            <p>Английско-русский словарик</p>
+        </a>
+    </div>
+
+
+
 
 
 
