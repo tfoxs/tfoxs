@@ -258,7 +258,31 @@
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
         }
+        #back-to-top-btn {
+            display: none; /* по умолчанию кнопка скрыта */
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            bottom: 20px;
+            right: 20px;
+            background: var(--var-orange-lite50);
+            border-radius: 5px;
+            border: none;
+            border-bottom: solid rgba(255, 255, 255, 0.39) 1px;
+            color: var(--var-accent);
+            backdrop-filter: blur(1px);
+            cursor: pointer;
+            z-index: 99;
+            transition: 1s;
+            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
+            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
+            box-shadow: 0 5px 20px -7px var(--var-shadow-group);
 
+        }
+
+        #back-to-top-btn:hover {
+            background: var(--var-orange);
+        }
         @media screen and (max-width: 1200px)  {}
         @media screen and (max-width: 992px) {}
         @media screen and (max-width: 768px) {
@@ -495,17 +519,26 @@
 
 
 
-
-
-
-
-
 </div>
 
 
-<script type="text/javascript">
+<button id="back-to-top-btn" title="Вернуться наверх">↑</button>
+<script>
+    window.onscroll = function() {scrollFunction()};
 
+    function scrollFunction() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            document.getElementById("back-to-top-btn").style.display = "block";
+        } else {
+            document.getElementById("back-to-top-btn").style.display = "none";
+        }
+    }
 
+    // скроллим наверх страницы при нажатии на кнопку
+    document.getElementById("back-to-top-btn").addEventListener("click", function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
 </script>
 
 </body>
