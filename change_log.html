@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Rules</title>
+    <link rel="icon" href="no_bg_4.png" type="image/x-icon">
+    <style type="text/css">
+        :root {
+            --var-orange-lite: #FCB045FF;
+            --var-orange-lite50: #FCB0457F;
+            --var-orange: #FD7034FF;
+            --var-red: #FD1D1DFF;
+            --var-blue: #07a8e8;
+            --var-purple: #905cf1;
+            --var-black: #000;
+            --var-shadow: rgba(0, 0, 0, 0.2);
+            --var-shadow-group: rgba(0, 0, 0, 0.1);
+            --var-white: #ffffff;
+            --var-lite-gray: #f5f1ef;
+            --var-accent: #ffffff;
+            --var-gradient-header: linear-gradient(30deg, var(--var-red) 0%, var(--var-orange-lite) 100%);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --var-orange-lite: #444654;
+                --var-orange-lite50: rgba(68, 70, 84, 0.5);
+                --var-black: #c0c4cb;
+                --var-shadow: rgba(255, 255, 255, 0.2);
+                --var-shadow-group: rgba(255, 255, 255, 0.1);
+                --var-white: #1f2326;
+                --var-lite-gray: #191b1c;
+                --var-accent: #e3e6ea;
+                --var-gradient-header: #282c2f;
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+            cursor: pointer;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--var-orange);
+            border-radius: 0;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--var-orange);
+        }
+        ::-webkit-scrollbar-thumb:active {
+            background: var(--var-red);
+        }
+        ::-webkit-scrollbar-track {
+            background: #666666;
+            border-radius: 0;
+        }
+        ::-webkit-scrollbar-track:hover {
+            background: #666666;
+        }
+        ::-webkit-scrollbar-track:active {
+            background: #333333;
+        }
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+        * {
+            margin: 0;
+            font-size: 12px;
+            transition: font-size 0.2s;
+        }
+        body {
+            background-color: var(--var-white);
+            text-align: center;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 1em;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+        .a-h {
+            text-decoration: none;
+            color: inherit;
+			height: 100%;
+        }
+        .hover-orange:hover, .control button:hover {
+            background: var(--var-orange-lite);
+            background: linear-gradient(45deg, var(--var-orange-lite) 0%, var(--var-orange-lite50) 100%);
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            background: var(--var-orange-lite50);
+            border-bottom: solid rgba(255, 255, 255, 0.39) 1px;
+            /*background: var(--var-gradient-header);*/
+            color: var(--var-accent);
+            min-height: 55px;
+            max-height: 55px;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+        }
+        .header_back{
+            background: var(--var-red);
+            background: var(--var-gradient-header);
+            min-height: 55px;
+            max-height: 55px;
+        }
+        #header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            align-items: flex-start;
+            padding-left: 20px;
+        }
+        #header:hover > h1{
+            color: var(--var-orange);
+        }
+        #back{
+            display: block;
+            height: 100%;
+            width: auto;
+            min-width: 55px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.2em;
+            transition: font-size 0.2s;
+        }
+        svg {
+            display: block;
+            width: auto;
+            height: 100%;
+            min-height: 55px;
+
+        }
+        svg > g{
+            fill: var(--var-accent);
+        }
+
+        ul {
+            padding-inline-start: 20px;
+        }
+
+        .content{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .card{
+            flex-grow: 1;
+            flex-basis: 55%;
+            height: auto;
+            margin: 7px;
+            padding: 15px 25px;
+            background: var(--var-white);
+            border-radius: 10px;
+            color: var(--var-black);
+            text-align: left;
+            line-height: 1.5em;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow);
+            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow);
+            box-shadow: 0 5px 20px -7px var(--var-shadow);
+        }
+        .card-combo{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .place {
+            /*width: 97%;*/
+            align-items: stretch;
+        }
+        .stretch{
+            align-items: stretch;
+        }
+        .place > .card{
+            width: 100%;
+        }
+        .card-combo > * {
+            flex: 2;
+            /*margin: 0 10px;*/
+        }
+        .card-combo > *:not(:first-child) {
+            margin-left: 15px;
+        }
+        h2{
+            font-weight: bold;
+            font-size: 1.3em;
+            padding-bottom: 15px;
+        }
+        .button-link {
+            color: var(--var-orange);
+        }
+        .button-link:hover, .button-link:active {
+            -webkit-box-shadow: 0 5px 20px -7px var(--var-orange);
+            -moz-box-shadow: 0 5px 20px -7px var(--var-orange);
+            box-shadow: 0 5px 20px -7px var(--var-orange);
+        }
+
+        .button-link h2{
+            font-size: 1em;
+            padding-bottom: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--var-orange);
+            font-weight: bold;
+            cursor: pointer;
+        }
+        span{
+            font-weight: bold;
+            transition: background-color 1s;
+        }
+        img {
+            width: 40%;
+            height: auto;
+        }
+        .img70 {
+            width: 70%;
+        }
+        .img90 {
+            width: 90%;
+        }
+        .f3{
+            flex: 3;
+        }
+
+
+
+        .accordion .accordion-item button[aria-expanded='true'] {
+            border-bottom: 1px solid var(--var-orange);
+        }
+        .accordion button {
+            position: relative;
+            display: block;
+            text-align: left;
+            width: 100%;
+            padding: 10px 0;
+            color: var(--var-black);
+            border: none;
+            background: none;
+            outline: none;
+        }
+        .accordion button:hover, .accordion button:focus {
+            cursor: pointer;
+            color: var(--var-orange);
+        }
+        .accordion button:hover::after, .accordion button:focus::after {
+            cursor: pointer;
+            color: var(--var-orange);
+            border: 1px solid var(--var-orange);
+        }
+        .accordion button {
+            padding: 1em 1.5em 1em 0;
+            font-weight: bold;
+            font-style: oblique;
+        }
+
+        .accordion button[aria-expanded='true'] {
+            color: var(--var-orange);
+        }
+        .accordion button[aria-expanded='true'] + .accordion-content {
+            opacity: 1;
+            max-height: 9em;
+            transition: all 200ms linear;
+            will-change: opacity, max-height;
+        }
+        .accordion .accordion-content {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 200ms linear, max-height 200ms linear;
+            will-change: opacity, max-height;
+            padding-left: 20px;
+        }
+        .accordion .accordion-content *:first-child {
+            font-size: 1rem;
+            font-weight: 300;
+            margin: 1em 0;
+        }
+
+        #back-to-top-btn {
+            display: none; /* по умолчанию кнопка скрыта */
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            bottom: 20px;
+            right: 20px;
+            background: var(--var-orange-lite50);
+            border-radius: 5px;
+            border: none;
+            border-bottom: solid rgba(255, 255, 255, 0.39) 1px;
+            color: var(--var-accent);
+            backdrop-filter: blur(1px);
+            cursor: pointer;
+            z-index: 99;
+            transition: 1s;
+            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
+            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
+            box-shadow: 0 5px 20px -7px var(--var-shadow-group);
+
+        }
+
+        #back-to-top-btn:hover {
+            background: var(--var-orange);
+        }
+        @media screen and (max-width: 768px) {
+            .button-link p {
+                max-height: calc(1.2em * 3);
+                -webkit-line-clamp: 3;
+            }
+            .place {
+                flex-grow: 1;
+                flex-basis: 55%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 7px;
+            }
+
+            .card {
+                width: 85%;
+            }
+            .place > .card{
+                flex-grow: 1;
+                flex-basis: 55%;
+            }
+            .card-combo {
+                flex-direction: column;
+            }
+            .card-combo > *:not(:first-child) {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            img, .img70, .img90 {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            * {
+                font-size: 12px;
+            }
+            header {
+                min-height: 60px;
+                max-height: 60px;
+            }
+            #back {
+                font-size: 2.0em;
+            }
+        }
+        @media screen and (max-width: 320px) {
+            * {
+                font-size: 12px;
+            }
+            svg {
+                display: none;
+            }
+            h1, #back {
+                display: none;
+            }
+            #header{
+                padding-left: 0;
+                align-items: center;
+            }
+            .button-link p {
+                max-height: calc(1.2em * 4);
+                -webkit-line-clamp: 4;
+            }
+            .accordion .accordion-content {
+                padding-left: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+<header>
+    <a href="https://tfoxs.github.io/tfoxs" id="back" class="a-h hover-orange">&lt;</a>
+    <a href="https://remanga.org/team/peacekeepingsquad" class="a-h hover-orange"><svg version="1.1"
+                                                                                   viewBox="0 0 1331.000000 1331.000000"
+                                                                                   preserveAspectRatio="xMidYMid meet">
+
+        <g transform="translate(0.000000,1331.000000) scale(0.100000,-0.100000)"
+           fill="#000000" stroke="none">
+            <path d="M6125 12013 c-67 -9 -202 -33 -237 -43 l-38 -11 37 -72 c180 -357
+                302 -864 303 -1254 l0 -101 -142 -71 c-427 -210 -798 -516 -1082 -894 -300
+                -401 -486 -836 -571 -1343 -33 -197 -63 -259 -189 -402 -113 -129 -379 -390
+                -496 -488 -206 -173 -503 -383 -677 -480 -35 -20 -63 -42 -63 -50 0 -19 62
+                -142 113 -224 105 -168 262 -347 412 -470 422 -345 996 -494 1525 -394 47 9
+                96 17 110 18 14 1 477 164 1030 361 553 196 1034 366 1070 377 670 197 1397 4
+                1882 -500 243 -252 410 -567 482 -910 88 -418 33 -850 -158 -1230 -25 -51 -44
+                -92 -42 -92 2 0 52 71 109 157 855 1283 1057 2861 551 4313 -319 916 -898
+                1708 -1674 2291 -69 52 -153 112 -186 133 -56 36 -63 45 -79 95 -32 106 -108
+                272 -169 374 -298 495 -788 821 -1359 902 -93 13 -383 18 -462 8z m-258 -2909
+                c18 -5 21 -11 16 -42 -32 -231 -192 -420 -409 -485 -70 -21 -169 -29 -229 -19
+                l-50 7 3 40 c17 218 200 429 423 489 54 15 205 21 246 10z"/>
+            <path d="M7618 5910 c-1270 -83 -2345 -933 -2713 -2145 -129 -426 -164 -877
+                -99 -1315 51 -348 187 -747 357 -1044 l62 -109 2 39 c2 21 8 82 14 134 66 579
+                410 1109 911 1401 47 28 383 152 1125 415 582 207 1091 391 1131 410 110 50
+                206 118 311 219 462 446 475 1184 27 1643 -167 172 -338 270 -571 328 -115 29
+                -337 39 -557 24z"/>
+        </g>
+    </svg></a>
+    <a href="https://remanga.org/team/peacekeepingsquad" id="header" class="a-h"><h1>Tfoxs</h1>
+        <h3 class="description">Список изменений в правилах</h3></a>
+</header>
+<div class="header_back"></div>
+
+
+<div class="content">
+    <img src="imgs/main.jpg" style="position: absolute;z-index: -1;visibility: hidden;">
+
+    <a href="https://tfoxs.github.io/tfoxs/rules.html" class="card button-link button-link--purple">
+        <h2>Вернуться к правилам</h2>
+    </a>
+
+    <div class="card">
+        <h2>Изменения от 11.08.2023</h2>
+        <ul>
+            <li>Изменён дизайн страницы;</li>
+            <li>Добавил ссылку на некоторые места со своим ником;</li>
+            <li>Добавил раздел "Вопрос - ответ"</li>
+        </ul>
+    </div>
+
+</div>
+
+<button id="back-to-top-btn" title="Вернуться наверх">↑</button>
+<script>
+
+    const items = document.querySelectorAll(".accordion button");
+
+    function toggleAccordion() {
+        const itemToggle = this.getAttribute('aria-expanded');
+
+        for (i = 0; i < items.length; i++) {
+            items[i].setAttribute('aria-expanded', 'false');
+        }
+
+        if (itemToggle == 'false') {
+            this.setAttribute('aria-expanded', 'true');
+        }
+    }
+
+    items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+
+    function scrollToEl(elementId) {
+        let element = document.getElementById(elementId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            element.style.backgroundColor = 'var(--var-orange)';
+
+            setTimeout(function() {
+                element.style.backgroundColor = '';
+            }, 3000);
+        }
+    }
+
+    // Кнопка скролла
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            document.getElementById("back-to-top-btn").style.display = "block";
+        } else {
+            document.getElementById("back-to-top-btn").style.display = "none";
+        }
+    }
+    document.getElementById("back-to-top-btn").addEventListener("click", function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
+    // Кнопка скролла
+
+</script>
+</body>
+</html>

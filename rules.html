@@ -13,29 +13,35 @@
             --var-orange: #FD7034FF;
             --var-red: #FD1D1DFF;
             --var-blue: #07a8e8;
+            --var-purple: #905cf1;
             --var-black: #000;
-            --var-shadow: rgba(0, 0, 0, 0.5);
+            --var-shadow: rgba(0, 0, 0, 0.2);
+            --var-shadow-group: rgba(0, 0, 0, 0.1);
             --var-white: #ffffff;
+            --var-lite-gray: #f5f1ef;
             --var-accent: #ffffff;
             --var-gradient-header: linear-gradient(30deg, var(--var-red) 0%, var(--var-orange-lite) 100%);
         }
+
         @media (prefers-color-scheme: dark) {
             :root {
                 --var-orange-lite: #444654;
-                --var-orange-lite50: #444654;
+                --var-orange-lite50: rgba(68, 70, 84, 0.5);
                 --var-black: #c0c4cb;
-                --var-shadow: rgba(0, 0, 0, 0.3);
+                --var-shadow: rgba(255, 255, 255, 0.2);
+                --var-shadow-group: rgba(255, 255, 255, 0.1);
                 --var-white: #1f2326;
+                --var-lite-gray: #191b1c;
                 --var-accent: #e3e6ea;
                 --var-gradient-header: #282c2f;
             }
-
         }
         ::-webkit-scrollbar {
             width: 10px;
             height: 10px;
             cursor: pointer;
         }
+
         ::-webkit-scrollbar-thumb {
             background: var(--var-orange);
             border-radius: 0;
@@ -75,9 +81,6 @@
             height: 100vh;
             overflow-x: hidden;
         }
-        h2 {
-            margin-bottom: 5px;
-        }
         .a-h {
             text-decoration: none;
             color: inherit;
@@ -87,16 +90,29 @@
             background: var(--var-orange-lite);
             background: linear-gradient(45deg, var(--var-orange-lite) 0%, var(--var-orange-lite50) 100%);
             cursor: pointer;
+            border-radius: 10px;
         }
         header {
+            position: fixed;
+            top: 0;
             display: flex;
+            width: 100%;
             flex-direction: row;
             justify-content: center;
             align-content: center;
             align-items: center;
+            background: var(--var-orange-lite50);
+            border-bottom: solid rgba(255, 255, 255, 0.39) 1px;
+            /*background: var(--var-gradient-header);*/
+            color: var(--var-accent);
+            min-height: 55px;
+            max-height: 55px;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+        }
+        .header_back{
             background: var(--var-red);
             background: var(--var-gradient-header);
-            color: var(--var-accent);
             min-height: 55px;
             max-height: 55px;
         }
@@ -110,7 +126,7 @@
             padding-left: 20px;
         }
         #header:hover > h1{
-            text-decoration: underline;
+            color: var(--var-orange);
         }
         #back{
             display: block;
@@ -119,37 +135,45 @@
             min-width: 55px;
             text-align: center;
             line-height: 50px;
-            font-size: 1.5em;
+            font-size: 1.2em;
             transition: font-size 0.2s;
         }
         svg {
             display: block;
             width: auto;
             height: 100%;
+            min-height: 55px;
+
         }
         svg > g{
             fill: var(--var-accent);
         }
+
         ul {
             padding-inline-start: 20px;
         }
+
         .content{
-            width: 100%;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
         }
         .card{
-            width: 92%;
+            flex-grow: 1;
+            flex-basis: 55%;
             height: auto;
-            padding: 17px 17px 17px 20px;
-            margin-top: 15px;
-            background-color: var(--var-gradient-header);
-            border-radius: 7px;
+            margin: 7px;
+            padding: 15px 25px;
+            background: var(--var-white);
+            border-radius: 10px;
             color: var(--var-black);
             text-align: left;
             line-height: 1.5em;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow);
+            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow);
             box-shadow: 0 5px 20px -7px var(--var-shadow);
         }
         .card-combo{
@@ -159,7 +183,7 @@
             align-items: center;
         }
         .place {
-            width: 97%;
+            /*width: 97%;*/
             align-items: stretch;
         }
         .stretch{
@@ -175,11 +199,10 @@
         .card-combo > *:not(:first-child) {
             margin-left: 15px;
         }
-        h4{
+        h2{
             font-weight: bold;
-            font-size: 1.7em;
-            padding-bottom: 20px;
-
+            font-size: 1.3em;
+            padding-bottom: 15px;
         }
         a {
             text-decoration: none;
@@ -204,23 +227,82 @@
         .f3{
             flex: 3;
         }
+
+
+
+        .accordion .accordion-item button[aria-expanded='true'] {
+            border-bottom: 1px solid var(--var-orange);
+        }
+        .accordion button {
+            position: relative;
+            display: block;
+            text-align: left;
+            width: 100%;
+            padding: 10px 0;
+            color: var(--var-black);
+            border: none;
+            background: none;
+            outline: none;
+        }
+        .accordion button:hover, .accordion button:focus {
+            cursor: pointer;
+            color: var(--var-orange);
+        }
+        .accordion button:hover::after, .accordion button:focus::after {
+            cursor: pointer;
+            color: var(--var-orange);
+            border: 1px solid var(--var-orange);
+        }
+        .accordion button {
+            padding: 1em 1.5em 1em 0;
+            font-weight: bold;
+            font-style: oblique;
+        }
+
+        .accordion button[aria-expanded='true'] {
+            color: var(--var-orange);
+        }
+        .accordion button[aria-expanded='true'] + .accordion-content {
+            opacity: 1;
+            max-height: 9em;
+            transition: all 200ms linear;
+            will-change: opacity, max-height;
+        }
+        .accordion .accordion-content {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 200ms linear, max-height 200ms linear;
+            will-change: opacity, max-height;
+            padding-left: 20px;
+        }
+        .accordion .accordion-content *:first-child {
+            font-size: 1rem;
+            font-weight: 300;
+            margin: 1em 0;
+        }
+
+
         @media screen and (max-width: 768px) {
             .button-link p {
                 max-height: calc(1.2em * 3);
                 -webkit-line-clamp: 3;
             }
             .place {
-                width: 100%;
+                flex-grow: 1;
+                flex-basis: 55%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                margin: 7px;
             }
 
             .card {
                 width: 85%;
             }
             .place > .card{
-                width: 85%;
+                flex-grow: 1;
+                flex-basis: 55%;
             }
             .card-combo {
                 flex-direction: column;
@@ -232,6 +314,32 @@
             img, .img70, .img90 {
                 width: 100%;
             }
+        }
+
+        #back-to-top-btn {
+            display: none; /* по умолчанию кнопка скрыта */
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            bottom: 20px;
+            right: 20px;
+            background: var(--var-orange-lite50);
+            border-radius: 5px;
+            border: none;
+            border-bottom: solid rgba(255, 255, 255, 0.39) 1px;
+            color: var(--var-accent);
+            backdrop-filter: blur(1px);
+            cursor: pointer;
+            z-index: 99;
+            transition: 1s;
+            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
+            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
+            box-shadow: 0 5px 20px -7px var(--var-shadow-group);
+
+        }
+
+        #back-to-top-btn:hover {
+            background: var(--var-orange);
         }
         @media screen and (max-width: 480px) {
             * {
@@ -263,12 +371,15 @@
                 max-height: calc(1.2em * 4);
                 -webkit-line-clamp: 4;
             }
+            .accordion .accordion-content {
+                padding-left: 10px;
+            }
         }
 
     </style>
 </head>
-<body>
 
+<body>
 <header>
     <a href="https://tfoxs.github.io/tfoxs" id="back" class="a-h hover-orange">&lt;</a>
     <a href="https://remanga.org/team/peacekeepingsquad" class="a-h hover-orange"><svg version="1.1"
@@ -299,25 +410,27 @@
     <a href="https://remanga.org/team/peacekeepingsquad" id="header" class="a-h"><h1>Tfoxs</h1>
         <h3 class="description">Правила</h3></a>
 </header>
+<div class="header_back"></div>
+
 
 <div class="content">
     <img src="imgs/main.jpg" style="position: absolute;z-index: -1;visibility: hidden;">
     <div class="card">
-        <h4>Правила для переводчиков и редакторов</h4>
-        Дата последнего изменения: 28.05.2022.<br>
+        <h2>Правила для переводчиков и редакторов</h2>
+        Дата последнего изменения: 11.08.2023.<br>
         Для ознакомления с нововведениями вы можете воспользоваться <a href="#">соответствующим списком (Пока нет страницы, правила не обновлялись с момента создания страницы)</a>.<br><br>
         Данная статья содержит информацию об общих понятиях, правах и обязанностях переводчиков и редакторов команды «tfoxs».<br>
         Правила и обязанности, указанные в этой статье, распространяются на каждого работника команды «tfoxs».<br>
         Становясь членом команды, каждый работник соглашается на действующие и всевозможные будущие изменения правил.<br>
     </div>
     <div class="card">
-        <h4>Основная информация:</h4>
+        <h2>Основная информация:</h2>
         <a href="https://vk.com/danatxx">Danat </a>— командир команды «tfoxs».<br>
         <a href="https://vk.com/tfoxs.azulla">Azulla </a>— куратор перевода и редакта. Отвечает за распределение работы и подсчёт оплаты труда.<br>
         <a href="https://vk.com/topic-198638643_46932351">Внутренний распорядок команды</a>.<br>
     </div>
     <div class="card">
-        <h4>Основные понятия:</h4>
+        <h2>Основные понятия:</h2>
         <span>Работник</span> — каждый из членов команды «tfoxs».<br>
         <span>Ник</span> — псевдоним, используемый при указании авторства.<br>
         <span>Проект</span> — продукт, которым непосредственно занимается команда. манга/манхва/маньхуа.<br>
@@ -328,18 +441,18 @@
         <span  id="term-bank">Личный банк</span> – невыплаченная работнику произвольная сумма, которая сохраняется до ближайшей выплаты.<br>
     </div>
     <div class="card">
-        <h4>Набор в команду</h4>
+        <h2>Набор в команду</h2>
         Каждый желающий может получить пробное задание на вступление в команду на желаемую должность, для этого нужно написать нам в
         <a href="https://vk.com/tfoxsmanga">группу vk</a>.<br>
         После успешного прохождения тестового задания вам будет предоставлена ссылка на данный мануал и приглашение в группу новичков, а также вы будете поставлены на
         <a onclick="scrollToEl('term-period')">пробный период</a>.<br>
     </div>
     <div class="card">
-        <h4>Процесс получения и выполнения работы:</h4>
+        <h2>Процесс получения и выполнения работы:</h2>
         <ul>
-            <li>В основной беседе и в беседе новичков Azulla регулярно оставляет сообщения о наборе работников на проект. Чтобы взяться за проект, нужно написать ему в личные сообщения.</li>
-            <li>Перед началом работы вам будет предоставлена вся нужная информация: ссылка на беседу по проекту, файлы с переводами прошлых глав и весь необходимый материал для перевода. Azulla также обозначит вам сроки сдачи готовы работ.</li>
-            <li>Переводить нужно все фразы (в баблах и за их пределами) и все знаки, звуки же чаще всего переводить не нужно. (в случае, если будет необходимо переводить звуки, Azulla вас об этом уведомит)</li>
+            <li>В основной беседе и в беседе новичков <a href="https://vk.com/tfoxs.azulla">Azulla</a> регулярно оставляет сообщения о наборе работников на проект. Чтобы взяться за проект, нужно написать ему в личные сообщения.</li>
+            <li>Перед началом работы вам будет предоставлена вся нужная информация: ссылка на беседу по проекту, файлы с переводами прошлых глав и весь необходимый материал для перевода. <a href="https://vk.com/tfoxs.azulla">Azulla</a> также обозначит вам сроки сдачи готовы работ.</li>
+            <li>Переводить нужно все фразы (в баблах и за их пределами) и все знаки, звуки же чаще всего переводить не нужно. (в случае, если будет необходимо переводить звуки, <a href="https://vk.com/tfoxs.azulla">Azulla</a> вас об этом уведомит)</li>
             <li><a onclick="scrollToEl('term-glos')">Глоссарий </a>нуждается в обновлении, если появляется новый персонаж, место, предмет, техника или меняется описание списка ранее.</li>
             <li>Стоимость выполненной главы вы можете спросить лично, т.к. в зависимости от проекта она может отличаться.</li>
             <li>Во время пробного периода выполненную работу можно отправлять в беседу проекта.</li>
@@ -361,7 +474,7 @@
 
     <div class="place card-combo">
         <div class="card">
-            <h4>Работник имеет право:</h4>
+            <h2>Работник имеет право:</h2>
             <ul>
                 <li>На получение работы;</li>
                 <li>На отказ от проектов и уход из команды;</li>
@@ -373,7 +486,7 @@
             </ul>
         </div>
         <div class="card">
-            <h4>Работник обязан:</h4>
+            <h2>Работник обязан:</h2>
             <ul>
                 <li>Своевременно выполнять поставленные задачи;</li>
                 <li>Уведомлять коллег по проекту о завершении работы (пинг в vk) и сдавать работу в срок;</li>
@@ -386,7 +499,7 @@
 
     <div class="place card-combo">
         <div class="card">
-            <h4>Работнику запрещено:</h4>
+            <h2>Работнику запрещено:</h2>
             <ul>
                 <li>Разглашать какую-либо информацию о проекте (о том, на какой стадии ведётся работа, о сумме оплаты, сроках и прочем) всем лицам, за исключением командира команды, любого из кураторов и других работников по проекту;</li>
                 <li>Распространять материалы ещё не вышедшего проекта иным лицам, не являющимися членами команды «tfoxs»;</li>
@@ -394,7 +507,7 @@
             </ul>
         </div>
         <div class="card">
-            <h4>Команда и её представители имеют право:</h4>
+            <h2>Команда и её представители имеют право:</h2>
             <ul>
                 <li>Хранить как общую (страницу vk и псевдоним), так и личную информацию (ФИО, реквизиты, почту и др.) о работнике;</li>
                 <li>Использовать личные сообщения для подтверждения тех или иных нарушений;</li>
@@ -404,7 +517,7 @@
     </div>
 
     <div class="card">
-        <h4>Обязанности переводчика:</h4>
+        <h2>Обязанности переводчика:</h2>
         <ul>
             <li>Переводить отведённые главы на стабильном хорошем уровне;</li>
             <li>Соблюдать правила оформления текста;</li>
@@ -413,7 +526,7 @@
     </div>
 
     <div class="card">
-        <h4>Обязанности редактора:</h4>
+        <h2>Обязанности редактора:</h2>
         <ul>
             <li>Править текст за переводчиком (проверять орфографию, пунктуацию, лексику, терминологию и смысловую целостность текста, приводя написанное в «идеальное» состояние перед публикацией);</li>
             <li>Соблюдать правила оформления текста;</li>
@@ -423,7 +536,7 @@
     </div>
 
     <div class="card">
-        <h4>Скорость работы над главами:</h4>
+        <h2>Скорость работы над главами:</h2>
         Работники должны укладываться в отведённые рамки по скорости:<br><br>
         <div class="card-combo stretch">
             <div>
@@ -448,7 +561,7 @@
     </div>
 
     <div class="card">
-        <h4>Правила оформления текста:</h4>
+        <h2>Правила оформления текста:</h2>
         <ul>
             <li>Перевод сдаётся в текстовом формате: .txt, .doc, .docx;</li>
             <li>Имя файла должно содержать номер главы;</li>
@@ -475,7 +588,7 @@
     </div>
 
     <div class="card">
-        <h4>Оплата:</h4>
+        <h2>Оплата:</h2>
         В зависимости от объёма главы одного проекта могут быть оценены по-разному.
         <div class="card-combo">
             <div>
@@ -496,7 +609,7 @@
         </ul>
         <br>Реквизиты для выплат нужно предоставить <a href="https://vk.com/danatxx">Данату</a>.
         <br>Подсчёт зарплат идёт в конце каждого месяца. Таким образом, в учёт идёт любая работа, предоставленная с 1го числа произвольного месяца до начала следующего. (ровно до 00:00).
-        <br>После подсчёта оплаты вам в личные сообщения придёт ваш личный отчёт о проделанной работе, который предоставит <a href="https://vk.com/tfoxs.azulla">Azulla</a>. Как только вы его получите, у вас будет возможность свериться с ним. Вам также следует уточнить у Azulla, если отчёт вдруг не пришёл.
+        <br>После подсчёта оплаты вам в личные сообщения придёт ваш личный отчёт о проделанной работе, который предоставит <a href="https://vk.com/tfoxs.azulla">Azulla</a>. Как только вы его получите, у вас будет возможность свериться с ним. Вам также следует уточнить у <a href="https://vk.com/tfoxs.azulla">Azulla</a>, если отчёт вдруг не пришёл.
         <br>Пример отчёта проделанной за месяц работы:
         <br><img src="imgs/otchet.jpg">
         <br>Вывод происходит 10го числа ежемесячно, если в <a onclick="scrollToEl('term-bank')">личном банке </a> больше 2000 руб.
@@ -505,7 +618,7 @@
     </div>
 
     <div class="card">
-        <h4>Штрафная система:</h4>
+        <h2>Штрафная система:</h2>
         <ul>
             <li>штраф в размере выполненной главы, если она крайне низкого качества;</li>
             <li>штраф по усмотрению куратора за нарушение сроков и несоблюдение дедлайнов во время марафона;</li>
@@ -516,8 +629,57 @@
         </ul>
     </div>
 
+    <div class="card">
+        <h2>Вопрос - ответ:</h2>
+        <div class="accordion">
+
+            <div class="accordion-item">
+                <button aria-expanded="false">
+                    "Хочу выписку за все месяца и каждый вывод."
+                </button>
+                <div class="accordion-content">
+                    <p>
+                        Без проблем, напиши Азулле.
+                    </p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button aria-expanded="false">
+                    "В отчёте нет глав за прошлый месяц."
+                </button>
+                <div class="accordion-content">
+                    <p>
+                        Верно, в отчётах пишутся главы, сделанные за месяц. Если за прошлый месяц не выводились, они тоже будут выведены.
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
 </div>
+
+<button id="back-to-top-btn" title="Вернуться наверх">↑</button>
 <script>
+
+    const items = document.querySelectorAll(".accordion button");
+
+    function toggleAccordion() {
+        const itemToggle = this.getAttribute('aria-expanded');
+
+        for (i = 0; i < items.length; i++) {
+            items[i].setAttribute('aria-expanded', 'false');
+        }
+
+        if (itemToggle == 'false') {
+            this.setAttribute('aria-expanded', 'true');
+        }
+    }
+
+    items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+
     function scrollToEl(elementId) {
         let element = document.getElementById(elementId);
         if (element) {
@@ -529,6 +691,22 @@
             }, 3000);
         }
     }
+
+    // Кнопка скролла
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            document.getElementById("back-to-top-btn").style.display = "block";
+        } else {
+            document.getElementById("back-to-top-btn").style.display = "none";
+        }
+    }
+    document.getElementById("back-to-top-btn").addEventListener("click", function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
+    // Кнопка скролла
+
 </script>
 </body>
 </html>
