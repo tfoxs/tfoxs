@@ -186,6 +186,7 @@ p > a {
     color: var(--var-orange);
     font-weight: bold;
 }
+
 /*Шапка*/
 
 /*Контент*/
@@ -233,6 +234,7 @@ a.card *:first-child{
 .card > h2,
 .card > ul,
 .card > img,
+.card > .place,
 .card > p{
     margin-top: 10px;
 }
@@ -373,17 +375,35 @@ table.iksweb{
     width: 100%;
     border-collapse:collapse;
     border-spacing:0;
-    height: auto; }
+    height: auto;
+    text-align: center;
+    table-layout: fixed;
+    font-size: 0.9em;
+}
+.padding0{
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--var-black);
+}
 table.iksweb,table.iksweb td, table.iksweb th {
-    border: 1px solid #595959; }
+    /*border: 1px solid #595959;*/
+}
 table.iksweb td,table.iksweb th {
-    min-height:35px;padding: 3px;
-    width: 30px;
-    height: 35px; }
-table.iksweb th {
-    background: #347c99;
-    color: #fff;
-    font-weight: normal; }
+    min-height:35px;
+    /*width: 25%;*/
+    height: 35px;
+    font-size: 0.9em;
+}
+table.iksweb tr {
+    background-color: var(--var-white);
+    color: var(--var-black);
+}
+table.iksweb tr:first-child{
+    background-color: var(--var-lite-gray);
+}
+table.iksweb tr:not(:first-child) {
+    border-bottom: 1px solid var(--var-shadow-group);
+}
 
 #back-to-top-btn {
     display: none; /* по умолчанию кнопка скрыта */
@@ -410,10 +430,18 @@ table.iksweb th {
     background: var(--var-orange);
 }
 
+
+
+
 @media screen and (max-width: 768px) {
     .group > .place {
         flex: 1 1 80%;
         margin-bottom: 0;
+    }
+}
+@media screen and (max-width: 600px) {
+    table.iksweb td,table.iksweb th {
+        font-size: 1.8vw;
     }
 }
 @media screen and (max-width: 400px) {
