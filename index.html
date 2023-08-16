@@ -7,352 +7,18 @@
     <title>Manager-o</title>
     <link rel="icon" href="no_bg_4.png" type="image/x-icon">
     <style>
-        :root {
-            --var-orange-lite: #FCB045FF;
-            --var-orange-lite50: #FCB0457F;
-            --var-orange: #FD7034FF;
-            --var-red: #FD1D1DFF;
-            --var-blue: #07a8e8;
-            --var-purple: #905cf1;
-            --var-black: #000;
-            --var-shadow: rgba(0, 0, 0, 0.2);
-            --var-shadow-group: rgba(0, 0, 0, 0.1);
-            --var-white: #ffffff;
-            --var-lite-gray: #f5f1ef;
-            --var-accent: #ffffff;
-            --var-gradient-header: linear-gradient(30deg, var(--var-red) 0%, var(--var-orange-lite) 100%);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --var-orange-lite: #444654;
-                --var-orange-lite50: rgba(68, 70, 84, 0.5);
-                --var-black: #c0c4cb;
-                --var-shadow: rgba(255, 255, 255, 0.2);
-                --var-shadow-group: rgba(255, 255, 255, 0.1);
-                --var-white: #1f2326;
-                --var-lite-gray: #191b1c;
-                --var-accent: #e3e6ea;
-                --var-gradient-header: #282c2f;
-            }
-        }
-        ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-            cursor: pointer;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--var-orange);
-            border-radius: 0;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--var-orange);
-        }
-        ::-webkit-scrollbar-thumb:active {
-            background: var(--var-red);
-        }
-        ::-webkit-scrollbar-track {
-            background: #666666;
-            border-radius: 0;
-        }
-        ::-webkit-scrollbar-track:hover {
-            background: #666666;
-        }
-        ::-webkit-scrollbar-track:active {
-            background: #333333;
-        }
-        ::-webkit-scrollbar-corner {
-            background: transparent;
-        }
-        body {
-            background-color: var(--var-white);
-            text-align: center;
-            font-family: Verdana, Arial, Helvetica, sans-serif;
-            font-size: 1em;
-            display: flex;
-            flex-direction: column;
-            /*width: 100vw;*/
-            height: 100vh;
-            width: calc(100vw - 10px);
-            overflow-x: hidden;
-        }
-        * {
-            margin: 0;
-            font-size: 12px;
-            transition: font-size 0.2s;
-        }
-        h2 {
-            margin-bottom: 5px;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-            height: 100%;
-        }
-        .hover-orange:hover {
-            background: var(--var-orange-lite);
-            background: linear-gradient(45deg, var(--var-orange-lite) 0%, var(--var-orange-lite50) 100%);
-            cursor: pointer;
-            border-radius: 10px;
-        }
-        header {
-            position: fixed;
-            top: 0;
-            display: flex;
-            width: 100%;
-            flex-direction: row;
-            justify-content: center;
-            align-content: center;
-            align-items: center;
-            background: var(--var-orange-lite50);
-            border-bottom: solid rgba(255, 255, 255, 0.39) 1px;
-            /*background: var(--var-gradient-header);*/
-            color: var(--var-accent);
-            min-height: 55px;
-            max-height: 55px;
-            backdrop-filter: blur(4px);
-            z-index: 2;
-        }
-        .header_back{
-            background: var(--var-red);
-            background: var(--var-gradient-header);
-            min-height: 55px;
-            max-height: 55px;
-        }
-        #header {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
-            align-items: flex-start;
-            padding-left: 20px;
-        }
-        #header:hover > h1{
-            color: var(--var-orange);
-        }
-        #back{
-            display: block;
-            height: 100%;
-            width: auto;
-            min-width: 55px;
-            text-align: center;
-            line-height: 50px;
-            font-size: 1.5em;
-            transition: font-size 0.2s;
-        }
-        svg {
-            display: block;
-            width: auto;
-            height: 100%;
-            min-height: 55px;
-
-        }
-        svg > g{
-            fill: var(--var-accent);
-        }
-
-
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .group-link > h2{
-            width: 100%;
-            color: var(--var-black);
-            text-align: center;
-            margin: 10px 0 15px 0;
-        }
-        .group-link{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            flex-grow: 1;
-            flex-basis: 100%;
-            height: auto;
-            /*max-height: 8rem;*/
-            /*margin-top: 15px;*/
-            margin: 7px 7px 25px 7px;
-            padding: 10px 10px;
-            background: var(--var-lite-gray);
-            border-radius: 10px;
-            text-align: left;
-            box-sizing: border-box;
-            transition: all 0.2s ease;
-            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow);
-            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow);
-            box-shadow: 0 5px 20px -7px var(--var-shadow);
-        }
-
-        .button-link {
-            /*width: 90%;*/
-            flex-grow: 1;
-            flex-basis: 55%;
-            height: auto;
-            max-height: 8rem;
-            /*margin-top: 15px;*/
-            margin: 7px;
-            padding: 10px 25px;
-            background: var(--var-white);
-            border-radius: 10px;
-            color: var(--var-orange);
-            text-align: left;
-            text-decoration: none;
-            cursor: pointer;
-            box-sizing: border-box;
-            transition: all 0.2s ease;
-            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow);
-            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow);
-            box-shadow: 0 5px 20px -7px var(--var-shadow);
-        }
-        .group-link .button-link{
-            /*background: var(--var-lite-gray);*/
-            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
-            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
-            box-shadow: 0 5px 20px -7px var(--var-shadow-group);
-
-        }
-        .button-link--blue{
-            color: var(--var-blue);
-        }
-        .button-link--purple{
-            color: var(--var-purple);
-        }
-        .third{
-            flex-basis: 30%;
-        }
-        .max{
-            flex-basis: 100%;
-        }
-
-        .button-link:hover, .button-link:active {
-            /*border-left: 5px solid #FD1D1DFF;*/
-            /*box-sizing: border-box;*/
-            -webkit-box-shadow: 0 5px 20px -7px var(--var-orange);
-            -moz-box-shadow: 0 5px 20px -7px var(--var-orange);
-            box-shadow: 0 5px 20px -7px var(--var-orange);
-        }
-        .button-link--blue:hover, .button-link--blue:active {
-            -webkit-box-shadow: 0 5px 20px -7px var(--var-blue);
-            -moz-box-shadow: 0 5px 20px -7px var(--var-blue);
-            box-shadow: 0 5px 20px -7px var(--var-blue);
-        }
-        .button-link--purple:hover, .button-link--purple:active {
-            -webkit-box-shadow: 0 5px 20px -7px var(--var-purple);
-            -moz-box-shadow: 0 5px 20px -7px var(--var-purple);
-            box-shadow: 0 5px 20px -7px var(--var-purple);
-        }
-        .button-link:hover h2, .button-link:active h2 {
-            /*color: #FD1D1DFF;*/
-            text-decoration: none;
-        }
-
-        .button-link p {
-            color: var(--var-black);
-            opacity: 50%;
-            max-height: calc(1.2em * 4);
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-        }
-        #back-to-top-btn {
-            display: none; /* по умолчанию кнопка скрыта */
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            bottom: 20px;
-            right: 20px;
-            background: var(--var-orange-lite50);
-            border-radius: 5px;
-            border: none;
-            border-bottom: solid rgba(255, 255, 255, 0.39) 1px;
-            color: var(--var-accent);
-            backdrop-filter: blur(1px);
-            cursor: pointer;
-            z-index: 99;
-            transition: 1s;
-            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
-            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
-            box-shadow: 0 5px 20px -7px var(--var-shadow-group);
-
-        }
-
-        #back-to-top-btn:hover {
-            background: var(--var-orange);
-        }
-        @media screen and (max-width: 1200px)  {}
-        @media screen and (max-width: 992px) {}
-        @media screen and (max-width: 768px) {
-            .button-link {
-                max-height: 10rem;
-                padding: 15px 25px;
-            }
-            .button-link p {
-                max-height: calc(1.2em * 3);
-                -webkit-line-clamp: 3;
-            }
-            .third{
-                flex-basis: 45%;
-            }
-        }
-        @media screen and (max-width: 480px) {
-            * {
-                font-size: 12px;
-            }
-            header {
-                min-height: 60px;
-                max-height: 60px;
-            }
-            .content {
-                margin-top: 10px;
-            }
-            #back {
-                font-size: 2.0em;
-            }
-            .button-link {
-                flex-basis: 100%;
-                max-height: 8rem;
-                padding: 25px 30px;
-            }
-        }
-        @media screen and (max-width: 320px) {
-            * {
-                font-size: 12px;
-            }
-            svg {
-                display: none;
-            }
-            h1, #back {
-                display: none;
-            }
-            #header{
-                padding-left: 0;
-                align-items: center;
-            }
-            .button-link {
-                max-height: 11rem;
-            }
-            .button-link p {
-                max-height: calc(1.2em * 4);
-                -webkit-line-clamp: 4;
-            }
-        }
-
-
+        @import 'main.css';
     </style>
+
 </head>
 <body onload="load()">
 
 
 <header>
-    <a href="https://remanga.org/team/peacekeepingsquad" id="back"></a>
-    <a href="https://remanga.org/team/peacekeepingsquad" class="hover-orange"><svg version="1.1"
-         viewBox="0 0 1331.000000 1331.000000"
-         preserveAspectRatio="xMidYMid meet">
+    <a href="https://tfoxs.github.io/tfoxs" id="back" class="a-h hover-orange"></a>
+    <a href="https://remanga.org/team/peacekeepingsquad" class="a-h hover-orange"><svg version="1.1"
+                                                                                       viewBox="0 0 1331.000000 1331.000000"
+                                                                                       preserveAspectRatio="xMidYMid meet">
 
         <g transform="translate(0.000000,1331.000000) scale(0.100000,-0.100000)"
            fill="#000000" stroke="none">
@@ -375,148 +41,171 @@
                 -337 39 -557 24z"/>
         </g>
     </svg></a>
-    <a href="https://remanga.org/team/peacekeepingsquad" id="header"><h1>Tfoxs</h1>
+    <a href="https://remanga.org/team/peacekeepingsquad" id="header" class="a-h"><h1>Tfoxs</h1>
         <h3 class="description">Менеджер приложений</h3></a>
 </header>
 <div class="header_back"></div>
 
-<div class="content">
 
-    <div class="group-link">
+<div class="content">
+    <img src="imgs/main.jpg" style="position: absolute;z-index: -1;visibility: hidden;">
+
+    <div class="place card card-dark">
         <h2>Контакты</h2>
-        <a href="https://vk.com/danatxx" class="button-link third">
-            <h2>Данат</h2>
-            <p>Командир команды «tfoxs»</p>
+        <div class="group">
+            <a href="https://vk.com/danatxx" class="place card">
+                <h2>Данат</h2>
+                <p>Командир команды «tfoxs»</p>
+            </a>
+            <a href="https://vk.com/tfoxs.azulla" class="place card">
+                <h2>Azulla</h2>
+                <p>Куратор перевода и редакта</p>
+            </a>
+            <a href="https://vk.com/a.valger" class="place card">
+                <h2>Андрей</h2>
+                <p>Куратор клина/тайпа</p>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="place group">
+        <a href="https://tfoxs.github.io/tfoxs/rules.html" class="place card purple">
+            <h2>Правила</h2>
+            <p>для переводчиков и редакторов</p>
         </a>
-        <a href="https://vk.com/tfoxs.azulla" class="button-link third">
-            <h2>Azulla</h2>
-            <p>Куратор перевода и редакта. Отвечает за распределение работы и подсчёт оплаты труда.</p>
-        </a>
-        <a href="https://vk.com/a.valger" class="button-link third">
-            <h2>Андрей</h2>
-            <p>Куратор клина/тайпа.</p>
+        <a href="https://remanga.org/team/peacekeepingsquad" class="place card fb10">
+            <h2>Реманга</h2>
+            <p>Не придумал, что написать</p>
         </a>
     </div>
-    <a href="https://tfoxs.github.io/tfoxs/rules.html" class="button-link button-link--purple">
-        <h2>Правила</h2>
-        <p>для переводчиков и редакторов.</p>
-    </a>
-    <a href="https://remanga.org/team/peacekeepingsquad" class="button-link third">
-        <h2>Реманга</h2>
-        <p>Не придумал, что написать</p>
-    </a>
 
 
-    <a href="https://tfoxs.github.io/tfoxs/edit_text.html" class="button-link">
+    <a href="https://tfoxs.github.io/tfoxs/edit_text.html" class="place card">
         <h2>Edit-o</h2>
-        <p>Позволит обработать текст, исправив большую часть неправильных знаков.</p>
+        <p>Позволит обработать текст, исправив большую часть неправильных знаков</p>
     </a>
-    <a href="https://tfoxs.github.io/tfoxs/drivescanreader.html" class="button-link">
-        <h2>Reader-o</h2>
-        <p>Позволит открыть архив с диска как в читалке</p>
-    </a>
-    <a href="https://tfoxs.github.io/tfoxs/perenos_slov.html" class="button-link">
-        <h2>Perenos-o</h2>
-        <p>(Beta) Позволит разбить любое слово на части для переноса</p>
-    </a>
-
-    <a href="https://textcompare.ru/app" class="button-link button-link--blue max">
+    <div class="place group">
+        <a href="https://tfoxs.github.io/tfoxs/drivescanreader.html" class="place card">
+            <h2>Reader-o</h2>
+            <p>Позволит открыть архив с диска как в читалке</p>
+        </a>
+        <a href="https://tfoxs.github.io/tfoxs/perenos_slov.html" class="place card fb10">
+            <h2>Perenos-o</h2>
+            <p>(Beta) Позволит разбить любое слово на части для переноса</p>
+        </a>
+    </div>
+    <a href="https://textcompare.ru/app" class="place card blue">
         <h2>Textcompare</h2>
         <p>Позволит сравнить два текста</p>
     </a>
 
-    <div class="group-link">
+
+    <div class="place card card-dark">
         <h2>Разные переводчики</h2>
-        <a href="https://translate.yandex.ru/ocr" class="button-link button-link--blue third">
-            <h2>Яндекс ORS</h2>
-            <p>Распознать текст с картинки</p>
-        </a>
-        <a href="https://lens.google.com/search?ep=gisbubb&hl=ru-UA&p=ATHekxdguUiS5dYI4QIMoASRtYtceYcxkG-4wfg5VK-zgiPuawsSgtUBNmGk8-Hom6L8z028Z6ngNkzmvLcu1twGH1D5gdLv4JDmMRuoZu97ytbrpY2-jfUcyB7zZkAfJX28RsA4cLg6PnEhvtfDNpwryVeYhbrIw3GLByOrlJA_COHhvelpqzx2mHOY9Ktt1otMe37BPjDqRQ213apnPeIHUZfBk-C2l0EBRXy1V_2S71FarmcihfVgYDr6yigprc4kY5Tqcmlh7w0dk0PZzG8oRdP3ic_dbsBYsmGobJk%3D#lns=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsIkVrY0tKREF3TUdVeU5EWXpMV1UwT1RndE5EWTNNeTA0TWpGbExUWmlaVEZoTnpreE5HRTFPQklmYnpsUE4zRkpSSG90VG10bU5FaEZlRmhpTFdJNVpVSk1UeTF3T1dsQ1p3PT0iLG51bGwsbnVsbCxudWxsLDMsWyJhdXRvIiwia28iXSxbW10sbnVsbCxudWxsLG51bGwsOF0sbnVsbCxudWxsXQ==" class="button-link button-link--blue third">
-            <h2>Google Lens</h2>
-            <p>Распознать текст с картинки</p>
-        </a>
-        <a href="https://papago.naver.com" class="button-link button-link--blue third">
-            <h2>Papago</h2>
-            <p>Переводчик с разных языков</p>
-        </a>
+        <div class="group">
+            <a href="https://translate.yandex.ru/ocr" class="place card blue">
+                <h2>Яндекс ORS</h2>
+                <p>Распознать текст с картинки</p>
+            </a>
+            <a href="https://lens.google.com/search?ep=gisbubb&hl=ru-UA&p=ATHekxdguUiS5dYI4QIMoASRtYtceYcxkG-4wfg5VK-zgiPuawsSgtUBNmGk8-Hom6L8z028Z6ngNkzmvLcu1twGH1D5gdLv4JDmMRuoZu97ytbrpY2-jfUcyB7zZkAfJX28RsA4cLg6PnEhvtfDNpwryVeYhbrIw3GLByOrlJA_COHhvelpqzx2mHOY9Ktt1otMe37BPjDqRQ213apnPeIHUZfBk-C2l0EBRXy1V_2S71FarmcihfVgYDr6yigprc4kY5Tqcmlh7w0dk0PZzG8oRdP3ic_dbsBYsmGobJk%3D#lns=W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsIkVrY0tKREF3TUdVeU5EWXpMV1UwT1RndE5EWTNNeTA0TWpGbExUWmlaVEZoTnpreE5HRTFPQklmYnpsUE4zRkpSSG90VG10bU5FaEZlRmhpTFdJNVpVSk1UeTF3T1dsQ1p3PT0iLG51bGwsbnVsbCxudWxsLDMsWyJhdXRvIiwia28iXSxbW10sbnVsbCxudWxsLG51bGwsOF0sbnVsbCxudWxsXQ==" class="place card blue">
+                <h2>Google Lens</h2>
+                <p>Распознать текст с картинки</p>
+            </a>
+            <a href="https://papago.naver.com" class="place card blue">
+                <h2>Papago</h2>
+                <p>Переводчик с разных языков</p>
+            </a>
+        </div>
     </div>
 
-    <div class="group-link">
+    <div class="place card card-dark">
         <h2>Русский язык</h2>
-        <a href="https://therules.ru/" class="button-link button-link--blue third">
-            <h2>Правила русского языка</h2>
-        </a>
-        <a href="http://www.rosental-book.ru/" class="button-link button-link--blue third">
-            <h2>Справочник по правописанию и стилистике</h2>
-            <p>Д. Э. Розенталь. </p>
-        </a>
-        <a href="https://gufo.me" class="button-link button-link--blue third">
-            <h2>Gufo</h2>
-            <p>Словари и энциклопедии</p>
-        </a>
-        <a href="https://glvrd.ru" class="button-link button-link--blue third">
-            <h2>Главред β</h2>
-            <p>Помогает очистить текст от словесного мусора, проверяет на соответствие информационному стилю.</p>
-        </a>
-        <a href="https://silverstone-studio.ru/forums/topic/sklonyaem-imennye-suffiksy-v-mange/" class="button-link button-link--blue third">
-            <h2>Суффиксы в манге</h2>
-        </a>
+        <div class="group">
+            <a href="https://therules.ru/" class="place card blue">
+                <h2>Therules</h2>
+                <p>Правила русского языка</p>
+            </a>
+            <a href="http://www.rosental-book.ru/" class="place card blue">
+                <h2>Справочник по правописанию и стилистике</h2>
+                <p>Д. Э. Розенталь</p>
+            </a>
+            <a href="https://gufo.me" class="place card blue">
+                <h2>Gufo</h2>
+                <p>Словари и энциклопедии</p>
+            </a>
+            <a href="https://glvrd.ru" class="place card blue">
+                <h2>Главред β</h2>
+                <p>Помогает очистить текст от словесного мусора, проверяет на соответствие информационному стилю.</p>
+            </a>
+            <a href="https://silverstone-studio.ru/forums/topic/sklonyaem-imennye-suffiksy-v-mange/" class="place card blue">
+                <h2>Суффиксы в манге</h2>
+            </a>
+        </div>
     </div>
 
-    <div class="group-link">
+    <div class="place card card-dark">
         <h2>Корейский язык</h2>
-        <a href="https://dict.naver.com/rukodict/#/main" class="button-link button-link--blue third">
-            <h2>Корейско-русский словарь</h2>
-            <p></p>
-        </a>
-        <a href="https://www.freepapers.ru/3/zvukopodrazhaniya-v-korejskom-yazyke/166725.1023989.list1.html" class="button-link button-link--blue third">
-            <h2>Звукоподражания в корейском языке</h2>
-            <p>(Временно)</p>
-        </a>
-        <a href="https://www.wattpad.com/413555511-корейский-язык-50-часто-используемых" class="button-link button-link--blue third">
-            <h2>50 часто используемых звукоподражательных слов</h2>
-            <p>(Временно)</p>
-        </a>
-        <a href="http://www.rauk.ru/ru/?option=com_content&view=article&id=591" class="button-link button-link--blue third">
-            <h2>Rauk</h2>
-            <p>Русская и латинская системы транскрипции корейских слов и имен собственных</p>
-        </a>
+        <div class="group">
+            <a href="https://dict.naver.com/rukodict/#/main" class="place card blue">
+                <h2>Dict Naver</h2>
+                <p>Корейско-русский словарь</p>
+            </a>
+            <a href="https://www.freepapers.ru/3/zvukopodrazhaniya-v-korejskom-yazyke/166725.1023989.list1.html" class="place card blue">
+                <h2>Звукоподражания в корейском языке</h2>
+                <p>(Временно)</p>
+            </a>
+            <a href="https://www.wattpad.com/413555511-корейский-язык-50-часто-используемых" class="place card blue">
+                <h2>50 часто используемых звукоподражательных слов</h2>
+                <p>(Временно)</p>
+            </a>
+            <a href="http://www.rauk.ru/ru/?option=com_content&view=article&id=591" class="place card blue">
+                <h2>Rauk</h2>
+                <p>Русская и латинская системы транскрипции корейских слов и имен собственных</p>
+            </a>
+        </div>
     </div>
 
-    <div class="group-link">
+    <div class="place card card-dark">
         <h2>Китайский язык</h2>
-        <a href="https://bkrs.info/slovo.php" class="button-link button-link--blue third">
-            <h2>Переводчик слов с китайского</h2>
-            <p>(Может работать с предложениями)</p>
-        </a>
-        <a href="https://cidian.ru/r.php" class="button-link button-link--blue third">
-            <h2>Переводчик слов с китайского</h2>
-            <p></p>
-        </a>
-        <a href="https://www.archchinese.com/chinese_english_dictionary.html?" class="button-link button-link--blue third">
-            <h2>Система изучения китайского языка</h2>
-            <p></p>
-        </a>
+        <div class="group">
+            <a href="https://bkrs.info/slovo.php" class="place card blue">
+                <h2>Переводчик слов с китайского</h2>
+                <p>(Может работать с предложениями)</p>
+            </a>
+            <a href="https://cidian.ru/r.php" class="place card blue">
+                <h2>Переводчик слов с китайского</h2>
+                <p></p>
+            </a>
+            <a href="https://www.archchinese.com/chinese_english_dictionary.html?" class="place card blue">
+                <h2>Archchinese</h2>
+                <p>Система изучения китайского языка</p>
+            </a>
+        </div>
     </div>
 
-    <div class="group-link">
+    <div class="place card card-dark">
         <h2>Японский язык</h2>
-        <a href="https://dearmemories.ucoz.ru/Files/perevod_zvukov.pdf" class="button-link button-link--blue third">
-            <h2>Японско-английско-русская таблица звуков</h2>
-            <p></p>
-        </a>
-        <a href="https://jisho.org" class="button-link button-link--blue third">
-            <h2>Японско-английский словарь</h2>
-            <p></p>
-        </a>
+        <div class="group">
+            <a href="https://dearmemories.ucoz.ru/Files/perevod_zvukov.pdf" class="place card blue">
+                <h2>Японско-английско-русская таблица звуков</h2>
+                <p></p>
+            </a>
+            <a href="https://jisho.org" class="place card blue">
+                <h2>Jisho</h2>
+                <p>Японско-английский словарь</p>
+            </a>
+        </div>
     </div>
 
-    <div class="group-link">
+    <div class="place card card-dark">
         <h2>Английский язык</h2>
-        <a href="https://dictionary.cambridge.org" class="button-link button-link--blue third">
-            <h2>Cambridge Dictionary</h2>
-            <p>Английско-русский словарик</p>
-        </a>
+        <div class="group">
+            <a href="https://dictionary.cambridge.org" class="place card blue">
+                <h2>Cambridge Dictionary</h2>
+                <p>Английско-русский словарик</p>
+            </a>
+        </div>
     </div>
 
 

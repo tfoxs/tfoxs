@@ -5,382 +5,14 @@
     <meta name="viewport" content="user-scalable=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Rules</title>
-    <link rel="icon" href="no_bg_4.png" type="image/x-icon">
-    <style type="text/css">
-        :root {
-            --var-orange-lite: #FCB045FF;
-            --var-orange-lite50: #FCB0457F;
-            --var-orange: #FD7034FF;
-            --var-red: #FD1D1DFF;
-            --var-blue: #07a8e8;
-            --var-purple: #905cf1;
-            --var-black: #000;
-            --var-shadow: rgba(0, 0, 0, 0.2);
-            --var-shadow-group: rgba(0, 0, 0, 0.1);
-            --var-white: #ffffff;
-            --var-lite-gray: #f5f1ef;
-            --var-accent: #ffffff;
-            --var-gradient-header: linear-gradient(30deg, var(--var-red) 0%, var(--var-orange-lite) 100%);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --var-orange-lite: #444654;
-                --var-orange-lite50: rgba(68, 70, 84, 0.5);
-                --var-black: #c0c4cb;
-                --var-shadow: rgba(255, 255, 255, 0.2);
-                --var-shadow-group: rgba(255, 255, 255, 0.1);
-                --var-white: #1f2326;
-                --var-lite-gray: #191b1c;
-                --var-accent: #e3e6ea;
-                --var-gradient-header: #282c2f;
-            }
-        }
-        ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-            cursor: pointer;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--var-orange);
-            border-radius: 0;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--var-orange);
-        }
-        ::-webkit-scrollbar-thumb:active {
-            background: var(--var-red);
-        }
-        ::-webkit-scrollbar-track {
-            background: #666666;
-            border-radius: 0;
-        }
-        ::-webkit-scrollbar-track:hover {
-            background: #666666;
-        }
-        ::-webkit-scrollbar-track:active {
-            background: #333333;
-        }
-        ::-webkit-scrollbar-corner {
-            background: transparent;
-        }
-        * {
-            margin: 0;
-            font-size: 12px;
-            transition: font-size 0.2s;
-        }
-        body {
-            background-color: var(--var-white);
-            text-align: center;
-            font-family: Verdana, Arial, Helvetica, sans-serif;
-            font-size: 1em;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100vh;
-            overflow-x: hidden;
-        }
-        .a-h {
-            text-decoration: none;
-            color: inherit;
-			height: 100%;
-        }
-        .hover-orange:hover, .control button:hover {
-            background: var(--var-orange-lite);
-            background: linear-gradient(45deg, var(--var-orange-lite) 0%, var(--var-orange-lite50) 100%);
-            cursor: pointer;
-            border-radius: 10px;
-        }
-        header {
-            position: fixed;
-            top: 0;
-            display: flex;
-            width: 100%;
-            flex-direction: row;
-            justify-content: center;
-            align-content: center;
-            align-items: center;
-            background: var(--var-orange-lite50);
-            border-bottom: solid rgba(255, 255, 255, 0.39) 1px;
-            /*background: var(--var-gradient-header);*/
-            color: var(--var-accent);
-            min-height: 55px;
-            max-height: 55px;
-            backdrop-filter: blur(4px);
-            z-index: 2;
-        }
-        .header_back{
-            background: var(--var-red);
-            background: var(--var-gradient-header);
-            min-height: 55px;
-            max-height: 55px;
-        }
-        #header {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
-            align-items: flex-start;
-            padding-left: 20px;
-        }
-        #header:hover > h1{
-            color: var(--var-orange);
-        }
-        #back{
-            display: block;
-            height: 100%;
-            width: auto;
-            min-width: 55px;
-            text-align: center;
-            line-height: 50px;
-            font-size: 1.2em;
-            transition: font-size 0.2s;
-        }
-        svg {
-            display: block;
-            width: auto;
-            height: 100%;
-            min-height: 55px;
-
-        }
-        svg > g{
-            fill: var(--var-accent);
-        }
-
-        ul {
-            padding-inline-start: 20px;
-        }
-
-        .content{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .card{
-            flex-grow: 1;
-            flex-basis: 55%;
-            height: auto;
-            margin: 7px;
-            padding: 15px 25px;
-            background: var(--var-white);
-            border-radius: 10px;
-            color: var(--var-black);
-            text-align: left;
-            line-height: 1.5em;
-            box-sizing: border-box;
-            transition: all 0.2s ease;
-            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow);
-            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow);
-            box-shadow: 0 5px 20px -7px var(--var-shadow);
-        }
-        .card-combo{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-        }
-        .place {
-            flex-grow: 1;
-            flex-basis: 55%;
-            align-items: stretch;
-        }
-        .stretch{
-            align-items: stretch;
-        }
-        .place > .card{
-            width: 100%;
-        }
-        .card-combo > * {
-            flex: 2;
-            /*margin: 0 10px;*/
-        }
-        .card-combo > *:not(:first-child) {
-            margin-left: 15px;
-        }
-        h2{
-            font-weight: bold;
-            font-size: 1.3em;
-            padding-bottom: 15px;
-        }
-        a {
-            text-decoration: none;
-            color: var(--var-orange);
-            font-weight: bold;
-            cursor: pointer;
-        }
-        span{
-            font-weight: bold;
-            transition: background-color 1s;
-        }
-        img {
-            width: 40%;
-            height: auto;
-        }
-        .img70 {
-            width: 70%;
-        }
-        .img90 {
-            width: 90%;
-        }
-        .f3{
-            flex: 3;
-        }
-
-
-
-        .accordion .accordion-item button[aria-expanded='true'] {
-            border-bottom: 1px solid var(--var-orange);
-        }
-        .accordion button {
-            position: relative;
-            display: block;
-            text-align: left;
-            width: 100%;
-            padding: 10px 0;
-            color: var(--var-black);
-            border: none;
-            background: none;
-            outline: none;
-        }
-        .accordion button:hover, .accordion button:focus {
-            cursor: pointer;
-            color: var(--var-orange);
-        }
-        .accordion button:hover::after, .accordion button:focus::after {
-            cursor: pointer;
-            color: var(--var-orange);
-            border: 1px solid var(--var-orange);
-        }
-        .accordion button {
-            padding: 1em 1.5em 1em 0;
-            font-weight: bold;
-            font-style: oblique;
-        }
-
-        .accordion button[aria-expanded='true'] {
-            color: var(--var-orange);
-        }
-        .accordion button[aria-expanded='true'] + .accordion-content {
-            opacity: 1;
-            max-height: 9em;
-            transition: all 200ms linear;
-            will-change: opacity, max-height;
-        }
-        .accordion .accordion-content {
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: opacity 200ms linear, max-height 200ms linear;
-            will-change: opacity, max-height;
-            padding-left: 20px;
-        }
-        .accordion .accordion-content *:first-child {
-            font-size: 1rem;
-            font-weight: 300;
-            margin: 1em 0;
-        }
-
-
-        @media screen and (max-width: 768px) {
-            .button-link p {
-                max-height: calc(1.2em * 3);
-                -webkit-line-clamp: 3;
-            }
-            .place {
-                flex-grow: 1;
-                flex-basis: 55%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin: 7px;
-            }
-
-            .card {
-                width: 85%;
-            }
-            .place > .card{
-                flex-grow: 1;
-                flex-basis: 55%;
-            }
-            .card-combo {
-                flex-direction: column;
-            }
-            .card-combo > *:not(:first-child) {
-                margin-left: 0;
-                margin-top: 10px;
-            }
-            img, .img70, .img90 {
-                width: 100%;
-            }
-        }
-
-        #back-to-top-btn {
-            display: none; /* по умолчанию кнопка скрыта */
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            bottom: 20px;
-            right: 20px;
-            background: var(--var-orange-lite50);
-            border-radius: 5px;
-            border: none;
-            border-bottom: solid rgba(255, 255, 255, 0.39) 1px;
-            color: var(--var-accent);
-            backdrop-filter: blur(1px);
-            cursor: pointer;
-            z-index: 99;
-            transition: 1s;
-            -webkit-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
-            -moz-box-shadow: 0 5px 20px -7px var(--var-shadow-group);
-            box-shadow: 0 5px 20px -7px var(--var-shadow-group);
-
-        }
-
-        #back-to-top-btn:hover {
-            background: var(--var-orange);
-        }
-        @media screen and (max-width: 480px) {
-            * {
-                font-size: 12px;
-            }
-            header {
-                min-height: 60px;
-                max-height: 60px;
-            }
-            #back {
-                font-size: 2.0em;
-            }
-        }
-        @media screen and (max-width: 320px) {
-            * {
-                font-size: 12px;
-            }
-            svg {
-                display: none;
-            }
-            h1, #back {
-                display: none;
-            }
-            #header{
-                padding-left: 0;
-                align-items: center;
-            }
-            .button-link p {
-                max-height: calc(1.2em * 4);
-                -webkit-line-clamp: 4;
-            }
-            .accordion .accordion-content {
-                padding-left: 10px;
-            }
-        }
-
+    <style>
+        @import 'main.css';
     </style>
+    <link rel="icon" href="no_bg_4.png" type="image/x-icon">
+
 </head>
 
-<body>
+<body onload="load()">
 <header>
     <a href="https://tfoxs.github.io/tfoxs" id="back" class="a-h hover-orange">&lt;</a>
     <a href="https://remanga.org/team/peacekeepingsquad" class="a-h hover-orange"><svg version="1.1"
@@ -416,66 +48,89 @@
 
 <div class="content">
     <img src="imgs/main.jpg" style="position: absolute;z-index: -1;visibility: hidden;">
-    <div class="card">
+
+    <div class="place card">
         <h2>Правила для переводчиков и редакторов</h2>
-        Дата последнего изменения: 11.08.2023.<br>
-        Для ознакомления с нововведениями вы можете воспользоваться <a href="https://tfoxs.github.io/tfoxs/change_log.html">соответствующим списком</a>.<br><br>
-        Данная статья содержит информацию об общих понятиях, правах и обязанностях переводчиков и редакторов команды «tfoxs».<br>
-        Правила и обязанности, указанные в этой статье, распространяются на каждого работника команды «tfoxs».<br>
-        Становясь членом команды, каждый работник соглашается на действующие и всевозможные будущие изменения правил.<br>
+        <p>
+            Дата последнего изменения: 11.08.2023.<br>
+            Для ознакомления с нововведениями вы можете воспользоваться <a href="https://tfoxs.github.io/tfoxs/change_log.html">соответствующим списком</a>.
+        </p>
+        <p>
+            Данная статья содержит информацию об общих понятиях, правах и обязанностях переводчиков и редакторов команды «tfoxs».<br>
+            Правила и обязанности, указанные в этой статье, распространяются на каждого работника команды «tfoxs».<br>
+            Становясь членом команды, каждый работник соглашается на действующие и всевозможные будущие изменения правил.<br>
+
+        </p>
     </div>
-    <div class="card">
+    <div class="place card">
         <h2>Основная информация:</h2>
-        <a href="https://vk.com/danatxx">Danat </a>— командир команды «tfoxs».<br>
-        <a href="https://vk.com/tfoxs.azulla">Azulla </a>— куратор перевода и редакта. Отвечает за распределение работы и подсчёт оплаты труда.<br>
-        <a href="https://vk.com/topic-198638643_46932351">Внутренний распорядок команды</a>.<br>
+        <p>
+            <a href="https://vk.com/danatxx">Danat </a>— командир команды «tfoxs».<br>
+            <a href="https://vk.com/tfoxs.azulla">Azulla </a>— куратор перевода и редакта. Отвечает за распределение работы и подсчёт оплаты труда.<br>
+            <a href="https://vk.com/topic-198638643_46932351">Внутренний распорядок команды</a>.<br>
+        </p>
     </div>
-    <div class="card">
+    <div class="place card">
         <h2>Основные понятия:</h2>
-        <span>Работник</span> — каждый из членов команды «tfoxs».<br>
-        <span>Ник</span> — псевдоним, используемый при указании авторства.<br>
-        <span>Проект</span> — продукт, которым непосредственно занимается команда. манга/манхва/маньхуа.<br>
-        <span>Анлейт</span> — вариант перевода проекта на английском языке.<br>
-        <span>Марафон</span> — ускоренная работа над проектом.<br>
-        <span id="term-period">Пробный период </span>— условный период, в ходе которого идёт оценка ваших умений на практике. В том случае, если работа окажется низкого качества, оплаты за неё не последует.<br>
-        <span id="term-glos">Глоссарий</span> — особый словарь, который должен вести переводчик и редактор проекта, включая в него поимённую характеристику героев, их псевдонимы, особенности и умения; места, предметы, ранги и прочие понятия, важные для сюжета.<br>
-        <span  id="term-bank">Личный банк</span> – невыплаченная работнику произвольная сумма, которая сохраняется до ближайшей выплаты.<br>
+        <p>
+            <span>Работник</span> — каждый из членов команды «tfoxs».<br>
+            <span>Ник</span> — псевдоним, используемый при указании авторства.<br>
+            <span>Проект</span> — продукт, которым непосредственно занимается команда. манга/манхва/маньхуа.<br>
+            <span>Анлейт</span> — вариант перевода проекта на английском языке.<br>
+            <span>Марафон</span> — ускоренная работа над проектом.<br>
+            <span id="term-period">Пробный период </span>— условный период, в ходе которого идёт оценка ваших умений на практике. В том случае, если работа окажется низкого качества, оплаты за неё не последует.<br>
+            <span id="term-glos">Глоссарий</span> — особый словарь, который должен вести переводчик и редактор проекта, включая в него поимённую характеристику героев, их псевдонимы, особенности и умения; места, предметы, ранги и прочие понятия, важные для сюжета.<br>
+            <span  id="term-bank">Личный банк</span> – невыплаченная работнику произвольная сумма, которая сохраняется до ближайшей выплаты.<br>
+        </p>
     </div>
-    <div class="card">
+    <div class="place card">
         <h2>Набор в команду</h2>
-        Каждый желающий может получить пробное задание на вступление в команду на желаемую должность, для этого нужно написать нам в
-        <a href="https://vk.com/tfoxsmanga">группу vk</a>.<br>
-        После успешного прохождения тестового задания вам будет предоставлена ссылка на данный мануал и приглашение в группу новичков, а также вы будете поставлены на
-        <a onclick="scrollToEl('term-period')">пробный период</a>.<br>
-        Так же вам нужно написать свой рабочий ник <a href="https://vk.com/tfoxs.azulla">куратору</a>.
+        <p>
+            Каждый желающий может получить пробное задание на вступление в команду на желаемую должность, для этого нужно написать нам в
+            <a href="https://vk.com/tfoxsmanga">группу vk</a>.<br>
+            После успешного прохождения тестового задания вам будет предоставлена ссылка на данный мануал и приглашение в группу новичков, а также вы будете поставлены на
+            <a onclick="scrollToEl('term-period')">пробный период</a>.<br>
+            Так же вам нужно написать свой рабочий ник <a href="https://vk.com/tfoxs.azulla">куратору</a>.
+        </p>
     </div>
-    <div class="card">
+    <div class="place card">
         <h2>Процесс получения и выполнения работы:</h2>
-        <ul>
-            <li>В основной беседе и в беседе новичков <a href="https://vk.com/tfoxs.azulla">Azulla</a> регулярно оставляет сообщения о наборе работников на проект. Чтобы взяться за проект, нужно написать ему в личные сообщения.</li>
-            <li>Перед началом работы вам будет предоставлена вся нужная информация: ссылка на беседу по проекту, файлы с переводами прошлых глав и весь необходимый материал для перевода. <a href="https://vk.com/tfoxs.azulla">Azulla</a> также обозначит вам сроки сдачи готовы работ.</li>
-            <li>Переводить нужно все фразы (в баблах и за их пределами) и все знаки, звуки же чаще всего переводить не нужно. (в случае, если будет необходимо переводить звуки, <a href="https://vk.com/tfoxs.azulla">Azulla</a> вас об этом уведомит)</li>
-            <li><a onclick="scrollToEl('term-glos')">Глоссарий </a>нуждается в обновлении, если появляется новый персонаж, место, предмет, техника или меняется описание списка ранее.</li>
-            <li>Стоимость выполненной главы вы можете спросить лично, т.к. в зависимости от проекта она может отличаться.</li>
-            <li>Во время пробного периода выполненную работу можно отправлять в беседу проекта.</li>
-        </ul>
-        <br>По завершении пробного периода вам будет предоставлены ссылки-приглашения в рабочую группу и общую беседу.
-        <br>Все последующие работы вам будет нужно отправлять в соответствующие обсуждения «перевод» или «редакт» рабочей группы «tfoxs».
-        <br>В случае, если на проекте стартует марафон, оплата и темп работы соответственно повышаются. В этом случае задержки в переводе и редакте крайне нежелательны. По окончании марафона оплата и темп работы возвращаются к первостепенным значениям.
-        <br><br>Сдавать работу в обсуждения (или в беседу проекта во время пробного периода) необходимо в следующем виде:
-        <div class="card-combo">
-            <div class="f3"><ul>
-                <li>Название проекта;</li>
-                <li>Номер главы (для переводчиков: язык, с которого был выполнен перевод);</li>
-                <li>Свой ник;</li>
-                <li>Прикреплённый файл выполненной работы.</li>
-            </ul></div>
-            <br><div><img src="imgs/sdacha.jpg" class="img70"></div>
+        <p>
+            <ul>
+                <li>В основной беседе и в беседе новичков <a href="https://vk.com/tfoxs.azulla">Azulla</a> регулярно оставляет сообщения о наборе работников на проект. Чтобы взяться за проект, нужно написать ему в личные сообщения.</li>
+                <li>Перед началом работы вам будет предоставлена вся нужная информация: ссылка на беседу по проекту, файлы с переводами прошлых глав и весь необходимый материал для перевода. <a href="https://vk.com/tfoxs.azulla">Azulla</a> также обозначит вам сроки сдачи готовы работ.</li>
+                <li>Переводить нужно все фразы (в баблах и за их пределами) и все знаки, звуки же чаще всего переводить не нужно. (в случае, если будет необходимо переводить звуки, <a href="https://vk.com/tfoxs.azulla">Azulla</a> вас об этом уведомит)</li>
+                <li><a onclick="scrollToEl('term-glos')">Глоссарий </a>нуждается в обновлении, если появляется новый персонаж, место, предмет, техника или меняется описание списка ранее.</li>
+                <li>Стоимость выполненной главы вы можете спросить лично, т.к. в зависимости от проекта она может отличаться.</li>
+                <li>Во время пробного периода выполненную работу можно отправлять в беседу проекта.</li>
+            </ul>
+        </p>
+        <p>
+            По завершении пробного периода вам будет предоставлены ссылки-приглашения в рабочую группу и общую беседу.
+            <br>Все последующие работы вам будет нужно отправлять в соответствующие обсуждения «перевод» или «редакт» рабочей группы «tfoxs».
+            <br>В случае, если на проекте стартует марафон, оплата и темп работы соответственно повышаются. В этом случае задержки в переводе и редакте крайне нежелательны. По окончании марафона оплата и темп работы возвращаются к первостепенным значениям.
+        </p>
+        <p>
+            Сдавать работу в обсуждения (или в беседу проекта во время пробного периода) необходимо в следующем виде:
+        </p>
+        <div class="group group-text half">
+            <div class="place">
+                <ul>
+                    <li>Название проекта;</li>
+                    <li>Номер главы (для переводчиков: язык, с которого был выполнен перевод);</li>
+                    <li>Свой ник;</li>
+                    <li>Прикреплённый файл выполненной работы.</li>
+                </ul>
+            </div>
+            <div class="place">
+                <img src="imgs/sdacha.jpg" class="img70">
+            </div>
         </div>
     </div>
 
-    <div class="place card-combo">
-        <div class="card">
+    <div class="group group-text half">
+
+        <div class="place card">
             <h2>Работник имеет право:</h2>
             <ul>
                 <li>На получение работы;</li>
@@ -487,7 +142,7 @@
                 <li>На получение информации об изменении правил.</li>
             </ul>
         </div>
-        <div class="card">
+        <div class="place card">
             <h2>Работник обязан:</h2>
             <ul>
                 <li>Своевременно выполнять поставленные задачи;</li>
@@ -499,8 +154,9 @@
         </div>
     </div>
 
-    <div class="place card-combo">
-        <div class="card">
+    <div class="group group-text half">
+
+        <div class="place card">
             <h2>Работнику запрещено:</h2>
             <ul>
                 <li>Разглашать какую-либо информацию о проекте (о том, на какой стадии ведётся работа, о сумме оплаты, сроках и прочем) всем лицам, за исключением командира команды, любого из кураторов и других работников по проекту;</li>
@@ -508,7 +164,7 @@
                 <li>За нарушение этих запретов работнику грозит штраф и исключение из команды.</li>
             </ul>
         </div>
-        <div class="card">
+        <div class="place card">
             <h2>Команда и её представители имеют право:</h2>
             <ul>
                 <li>Хранить как общую (страницу vk и псевдоним), так и личную информацию (ФИО, реквизиты, почту и др.) о работнике;</li>
@@ -518,31 +174,37 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="place card">
         <h2>Обязанности переводчика:</h2>
-        <ul>
-            <li>Переводить отведённые главы на стабильном хорошем уровне;</li>
-            <li>Соблюдать правила оформления текста;</li>
-            <li>Вести и обновлять глоссарий переводимых проектов. Обновлять в течение 3-5-ти дней с момента перевода последней главы.</li>
-        </ul>
+        <p>
+            <ul>
+                <li>Переводить отведённые главы на стабильном хорошем уровне;</li>
+                <li>Соблюдать правила оформления текста;</li>
+                <li>Вести и обновлять глоссарий переводимых проектов. Обновлять в течение 3-5-ти дней с момента перевода последней главы.</li>
+            </ul>
+        </p>
     </div>
 
-    <div class="card">
+    <div class="place card">
         <h2>Обязанности редактора:</h2>
-        <ul>
-            <li>Править текст за переводчиком (проверять орфографию, пунктуацию, лексику, терминологию и смысловую целостность текста, приводя написанное в «идеальное» состояние перед публикацией);</li>
-            <li>Соблюдать правила оформления текста;</li>
-            <li>Сверяться с материалом перевода (помечать содержащиеся в главе знаки, подписи, делать другие необходимые пометки, исправлять несоответствующий изображению перевод, дополнять текст отсутствующими репликами в случае пропуска их переводчиком, спрашивать у переводчика по проекту);</li>
-            <li>Вести и обновлять глоссарий переводимых проектов. Обновлять в течение 3-5-ти дней с момента перевода последней главы.</li>
-        </ul>
+        <p>
+            <ul>
+                <li>Править текст за переводчиком (проверять орфографию, пунктуацию, лексику, терминологию и смысловую целостность текста, приводя написанное в «идеальное» состояние перед публикацией);</li>
+                <li>Соблюдать правила оформления текста;</li>
+                <li>Сверяться с материалом перевода (помечать содержащиеся в главе знаки, подписи, делать другие необходимые пометки, исправлять несоответствующий изображению перевод, дополнять текст отсутствующими репликами в случае пропуска их переводчиком, спрашивать у переводчика по проекту);</li>
+                <li>Вести и обновлять глоссарий переводимых проектов. Обновлять в течение 3-5-ти дней с момента перевода последней главы.</li>
+            </ul>
+        </p>
     </div>
 
-    <div class="card">
+    <div class="place card">
         <h2>Скорость работы над главами:</h2>
-        Работники должны укладываться в отведённые рамки по скорости:<br><br>
-        <div class="card-combo stretch">
-            <div>
-                Перевод:
+        <p>
+            Работники должны укладываться в отведённые рамки по скорости:
+        </p>
+        <div class="group group-text half">
+            <div class="place">
+                <p>Перевод:</p>
                 <ul>
                     <li>Во время марафона – указанная скорость в день;</li>
                     <li>Во время отставания – не реже одной главы в 5 дней;</li>
@@ -550,8 +212,8 @@
                     <li>В обычном режиме - не реже одной главы в 7 дней.</li>
                 </ul>
             </div>
-            <div>
-                Редакт:
+            <div class="place">
+                <p>Редакт:</p>
                 <ul>
                     <li>Во время марафона – день с момента перевода;</li>
                     <li>Во время отставания – день-два с момента перевода;</li>
@@ -562,7 +224,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="place card">
         <h2>Правила оформления текста:</h2>
         <ul>
             <li>Перевод сдаётся в текстовом формате: .txt, .doc, .docx;</li>
@@ -589,37 +251,45 @@
         </ul>
     </div>
 
-    <div class="card">
+    <div class="place card">
         <h2>Оплата:</h2>
-        В зависимости от объёма главы одного проекта могут быть оценены по-разному.
-        <div class="card-combo">
-            <div>
-                <br>Примерная таблица оплаты:
+        <p>
+            В зависимости от объёма главы одного проекта могут быть оценены по-разному.
+        </p>
+        <div class="group group-text half">
+            <div class="place">
+                <p>Примерная таблица оплаты:</p>
                 <br><img src="imgs/cena.png" class="img90">
             </div>
-            <div>
-                <br>Таблица доплаты за марафон:
+            <div class="place">
+                <p>Таблица доплаты за марафон:</p>
                 <br><img src="imgs/marafon.png" class="img90">
             </div>
         </div>
-        <br>Вывод доступен на:
+        <p>Вывод доступен на:</p>
         <ul>
             <li>Онлайн-кошельки: Юмани или Киви (номер счёта);</li>
             <li>Украина: Монобанк, Приватбанк (Номер карты и Фамилия&Имя на англ. языке);</li>
             <li>Беларусь: БеларусБанк (IBAN);</li>
             <li>Страны СНГ: Visa, MIR, MasterCard (Номер карты/мобильный телефон; ФИО).</li>
         </ul>
-        <br>Реквизиты для выплат нужно предоставить <a href="https://vk.com/danatxx">Данату</a>.
-        <br>Подсчёт зарплат идёт в конце каждого месяца. Таким образом, в учёт идёт любая работа, предоставленная с 1го числа произвольного месяца до начала следующего. (ровно до 00:00).
-        <br>После подсчёта оплаты вам в личные сообщения придёт ваш личный отчёт о проделанной работе, который предоставит <a href="https://vk.com/tfoxs.azulla">Azulla</a>. Как только вы его получите, у вас будет возможность свериться с ним. Вам также следует уточнить у <a href="https://vk.com/tfoxs.azulla">Azulla</a>, если отчёт вдруг не пришёл.
-        <br>Пример отчёта проделанной за месяц работы:
-        <br><img src="imgs/otchet.jpg">
-        <br>Вывод происходит 10го числа ежемесячно, если в <a onclick="scrollToEl('term-bank')">личном банке </a> больше 2000 руб.
-        <br>Примечание: При переводе и конвертации валют возможна комиссия со стороны банка. Наша команда не несёт ответственности за снятие процентов.
+        <p>
+            Реквизиты для выплат нужно предоставить <a href="https://vk.com/danatxx">Данату</a>.
+            <br>Подсчёт зарплат идёт в конце каждого месяца. Таким образом, в учёт идёт любая работа, предоставленная с 1го числа произвольного месяца до начала следующего. (ровно до 00:00).
+            <br>После подсчёта оплаты вам в личные сообщения придёт ваш личный отчёт о проделанной работе, который предоставит <a href="https://vk.com/tfoxs.azulla">Azulla</a>. Как только вы его получите, у вас будет возможность свериться с ним. Вам также следует уточнить у <a href="https://vk.com/tfoxs.azulla">Azulla</a>, если отчёт вдруг не пришёл.
+        </p>
+        <p>Пример отчёта проделанной за месяц работы:</p>
+        <img src="imgs/otchet.jpg">
+        <p>
+            Вывод происходит 10го числа ежемесячно, если в <a onclick="scrollToEl('term-bank')">личном банке </a> больше 2000 руб.
+        </p>
+        <p>
+            Примечание: При переводе и конвертации валют возможна комиссия со стороны банка. Наша команда не несёт ответственности за снятие процентов.
+        </p>
 
     </div>
 
-    <div class="card">
+    <div class="place card">
         <h2>Штрафная система:</h2>
         <ul>
             <li>штраф в размере выполненной главы, если она крайне низкого качества;</li>
@@ -631,7 +301,7 @@
         </ul>
     </div>
 
-    <div class="card">
+    <div class="place card">
         <h2>Вопрос - ответ:</h2>
         <div class="accordion">
 
@@ -685,7 +355,13 @@
     function scrollToEl(elementId) {
         let element = document.getElementById(elementId);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            const rect = element.getBoundingClientRect();
+            const targetPosition = rect.top + window.scrollY - 200;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
             element.style.backgroundColor = 'var(--var-orange)';
 
             setTimeout(function() {
