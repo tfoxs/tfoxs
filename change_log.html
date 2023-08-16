@@ -11,7 +11,7 @@
     </style>
 </head>
 
-<body>
+<body style="visibility: hidden">
 <header>
     <a href="https://tfoxs.github.io/tfoxs" id="back" class="a-h hover-orange">&lt;</a>
     <a href="https://remanga.org/team/peacekeepingsquad" class="a-h hover-orange"><svg version="1.1"
@@ -65,6 +65,15 @@
 
 <button id="back-to-top-btn" title="Вернуться наверх">↑</button>
 <script>
+
+    window.onload = function () {
+        setTimeout(function () {
+            document.getElementsByTagName("body")[0].style.visibility = "visible";
+        }, 500);
+    }
+
+
+
 
     const items = document.querySelectorAll(".accordion button");
 

@@ -11,7 +11,7 @@
     </style>
 
 </head>
-<body onload="load()">
+<body style="visibility: hidden">
 
 
 <header>
@@ -215,6 +215,13 @@
 
 <button id="back-to-top-btn" title="Вернуться наверх">↑</button>
 <script>
+
+    window.onload = function () {
+        setTimeout(function () {
+            document.getElementsByTagName("body")[0].style.visibility = "visible";
+        }, 500);
+    }
+
     // Кнопка скролла
     window.onscroll = function() {scrollFunction()};
     function scrollFunction() {

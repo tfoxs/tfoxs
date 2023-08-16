@@ -97,6 +97,10 @@ img{
     width: 100%;
     max-width: 55vh;
 }
+.img90{
+    width: 90%;
+    max-width: 90%;
+}
 ul {
     padding-inline-start: 15px;
 }
@@ -228,11 +232,12 @@ a.card *:first-child{
 }
 .card > h2,
 .card > ul,
+.card > img,
 .card > p{
-    /*margin-left: 25px;*/
-    /*margin-right: 25px;*/
     margin-top: 10px;
-    /*width: 100%;*/
+}
+.card > img{
+    margin-bottom: -5px;
 }
 a.card > *{
     margin-top: 0;
@@ -363,6 +368,22 @@ a.card p {
     font-weight: 300;
     margin: 1em 0;
 }
+
+table.iksweb{
+    width: 100%;
+    border-collapse:collapse;
+    border-spacing:0;
+    height: auto; }
+table.iksweb,table.iksweb td, table.iksweb th {
+    border: 1px solid #595959; }
+table.iksweb td,table.iksweb th {
+    min-height:35px;padding: 3px;
+    width: 30px;
+    height: 35px; }
+table.iksweb th {
+    background: #347c99;
+    color: #fff;
+    font-weight: normal; }
 
 #back-to-top-btn {
     display: none; /* по умолчанию кнопка скрыта */
