@@ -5,67 +5,12 @@
     <meta name="viewport" content="user-scalable=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Edt-o</title>
+    <style>
+        @import 'main.css';
+    </style>
     <link rel="icon" href="no_bg_4.png" type="image/x-icon">
     <style type="text/css">
-        :root {
-            --var-orange-lite: #FCB045FF;
-            --var-orange-lite50: #FCB0457F;
-            --var-orange: #FD7034FF;
-            --var-red: #FD1D1DFF;
-            --var-blue: #07a8e8;
-            --var-black: #000;
-            --var-shadow: rgba(0, 0, 0, 0.5);
-            --var-white: #ffffff;
-            --var-accent: #ffffff;
-            --var-gradient-header: linear-gradient(30deg, var(--var-red) 0%, var(--var-orange-lite) 100%);
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --var-orange-lite: #444654;
-                --var-orange-lite50: #444654;
-                --var-black: #c0c4cb;
-                --var-shadow: rgba(255, 255, 255, 0.1);
-                --var-white: #1f2326;
-                --var-accent: #e3e6ea;
-                --var-gradient-header: #282c2f;
-            }
-
-        }
-        ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-            cursor: pointer;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--var-orange);
-            border-radius: 0;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--var-orange);
-        }
-        ::-webkit-scrollbar-thumb:active {
-            background: var(--var-red);
-        }
-        ::-webkit-scrollbar-track {
-            background: #666666;
-            border-radius: 0;
-        }
-        ::-webkit-scrollbar-track:hover {
-            background: #666666;
-        }
-        ::-webkit-scrollbar-track:active {
-            background: #333333;
-        }
-        ::-webkit-scrollbar-corner {
-            background: transparent;
-        }
-
         body {
-            background-color: var(--var-white);
-            text-align: center;
-            font-family: Verdana, Arial, Helvetica, sans-serif;
-            font-size: 1em;
             display: flex;
             flex-direction: column;
             width: 100vw;
@@ -88,55 +33,6 @@
             color: inherit;
 			height: 100%;
         }
-        .hover-orange:hover, .control button:hover {
-            background: var(--var-orange-lite);
-            background: linear-gradient(45deg, var(--var-orange-lite) 0%, var(--var-orange-lite50) 100%);
-            cursor: pointer;
-        }
-        header {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-content: center;
-            align-items: center;
-            background: var(--var-red);
-            background: var(--var-gradient-header);
-            color: var(--var-accent);
-            min-height: 55px;
-            max-height: 55px;
-        }
-        #header {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
-            align-items: flex-start;
-            padding-left: 20px;
-        }
-        #header:hover > h1{
-            text-decoration: underline;
-        }
-        #back{
-            display: block;
-            height: 100%;
-            width: auto;
-            min-width: 55px;
-            text-align: center;
-            line-height: 50px;
-            font-size: 1.5em;
-            transition: font-size 0.2s;
-        }
-        svg {
-            display: block;
-            width: auto;
-            height: 100%;
-        }
-        svg > g{
-            fill: var(--var-accent);
-        }
-
-
         button {
             height: 100%;
             flex-grow: 9;
@@ -200,6 +96,7 @@
         }
 
         .noselect {
+            font-weight: normal;
             -webkit-touch-callout: none; /* iOS Safari */
             -webkit-user-select: none; /* Safari */
             -khtml-user-select: none; /* Konqueror HTML */
@@ -437,7 +334,7 @@
 
     </style>
 </head>
-<body onload="load()">
+<body style="visibility: hidden">
 
 
 <!--<header>-->
@@ -446,10 +343,10 @@
 <!--    <h3 class="description">(BETA v1.5.) Правим текст вместе</h3></a>-->
 <!--</header>-->
 <header>
-    <a href="https://tfoxs.github.io/tfoxs" id="back" class="hover-orange">&lt;</a>
-    <a href="https://remanga.org/team/peacekeepingsquad" class="hover-orange"><svg version="1.1"
-                                                                                   viewBox="0 0 1331.000000 1331.000000"
-                                                                                   preserveAspectRatio="xMidYMid meet">
+    <a href="https://tfoxs.github.io/tfoxs" id="back" class="a-h hover-orange">&lt;</a>
+    <a href="https://remanga.org/team/peacekeepingsquad" class="a-h hover-orange"><svg version="1.1"
+                                                                                       viewBox="0 0 1331.000000 1331.000000"
+                                                                                       preserveAspectRatio="xMidYMid meet">
 
         <g transform="translate(0.000000,1331.000000) scale(0.100000,-0.100000)"
            fill="#000000" stroke="none">
@@ -472,9 +369,10 @@
                 -337 39 -557 24z"/>
         </g>
     </svg></a>
-    <a href="https://remanga.org/team/peacekeepingsquad" id="header"><h1>Tfoxs</h1>
-        <h3 class="description">(BETA v1.5.) Правим текст вместе</h3></a>
+    <a href="https://remanga.org/team/peacekeepingsquad" id="header" class="a-h"><h1>Tfoxs</h1>
+        <h3 class="description">Правка знаков</h3></a>
 </header>
+<div class="header_back"></div>
 
 <textarea id="textarea" name="comment" cols="70" rows="10" placeholder='Вставьте текст...
 (После обработки текст копируется в буфер обмена)
@@ -508,7 +406,15 @@
 
 <script type="text/javascript">
 
-	function save(){
+    // Отображение страницы позле загрузки
+    window.onload = function () {
+        setTimeout(function () {
+            document.getElementsByTagName("body")[0].style.visibility = "visible";
+        }, 500);
+    }
+    // Отображение страницы позле загрузки
+
+    function save(){
 		var inputs = document.querySelectorAll("input[type=checkbox]");
 		let enabledSettings = []
 

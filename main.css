@@ -186,7 +186,6 @@ p > a {
     color: var(--var-orange);
     font-weight: bold;
 }
-
 /*Шапка*/
 
 /*Контент*/
@@ -430,6 +429,9 @@ table.iksweb tr:not(:first-child) {
     background: var(--var-orange);
 }
 
+.flex{
+    display: flex;
+}
 
 
 
