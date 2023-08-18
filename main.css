@@ -192,8 +192,11 @@ p > a {
 .content{
     width: 100%;
     line-height: 1.5em;
+    padding-top: 7px;
+    padding-bottom: 14px;
 }
-.content > *{
+
+.content > *:not(:first-child){
     margin-top: 10px;
 }
 .place{
@@ -432,7 +435,9 @@ table.iksweb tr:not(:first-child) {
 .flex{
     display: flex;
 }
-
+.w100{
+    height: 100%;
+}
 
 
 @media screen and (max-width: 768px) {

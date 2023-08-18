@@ -2,97 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>DriveScanReader</title>
+    <style>
+        @import '../main.css';
+        @import 'main.css';
+    </style>
     <link rel="icon" href="no_bg_4.png" type="image/x-icon">
     <style type="text/css">
-      ::-webkit-scrollbar {
-          width: 10px;
-          height: 10px;
-      }
-
-        ::-webkit-scrollbar-thumb {
-            background: #fcb045;
-            border-radius: 0;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #fcb045;
-        }
-        ::-webkit-scrollbar-thumb:active {
-            background: #fd1d1d;
-        }
-        ::-webkit-scrollbar-track {
-            background: #666666;
-            border-radius: 0;
-        }
-        ::-webkit-scrollbar-track:hover {
-            background: #666666;
-        }
-        ::-webkit-scrollbar-track:active {
-            background: #333333;
-        }
-        ::-webkit-scrollbar-corner {
-            background: transparent;
-        }
-        * {
-            margin: 0;
-            font-size: 12px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            padding: 0 20px;
-        }
-
-        body {
-            text-align: center;
-            font-family: Verdana, Arial, Helvetica, sans-serif;
-            font-size: 1em;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            min-height: 100vh;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgb(253, 29, 29);
-            background: linear-gradient(30deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);
-            color: white;
-            /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
-            z-index: 100;
-        }
-        #header{
-            display: flex;
-            align-items: center;
-        }
-        #back{
-            height: 100%;
-            width: auto;
-        }
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
 
         .input-file {
             position: relative;
             display: inline-block;
+            width: 100%;
         }
-
         .input-file span {
             position: relative;
             display: inline-block;
             cursor: pointer;
             outline: none;
             text-decoration: none;
-            color: rgb(255 255 255);
             text-align: center;
-            background-color: initial;
             line-height: 22px;
             height: 50px;
             padding: 15px 20px;
@@ -100,8 +31,8 @@
             border: none;
             margin: 0;
             transition: background-color 0.2s;
-            width: 50vw;
-            font-weight: 1000;
+            width: 100%;
+            border-radius: 10px;
         }
         .input-file input[type=file] {
             position: absolute;
@@ -112,103 +43,105 @@
             height: 0;
         }
 
-        /* Hover/active */
-        .input-file:hover span {
-            background-color: rgb(253, 29, 29);
-        }
-        .input-file:active span {
-            background-color: rgb(253, 29, 29);
-        }
-
-        /* Disabled */
         .input-file input[type=file]:disabled + span {
-            background-color: #eee;
+            background-color: var(--var-lite-gray);
         }
 
         #img_place{
-            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 50px;
         }
-          .page {
-              width: 100%;
-              max-width: 400px;
-              background-color: #fd6f23;
-              color: white;
-          }
+        #img_place > *:not(:nth-child(2)){
+            margin-bottom: 0;
+            margin-top: 0;
+        }
         img {
             width: 100%;
             max-width: 400px;
             height: auto;
         }
-        #back-to-top-btn {
-            display: none; /* по умолчанию кнопка скрыта */
-            position: fixed;
-            width: 30px;
-            height: 30px;
-            bottom: 20px;
-            right: 20px;
-            background-color: #fcb045;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            z-index: 99;
+        .scan{
+            position: relative;
         }
-
-        #back-to-top-btn:hover {
-            background-color: #fd1d1d;
-        }
-        @media screen and (max-width: 750px) {
-            .header-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            a {
-                width: 100%;
-                padding: 5px 0;
-            }
-            .input-file span {
-                width: 100vw;
-                height: 40px;
-                padding: 10px 20px;
-            }
-            #img_place{
-                margin-top: 80px;
-            }
+        .scan p {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 5px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--var-orange) 0%, #FD703400 50%);
         }
 
     </style>
 </head>
-<body>
 
-<header class="header-container">
-    <div id="header">
-        <a href="https://tfoxs.github.io/tfoxs/" id="back"><</a>
-        <a href="https://remanga.org/team/peacekeepingsquad">
-            <h1>Tfoxs</h1>
-            <h3 class="description">(BETA v1.2.) Загрузка занимает какое-то время</h3>
-        </a>
-    </div>
-    <form method="post" enctype="multipart/form-data">
-        <label class="input-file">
-            <input type="file" name="file" id="archiveInput" accept=".zip">
-            <span>Выберите архив</span>
-        </label>
-    </form>
+<body style="visibility: hidden">
+<img src="imgs/main.jpg" style="position: absolute;z-index: -1;visibility: hidden;">
+
+<header>
+    <a href="https://tfoxs.github.io/tfoxs" id="back" class="a-h hover-orange">&lt;</a>
+    <a href="https://remanga.org/team/peacekeepingsquad" class="a-h hover-orange"><svg version="1.1"
+                                                                                       viewBox="0 0 1331.000000 1331.000000"
+                                                                                       preserveAspectRatio="xMidYMid meet">
+
+        <g transform="translate(0.000000,1331.000000) scale(0.100000,-0.100000)"
+           fill="#000000" stroke="none">
+            <path d="M6125 12013 c-67 -9 -202 -33 -237 -43 l-38 -11 37 -72 c180 -357
+                302 -864 303 -1254 l0 -101 -142 -71 c-427 -210 -798 -516 -1082 -894 -300
+                -401 -486 -836 -571 -1343 -33 -197 -63 -259 -189 -402 -113 -129 -379 -390
+                -496 -488 -206 -173 -503 -383 -677 -480 -35 -20 -63 -42 -63 -50 0 -19 62
+                -142 113 -224 105 -168 262 -347 412 -470 422 -345 996 -494 1525 -394 47 9
+                96 17 110 18 14 1 477 164 1030 361 553 196 1034 366 1070 377 670 197 1397 4
+                1882 -500 243 -252 410 -567 482 -910 88 -418 33 -850 -158 -1230 -25 -51 -44
+                -92 -42 -92 2 0 52 71 109 157 855 1283 1057 2861 551 4313 -319 916 -898
+                1708 -1674 2291 -69 52 -153 112 -186 133 -56 36 -63 45 -79 95 -32 106 -108
+                272 -169 374 -298 495 -788 821 -1359 902 -93 13 -383 18 -462 8z m-258 -2909
+                c18 -5 21 -11 16 -42 -32 -231 -192 -420 -409 -485 -70 -21 -169 -29 -229 -19
+                l-50 7 3 40 c17 218 200 429 423 489 54 15 205 21 246 10z"/>
+            <path d="M7618 5910 c-1270 -83 -2345 -933 -2713 -2145 -129 -426 -164 -877
+                -99 -1315 51 -348 187 -747 357 -1044 l62 -109 2 39 c2 21 8 82 14 134 66 579
+                410 1109 911 1401 47 28 383 152 1125 415 582 207 1091 391 1131 410 110 50
+                206 118 311 219 462 446 475 1184 27 1643 -167 172 -338 270 -571 328 -115 29
+                -337 39 -557 24z"/>
+        </g>
+    </svg></a>
+    <a href="https://remanga.org/team/peacekeepingsquad" id="header" class="a-h"><h1>Tfoxs</h1>
+        <h3 class="description">Reader для архивов</h3></a>
 </header>
+<div class="header_back"></div>
 
-<div id="img_place">
-    <p>
-        Инструкция:<br>
-        1. Скачайте архив с диска (или любой другой формата .zip)<br>
-        2. Нажмите "Выберите архив" и выберете интересующий
-    </p>
+<div class="content">
+    <div class="place card">
+        <form class="hover-orange" method="post" enctype="multipart/form-data">
+            <label class="input-file">
+                <input type="file" name="file" id="archiveInput" accept=".zip">
+                <span >Выберите архив</span>
+            </label>
+        </form>
+    </div>
+    <div class="place card" id="img_place">
+        <h2>Инструкция:</h2>
+        <p>
+            1. Скачайте архив с диска (или любой другой формата .zip)<br>
+            2. Нажмите "Выберите архив" и выберете интересующий
+        </p>
+    </div>
 </div>
+
 <button id="back-to-top-btn" title="Вернуться наверх">↑</button>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
 <script>
+
+    // Отображение страницы позле загрузки
+    window.onload = function () {
+        setTimeout(function () {
+            document.getElementsByTagName("body")[0].style.visibility = "visible";
+        }, 500);
+    }
+    // Отображение страницы позле загрузки
+
     // Получаем элемент input
     var input = document.getElementById('archiveInput');
 
@@ -221,7 +154,6 @@
         var reader = new FileReader();
 
         var img_place = document.getElementById('img_place');
-        img_place.innerHTML = "<p>Идёт загрузка</p>"
 
         // Устанавливаем обработчик события onload для FileReader
         reader.onload = function(event) {
@@ -234,6 +166,13 @@
             zip.loadAsync(data).then(function() {
                 // Получаем массив имен файлов из архива
                 let fileNames = Object.keys(zip.files);
+
+                // Проверяем, есть ли файлы в архиве
+                if (fileNames.length === 0) {
+                    console.log("Архив пустой");
+                    return; // Выходим из функции, так как нет файлов для обработки
+                }
+                img_place.innerHTML = "<p>Идёт загрузка</p>";
 
                 // Создаем массив обещаний на получение содержимого изображений
                 var promises = fileNames.filter(fileName => fileName.match(/.(jpg|jpeg|png|gif)$/i))
@@ -256,17 +195,22 @@
 
                     // Получаем контейнер, в который будем добавлять изображения
                     var container = document.getElementById('img_place');
-                    img_place.innerHTML = ""
+                    img_place.innerHTML = "<h2>"+file["name"]+"</h2>"
                     // Добавляем изображения в контейнер в порядке сортировки
                     sortedFileNames.forEach(function(fileName) {
                         var content = files[fileName];
+                        var card = document.createElement('div');
+                        card.classList.add("place");
+                        card.classList.add("scan");
+                        card.classList.add(fileName.split('/').at(-1));
+                        container.appendChild(card);
                         var par = document.createElement('p');
-                        par.classList.add("page");
-                        par.innerHTML = "↓ " + fileName.split('/').at(-1) + " ↓"
+                        par.innerHTML = fileName.split('/').at(-1);
                         var img = document.createElement('img');
                         img.src = 'data:image/png;base64,' + content;
-                        container.appendChild(par);
-                        container.appendChild(img);
+                        img.title = fileName.split('/').at(-1);
+                        card.appendChild(par);
+                        card.appendChild(img);
                     });
                 });
             });
