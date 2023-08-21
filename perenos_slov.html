@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Perenos-o</title>
     <style>
         @import 'main.css';
     </style>
     <link rel="icon" href="no_bg_4.png" type="image/x-icon">
+
     <style type="text/css">
         #control{
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            padding-top: 50px;
             text-align: center;
         }
         #input {
@@ -55,6 +62,9 @@
 
 
 <body style="visibility: hidden">
+
+<img src="imgs/main.jpg" style="position: absolute;z-index: -1;visibility: hidden;">
+
 <header>
     <a href="https://tfoxs.github.io/tfoxs" id="back" class="a-h hover-orange">&lt;</a>
     <a href="https://remanga.org/team/peacekeepingsquad" class="a-h hover-orange"><svg version="1.1"
@@ -87,9 +97,9 @@
 </header>
 <div class="header_back"></div>
 
-<div class="content">
+<div class="content w100">
 
-    <div class="place card" id="control">
+    <div class="place card w100" id="control">
         <h2 id="output">При-мер</h2>
         <div class="place card padding0 flex">
             <input type="text" id="input">
