@@ -7,7 +7,7 @@
     --var-blue: #07a8e8;
     --var-purple: #905cf1;
     --var-black: #000;
-    --var-shadow: rgba(0, 0, 0, 0.2);
+    --var-shadow: rgba(0, 0, 0, 0.1);
     --var-shadow-group: rgba(0, 0, 0, 0.1);
     --var-white: #ffffff;
     --var-lite-gray: #efddd8;
@@ -197,7 +197,7 @@ p > a {
 }
 
 .content > *:not(:first-child){
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .place{
     /*background: #8CC84B;*/
