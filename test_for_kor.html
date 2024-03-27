@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Rules</title>
+    <style>
+        @import 'main.css';
+    </style>
+    <style type="text/css">
+
+        .input-file {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .input-file span {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            outline: none;
+            text-decoration: none;
+            text-align: center;
+            line-height: 22px;
+            height: 50px;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            border: none;
+            margin: 0;
+            transition: background-color 0.2s;
+            width: 100%;
+            border-radius: 10px;
+        }
+        .input-file input[type=file] {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            display: block;
+            width: 0;
+            height: 0;
+        }
+
+        .input-file input[type=file]:disabled + span {
+            background-color: var(--var-lite-gray);
+        }
+
+        #img_place{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #img_place > *:not(:nth-child(2)){
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+        img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+        }
+        .scan{
+            position: relative;
+        }
+        .scan p {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 5px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--var-orange) 0%, #FD703400 50%);
+        }
+
+    </style>
+    <link rel="icon" href="no_bg_4.png" type="image/x-icon">
+
+</head>
+
+<body style="visibility: hidden">
+
+<img src="imgs/main.jpg" style="position: absolute;z-index: -1;visibility: hidden;">
+
+<header>
+    <a href="https://tfoxs.github.io/tfoxs" id="back" class="a-h hover-orange">&lt;</a>
+    <a href="https://remanga.org/team/peacekeepingsquad" class="a-h hover-orange"><svg version="1.1"
+                                                                                   viewBox="0 0 1331.000000 1331.000000"
+                                                                                   preserveAspectRatio="xMidYMid meet">
+
+        <g transform="translate(0.000000,1331.000000) scale(0.100000,-0.100000)"
+           fill="#000000" stroke="none">
+            <path d="M6125 12013 c-67 -9 -202 -33 -237 -43 l-38 -11 37 -72 c180 -357
+                302 -864 303 -1254 l0 -101 -142 -71 c-427 -210 -798 -516 -1082 -894 -300
+                -401 -486 -836 -571 -1343 -33 -197 -63 -259 -189 -402 -113 -129 -379 -390
+                -496 -488 -206 -173 -503 -383 -677 -480 -35 -20 -63 -42 -63 -50 0 -19 62
+                -142 113 -224 105 -168 262 -347 412 -470 422 -345 996 -494 1525 -394 47 9
+                96 17 110 18 14 1 477 164 1030 361 553 196 1034 366 1070 377 670 197 1397 4
+                1882 -500 243 -252 410 -567 482 -910 88 -418 33 -850 -158 -1230 -25 -51 -44
+                -92 -42 -92 2 0 52 71 109 157 855 1283 1057 2861 551 4313 -319 916 -898
+                1708 -1674 2291 -69 52 -153 112 -186 133 -56 36 -63 45 -79 95 -32 106 -108
+                272 -169 374 -298 495 -788 821 -1359 902 -93 13 -383 18 -462 8z m-258 -2909
+                c18 -5 21 -11 16 -42 -32 -231 -192 -420 -409 -485 -70 -21 -169 -29 -229 -19
+                l-50 7 3 40 c17 218 200 429 423 489 54 15 205 21 246 10z"/>
+            <path d="M7618 5910 c-1270 -83 -2345 -933 -2713 -2145 -129 -426 -164 -877
+                -99 -1315 51 -348 187 -747 357 -1044 l62 -109 2 39 c2 21 8 82 14 134 66 579
+                410 1109 911 1401 47 28 383 152 1125 415 582 207 1091 391 1131 410 110 50
+                206 118 311 219 462 446 475 1184 27 1643 -167 172 -338 270 -571 328 -115 29
+                -337 39 -557 24z"/>
+        </g>
+    </svg></a>
+    <a href="https://remanga.org/team/peacekeepingsquad" id="header" class="a-h"><h1>Tfoxs</h1>
+        <h3 class="description">Тест</h3></a>
+</header>
+<div class="header_back"></div>
+
+
+<div class="content">
+
+    <div class="place card">
+        <h2>Тест на переводчика с корейского</h2>
+        <p>
+            Дата последнего изменения данной страницы: 27.03.2024.
+        </p>
+        <p>
+            Для удачного прохождения теста необходимо придерживаться минимальных требований изложенных ниже:
+            <ul>
+                <li>Перевод необходимо сдавать в текстовом файле формата .docs (Допускается .txt и гугл-документ);</li>
+                <li>Переводить нужно все фразы (в баблах и за их пределами);</li>
+                <li>Каждая фраза - отдельная строка;</li>
+                <li>Не используйте машинный перевод, и не бойтесь менять формулировку предложения;</li>
+                <li>Текст должен соблюдать минимум ошибок, текст не должен терять смысл.</li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="place card" id="img_place">
+        <div class="place scan">
+            <p>001.png</p>
+            <img src="imgs/kor/001.png" title="001.png">
+        </div>
+        <div class="place scan">
+            <p>002.png</p>
+            <img src="imgs/kor/002.png" title="002.png">
+        </div>
+        <div class="place scan">
+            <p>003.png</p>
+            <img src="imgs/kor/003.png" title="003.png">
+        </div>
+        <div class="place scan">
+            <p>004.png</p>
+            <img src="imgs/kor/004.png" title="004.png">
+        </div>
+        <div class="place scan">
+            <p>005.png</p>
+            <img src="imgs/kor/005.png" title="005.png">
+        </div>
+        <div class="place scan">
+            <p>006.png</p>
+            <img src="imgs/kor/006.png" title="006.png">
+        </div>
+        <div class="place scan">
+            <p>007.png</p>
+            <img src="imgs/kor/007.png" title="007.png">
+        </div>
+        <div class="place scan">
+            <p>008.png</p>
+            <img src="imgs/kor/008.png" title="008.png">
+        </div>
+        <div class="place scan">
+            <p>009.png</p>
+            <img src="imgs/kor/009.png" title="009.png">
+        </div>
+        <div class="place scan">
+            <p>010.png</p>
+            <img src="imgs/kor/010.png" title="010.png">
+        </div>
+        <div class="place scan">
+            <p>011.png</p>
+            <img src="imgs/kor/011.png" title="011.png">
+        </div>
+        <div class="place scan">
+            <p>012.png</p>
+            <img src="imgs/kor/012.png" title="012.png">
+        </div>
+        <div class="place scan">
+            <p>013.png</p>
+            <img src="imgs/kor/013.png" title="013.png">
+        </div>
+        <div class="place scan">
+            <p>014.png</p>
+            <img src="imgs/kor/014.png" title="014.png">
+        </div>
+        <div class="place scan">
+            <p>015.png</p>
+            <img src="imgs/kor/015.png" title="015.png">
+        </div>
+        <div class="place scan">
+            <p>016.png</p>
+            <img src="imgs/kor/016.png" title="016.png">
+        </div>
+    </div>
+
+    <div class="place card">
+        <p>
+            По завершению перевод необходимо отправить в <a href="https://vk.com/tfoxsmanga">сообщество ВК</a>.
+        </p>
+    </div>
+
+</div>
+
+<button id="back-to-top-btn" title="Вернуться наверх">↑</button>
+<script>
+
+    // Отображение страницы позле загрузки
+    window.onload = function () {
+        setTimeout(function () {
+            document.getElementsByTagName("body")[0].style.visibility = "visible";
+        }, 500);
+    }
+    // Отображение страницы позле загрузки
+
+
+
+    const items = document.querySelectorAll(".accordion button");
+
+    function toggleAccordion() {
+        const itemToggle = this.getAttribute('aria-expanded');
+
+        for (i = 0; i < items.length; i++) {
+            items[i].setAttribute('aria-expanded', 'false');
+        }
+
+        if (itemToggle == 'false') {
+            this.setAttribute('aria-expanded', 'true');
+        }
+    }
+
+    items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+
+    function scrollToEl(elementId) {
+        let element = document.getElementById(elementId);
+        if (element) {
+            const rect = element.getBoundingClientRect();
+            const targetPosition = rect.top + window.scrollY - 200;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            element.style.backgroundColor = 'var(--var-orange)';
+
+            setTimeout(function() {
+                element.style.backgroundColor = '';
+            }, 3000);
+        }
+    }
+
+    // Кнопка скролла
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            document.getElementById("back-to-top-btn").style.display = "block";
+        } else {
+            document.getElementById("back-to-top-btn").style.display = "none";
+        }
+    }
+    document.getElementById("back-to-top-btn").addEventListener("click", function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
+    // Кнопка скролла
+
+</script>
+</body>
+</html>
